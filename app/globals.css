@@ -1,26 +1,179 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf6ee;
+  --foreground: #14201a;
+
+  --font-sans: var(--font-geist-sans), Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-display: var(--font-fraunces), "Fraunces", ui-serif, Georgia, serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  /* Primary — deep editorial forest green */
+  --color-primary: #1f4d3a;
+  --color-primary-hover: #14332590;
+  --color-primary-soft: #e6ede6;
+  --color-primary-foreground: #faf6ee;
+
+  /* Accent — warm terracotta, used sparingly */
+  --color-accent: #c1712f;
+  --color-accent-hover: #a35c22;
+  --color-accent-soft: #f3e1cc;
+  --color-accent-foreground: #2a1608;
+
+  /* Deep — near-black forest for full-bleed dark sections */
+  --color-deep: #0f1d16;
+  --color-deep-elevated: #16281f;
+  --color-deep-border: #26392f;
+  --color-deep-foreground: #f2ede0;
+  --color-deep-muted: #a8b8ac;
+
+  /* Surfaces */
+  --color-surface: #f2ecdd;
+  --color-surface-card: #fffdf8;
+
+  /* Text scale */
+  --color-foreground-heading: #14201a;
+  --color-foreground-body: #45443c;
+  --color-foreground-muted: #7a7565;
+
+  /* Borders */
+  --color-border: #e2dac5;
+  --color-border-focus: #1f4d3a;
+
+  /* Status (kept for form feedback) */
+  --color-status-danger: #b3401f;
+  --color-status-danger-surface: #fbeee8;
+  --color-status-success: #2f6b45;
+  --color-status-success-surface: #eaf3ea;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-foreground);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Subtle paper grain — layered over warm sections for a premium, tactile feel */
+.bg-grain {
+  position: relative;
+}
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Organic blob shapes — decorative, no image assets required */
+.blob {
+  border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
+}
+
+.blob-2 {
+  border-radius: 42% 58% 68% 32% / 55% 38% 62% 45%;
+}
+
+/* CSS-only entrance animation for above-the-fold content — never depends on JS/observers */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.08s;
+}
+.animate-delay-2 {
+  animation-delay: 0.16s;
+}
+.animate-delay-3 {
+  animation-delay: 0.26s;
+}
+.animate-delay-4 {
+  animation-delay: 0.36s;
+}
+
+/* Marquee ticker */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
