@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/priyatham-varma/Desktop/agriminds/webapp-agriminds 2>&1; echo \"---\"; find /Users/priyatham-varma/Desktop/agriminds -maxdepth 2 2>&1)",
+      "Read(//Users/priyatham-varma/Desktop/agriminds/**)",
+      "Read(//private/tmp/**)",
+      "Bash(python3 -c ' *)",
+      "Bash(npm -v)"
+    ]
+  }
+}
