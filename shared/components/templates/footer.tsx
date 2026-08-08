@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Leaf, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { CONTACT_EMAIL, NAV_LINKS, SITE } from "@/shared/data/agriminds";
 
 const SOCIALS = [
@@ -20,8 +21,14 @@ export default function Footer() {
         <div className="grid gap-14 border-b border-deep-border pb-16 lg:grid-cols-[1.3fr_1fr_1fr]">
           <div className="max-w-md">
             <Link href="/" className="flex items-center gap-2.5">
-              <span className="blob flex h-10 w-10 items-center justify-center bg-primary text-primary-foreground">
-                <Leaf className="h-5 w-5" />
+              <span className="h-10 w-10 flex-none overflow-hidden rounded-full ring-1 ring-deep-border">
+                <Image
+                  src="/brand/agriminds-badge.png"
+                  alt="AgriMinds logo"
+                  width={80}
+                  height={80}
+                  className="h-full w-full object-cover"
+                />
               </span>
               <span className="font-display text-2xl font-semibold text-deep-foreground">
                 {SITE.name}

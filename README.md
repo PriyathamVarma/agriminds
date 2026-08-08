@@ -35,3 +35,18 @@ form opens a pre-filled email via `mailto:` to the address set in `CONTACT_EMAIL
 - Above-the-fold content (hero) uses CSS-only entrance animation so it's never invisible while
   waiting on JavaScript; everything below the fold uses `framer-motion` scroll-reveal
   (`shared/components/molecules/fadeIn.tsx`).
+
+## Brand assets
+
+- `public/brand/agriminds-logo-source.png` — the original AEF logo as supplied, untouched.
+- `public/brand/agriminds-mark.png` — full mark with the "AGRIMINDS ECOSYSTEM FOUNDATION"
+  tagline, cropped square. Handy if you want a bigger lockup somewhere later.
+- `public/brand/agriminds-icon.png` — tight crop of just the "AEF" mark on solid green, no
+  tagline. Source for the favicon and the small nav/footer badge.
+- `public/brand/agriminds-badge.png` — 256×256 resized version of the icon, used directly by
+  the navbar and footer (`agriminds-badge.png`).
+- `app/icon.png`, `app/apple-icon.png`, `app/favicon.ico` — generated from the same mark;
+  Next.js picks these up automatically for the browser tab / bookmarks / iOS home screen.
+
+If you get a higher-resolution or vector (SVG) version of the logo later, regenerate these
+from that instead — the current ones were cropped up from a screenshot-resolution source.

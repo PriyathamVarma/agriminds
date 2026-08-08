@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Leaf, Menu, X } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/shared/data/agriminds";
 import { cx } from "@/shared/lib/utils";
 
@@ -32,11 +33,18 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-2.5">
           <span
             className={cx(
-              "blob flex h-9 w-9 items-center justify-center transition-colors",
-              solid ? "bg-primary text-primary-foreground" : "bg-deep-foreground/15 text-deep-foreground backdrop-blur-sm",
+              "h-9 w-9 flex-none overflow-hidden rounded-full ring-1 transition-colors",
+              solid ? "ring-border" : "ring-deep-foreground/25",
             )}
           >
-            <Leaf className="h-4.5 w-4.5" />
+            <Image
+              src="/brand/agriminds-badge.png"
+              alt="AgriMinds logo"
+              width={72}
+              height={72}
+              priority
+              className="h-full w-full object-cover"
+            />
           </span>
           <span
             className={cx(
