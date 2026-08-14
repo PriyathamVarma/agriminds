@@ -468,6 +468,7 @@ export default function Home() {
                 alt="Fresh vegetables at a farmers market"
                 className="blob mt-10 hidden aspect-16/10 w-full lg:block"
                 strength={20}
+                priority
               />
             </FadeIn>
 
