@@ -78,14 +78,14 @@ export default function HeroSection() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(100deg, rgba(6,14,15,.92) 0%, rgba(6,14,15,.74) 26%, rgba(6,14,15,.38) 48%, rgba(6,14,15,.08) 68%, rgba(6,14,15,.2) 100%)," +
-              "linear-gradient(180deg, rgba(4,10,11,.4) 0%, rgba(4,10,11,0) 22%, rgba(4,10,11,0) 66%, rgba(4,10,11,.46) 100%)",
+              "linear-gradient(100deg, rgba(6,14,15,.98) 0%, rgba(6,14,15,.9) 28%, rgba(6,14,15,.68) 48%, rgba(6,14,15,.18) 70%, rgba(6,14,15,.22) 100%)," +
+              "linear-gradient(180deg, rgba(4,10,11,.48) 0%, rgba(4,10,11,.04) 24%, rgba(4,10,11,.08) 64%, rgba(4,10,11,.58) 100%)",
           }}
         />
 
         {/* Scene 1 — From Farm to Enterprise */}
         <div className="absolute inset-0 z-[4] flex items-center px-5 pt-16 sm:px-8 sm:pt-0 lg:px-[90px]">
-          <div ref={scene1Ref} className="max-w-[88vw] will-change-[opacity,transform] sm:max-w-[640px] lg:max-w-[760px]">
+          <div ref={scene1Ref} className="-ml-3 max-w-[calc(100vw-1.25rem)] rounded-3xl bg-deep/55 p-3 backdrop-blur-[2px] will-change-[opacity,transform] sm:ml-0 sm:max-w-[640px] sm:bg-transparent sm:p-0 sm:backdrop-blur-none lg:max-w-[760px]">
             <p className="animate-fade-up flex items-center gap-3.5 text-xs font-semibold tracking-[0.14em] text-deep-foreground/90 uppercase [text-shadow:0_1px_10px_rgba(4,10,10,.75)]">
               <span className="h-px w-8 flex-none bg-accent" />
               AgriMinds Ecosystem Foundation · Founded in Vizag, 2026
@@ -93,7 +93,7 @@ export default function HeroSection() {
             <h1 className="font-display animate-fade-up animate-delay-1 mt-6 text-5xl leading-[1.02] font-semibold text-deep-foreground [text-shadow:0_4px_24px_rgba(4,10,10,.65),0_1px_4px_rgba(4,10,10,.85)] sm:text-6xl lg:text-[5.25rem]">
               From Farm to <em className="text-accent italic">Enterprise</em>
             </h1>
-            <p className="animate-fade-up animate-delay-2 mt-6 max-w-xl text-base leading-relaxed text-deep-foreground/85 [text-shadow:0_2px_14px_rgba(4,10,10,.55)] sm:text-lg">
+            <p className="animate-fade-up animate-delay-2 mt-6 max-w-xl text-base leading-relaxed text-deep-foreground [text-shadow:0_2px_16px_rgba(4,10,10,.9)] sm:text-lg">
               Nurturing Indian agriculture&apos;s next generation of entrepreneurs — from a single Vizag chapter to a
               nationwide network built by the AgriMinds Ecosystem Foundation. Part of a 2026–2036 strategy to build
               100,000 profitable enterprises and improve the lives of one million farming families.
@@ -108,7 +108,7 @@ export default function HeroSection() {
               </a>
               <a
                 href="#pillars"
-                className="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-deep-foreground/50 px-6.5 py-4 text-sm font-semibold text-deep-foreground transition hover:border-deep-foreground"
+                className="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-deep-foreground/80 bg-deep/30 px-6.5 py-4 text-sm font-semibold text-deep-foreground transition hover:border-deep-foreground hover:bg-deep/45"
               >
                 Explore the Pillars
               </a>
@@ -118,7 +118,7 @@ export default function HeroSection() {
 
         {/* Scene 2 — One Chapter to a Nationwide Ecosystem */}
         <div className="absolute inset-0 z-[4] flex items-center px-5 pt-16 sm:px-8 sm:pt-0 lg:px-[90px]">
-          <div ref={scene2Ref} className="max-w-[88vw] opacity-0 will-change-[opacity,transform] sm:max-w-[640px] lg:max-w-[760px]">
+          <div ref={scene2Ref} className="-ml-3 max-w-[calc(100vw-1.25rem)] rounded-3xl bg-deep/55 p-3 opacity-0 backdrop-blur-[2px] will-change-[opacity,transform] sm:ml-0 sm:max-w-[640px] sm:bg-transparent sm:p-0 sm:backdrop-blur-none lg:max-w-[760px]">
             <p className="flex items-center gap-3.5 text-xs font-semibold tracking-[0.14em] text-deep-foreground/90 uppercase [text-shadow:0_1px_10px_rgba(4,10,10,.75)]">
               <span className="h-px w-8 flex-none bg-accent" />
               The Expanding Network
@@ -126,7 +126,7 @@ export default function HeroSection() {
             <h2 className="font-display mt-6 text-4xl leading-[1.02] font-semibold text-deep-foreground [text-shadow:0_4px_24px_rgba(4,10,10,.65),0_1px_4px_rgba(4,10,10,.85)] sm:text-5xl lg:text-[4.4rem]">
               One Chapter to a <em className="text-accent italic">Nationwide Ecosystem</em>
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-deep-foreground/85 [text-shadow:0_2px_14px_rgba(4,10,10,.55)] sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-deep-foreground [text-shadow:0_2px_16px_rgba(4,10,10,.9)] sm:text-lg">
               Solar-powered chapters, connected fields, and the next generation of agri-entrepreneurs — this is what
               the network looks like as it scales from Vizag to every farming region in India.
             </p>
@@ -140,7 +140,7 @@ export default function HeroSection() {
               </a>
               <a
                 href="#roadmap"
-                className="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-deep-foreground/50 px-6.5 py-4 text-sm font-semibold text-deep-foreground transition hover:border-deep-foreground"
+                className="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-deep-foreground/80 bg-deep/30 px-6.5 py-4 text-sm font-semibold text-deep-foreground transition hover:border-deep-foreground hover:bg-deep/45"
               >
                 See the Roadmap
               </a>

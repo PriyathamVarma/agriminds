@@ -2,7 +2,7 @@
 
 **Purpose of this file**: a continuity script for any AI agent (or human) picking this project up cold. It covers what the project is, the full tech stack, every 3D/Canvas animation system and how it works, the content/data model, backend integration, and exactly what's done vs. uncommitted vs. deliberately left out. Read this before touching the codebase.
 
-Last updated: 2026-08-14 (end of the session that built the hero canvas illustration and the real-geography India map).
+Last updated: 2026-08-14 (hero skyline, evening palette, and weed-removal visuals refined).
 
 ---
 
@@ -77,7 +77,13 @@ Five independent visual systems, all following the same performance discipline (
 
 Not WebGL — plain `<canvas>` 2D context. A 230vh scroll-stage (`h-[230vh]`) contains a `position: sticky` hero (`h-[100svh]`); as the user scrolls through the stage, the camera zooms/pans from a wide "meadow" view to a closer "ecosystem" view, cross-fading two headline moments (`scene1`/`scene2` refs) along the way. Scroll progress comes from `useScroll({ target: scrollStageRef, offset: ["start start", "end end"] })` — this exact offset pairing maps precisely onto the sticky-pin scroll math.
 
-Procedurally drawn (no image assets): rolling ridges, a warm dusk sky gradient with sun rays, an eco-city skyline (5 building shapes: tier/taper/ring/spire, lit windows, green/solar roofs), 5 wind turbines, 5 patrol drones on waypoint loops, a solar panel farm with glinting cells, wind-swayed grass in 4 depth bands, 2 pine trees with sparkle particles, 2 zebu cattle (**both eyes required** — a real bug was found and fixed where only one eye rendered), 2 weeding robots that sweep the **full width** of the field left-to-right-and-back (ping-pong, not a teleport-reset — also a real bug, fixed) with a reach/grip/lift/toss arm animation and dirt-puff particles, ambient dust motes.
+Procedurally drawn (no image assets): rolling ridges, a warm dusk sky gradient with sun rays, an eco-city skyline (5 building shapes: tier/taper/ring/spire/arc, lit windows, green/solar roofs), 5 wind turbines, 5 patrol drones on waypoint loops, a solar panel farm with glinting cells, wind-swayed grass in 4 depth bands, 2 pine trees with sparkle particles, 2 zebu cattle (**both eyes required** — a real bug was found and fixed where only one eye rendered), 2 weeding robots that sweep the **full width** of the field left-to-right-and-back (ping-pong, not a teleport-reset — also a real bug, fixed) with a reach/grip/lift/toss arm animation and dirt-puff particles, ambient dust motes.
+
+The hero uses a muted teal evening palette with a warm amber horizon, matched to the owner-selected desktop hero screenshot. Its broader visual direction still draws from the supplied From Fauna screen recording: a cinematic landscape and broad distant ribbon of optimistic architecture. A later owner-provided architecture sheet now defines the city language: pearl-white parametric eco-buildings with twisting helix towers, ribbed shell structures, looped canopy hubs, planted crowns, curved split-crown towers, and rounded habitat pods. The robot cycle explicitly shows a weed before pickup and a lifted soil clump with exposed roots afterward, so the action reads as weed removal rather than an abstract arm movement.
+
+Hero copy readability is protected by a stronger left-to-right contrast scrim, fully opaque body copy, deeper text shadows, and higher-contrast secondary CTAs. On narrow screens each headline state also gets a subtle translucent blurred backing panel, since wrapped copy occupies more of the bright sky there; that panel disappears at `sm` and above to retain the open cinematic desktop composition.
+
+The field is now a continuous green pasture rather than exposed ground with sparse grass bands. Grass density increases toward the camera and foreground blades render in front of animals/machines for depth. Both cattle use a slow head-lowering grazing cycle, three grazing sheep have been added, and the robots retain the explicit reach/grip/lift weed-removal cycle with visible roots and attached soil.
 
 Vertical centering of the headline blocks uses **flexbox** (`flex items-center` on a full-height wrapper), not a hardcoded `translateY(-58%)` — a real mobile bug happened here: the JS was double-applying both a CSS flex-center *and* a leftover `-58%` JS transform meant for the old (pre-flexbox) layout, pushing content up into the nav on narrow viewports where text wraps to more lines. Fixed by removing the JS's base-offset percentage and keeping only the small supplementary drift/settle motion. **If you touch hero vertical layout again, remember: centering is CSS's job, JS only adds small deltas on top.**
 

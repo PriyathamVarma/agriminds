@@ -7,7 +7,7 @@
  *
  * All drawing is procedural (no image assets) — ridges, an eco-city skyline, wind
  * turbines, patrol drones, a solar farm, wind-swayed grass, pine trees, zebu cattle,
- * and a weeding robot, layered under a warm dusk sky.
+ * grazing cattle and sheep, and weeding robots, layered under a warm dusk sky.
  */
 
 interface RidgePoint {
@@ -21,7 +21,7 @@ interface Building {
   h: number;
   shade: number;
   roofType: "green" | "solar" | "none";
-  shape: "tier" | "taper" | "ring" | "spire";
+  shape: "tier" | "taper" | "ring" | "spire" | "arc" | "pod" | "helix" | "shell" | "canopy";
   windowRows: number;
   litPhase: number;
 }
@@ -106,6 +106,14 @@ interface Cow {
   faceDir: number;
 }
 
+interface Sheep {
+  xN: number;
+  depth: number;
+  scale: number;
+  seed: number;
+  faceDir: number;
+}
+
 export interface HeroSceneRefs {
   canvas: HTMLCanvasElement;
   heroEl: HTMLElement;
@@ -168,13 +176,16 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
   let buildings: Building[] = [];
   function buildCity() {
     buildings = [];
-    const n = 22;
-    const shapes: Building["shape"][] = ["tier", "taper", "ring", "spire", "taper"];
+    // The reference city is a broad, dense ribbon on the horizon rather than a
+    // handful of isolated dark towers. Smaller, pale buildings create that same
+    // optimistic near-future scale while keeping the landscape dominant.
+    const n = W < 700 ? 18 : 27;
+    const shapes: Building["shape"][] = ["helix", "shell", "canopy", "arc", "pod", "helix", "shell"];
     for (let i = 0; i < n; i++) {
-      const h = rand(34, 210);
+      const h = rand(28, 160) * (Math.random() < 0.16 ? 1.35 : 1);
       buildings.push({
-        x: rand(W * 0.42, W * 1.08),
-        w: rand(16, 40),
+        x: rand(W * 0.25, W * 1.06),
+        w: rand(22, 54),
         h,
         shade: rand(0, 1),
         roofType: Math.random() < 0.55 ? "green" : Math.random() < 0.7 ? "solar" : "none",
@@ -227,11 +238,12 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
   let grassBlades: GrassBlade[] = [];
   function buildGrass() {
     grassBlades = [];
+    const density = W < 700 ? 0.72 : 1;
     const bands = [
-      { count: 140, dMin: 0.0, dMax: 0.28 },
-      { count: 180, dMin: 0.25, dMax: 0.55 },
-      { count: 200, dMin: 0.5, dMax: 0.85 },
-      { count: 160, dMin: 0.8, dMax: 1.25 },
+      { count: Math.round(300 * density), dMin: 0.0, dMax: 0.28 },
+      { count: Math.round(460 * density), dMin: 0.22, dMax: 0.55 },
+      { count: Math.round(620 * density), dMin: 0.48, dMax: 0.86 },
+      { count: Math.round(760 * density), dMin: 0.78, dMax: 1.3 },
     ];
     bands.forEach((band) => {
       for (let i = 0; i < band.count; i++) {
@@ -302,6 +314,12 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
   const cows: Cow[] = [
     { xN: 0.63, depth: 0.5, scale: 0.68, body: "#f2ead9", shade: "#d8cbae", accent: "#2b2620", seed: 0.0, faceDir: 1 },
     { xN: 0.56, depth: 0.44, scale: 0.56, body: "#ece2cd", shade: "#cfc0a0", accent: "#2b2620", seed: 2.3, faceDir: -1 },
+  ];
+
+  const sheep: Sheep[] = [
+    { xN: 0.76, depth: 0.54, scale: 0.46, seed: 0.7, faceDir: -1 },
+    { xN: 0.83, depth: 0.48, scale: 0.4, seed: 2.1, faceDir: 1 },
+    { xN: 0.7, depth: 0.43, scale: 0.35, seed: 4.2, faceDir: 1 },
   ];
 
   function rebuildAll() {
@@ -402,6 +420,48 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
     } else if (b.shape === "ring") {
       const shaftW = w * 0.42;
       ctx.rect(x + (w - shaftW) / 2, y - h, shaftW, h);
+    } else if (b.shape === "arc") {
+      // Aerodynamic, split-crown tower: curved shoulders and a central sky garden
+      // make the silhouette read as future architecture even at small hero sizes.
+      ctx.moveTo(x, y);
+      ctx.lineTo(x, y - h * 0.68);
+      ctx.quadraticCurveTo(x + w * 0.04, y - h * 0.93, x + w * 0.38, y - h);
+      ctx.quadraticCurveTo(x + w * 0.48, y - h * 0.76, x + w * 0.5, y - h * 0.58);
+      ctx.quadraticCurveTo(x + w * 0.52, y - h * 0.76, x + w * 0.62, y - h);
+      ctx.quadraticCurveTo(x + w * 0.96, y - h * 0.93, x + w, y - h * 0.68);
+      ctx.lineTo(x + w, y);
+      ctx.closePath();
+    } else if (b.shape === "pod") {
+      // Rounded modular habitat tower, inspired by the pale cylindrical forms in
+      // the supplied From Fauna reference rather than conventional box blocks.
+      ctx.moveTo(x, y);
+      ctx.lineTo(x, y - h + w * 0.42);
+      ctx.quadraticCurveTo(x, y - h, x + w * 0.5, y - h);
+      ctx.quadraticCurveTo(x + w, y - h, x + w, y - h + w * 0.42);
+      ctx.lineTo(x + w, y);
+      ctx.closePath();
+    } else if (b.shape === "helix") {
+      // Twisting parametric tower with a narrow waist and flared planted crown.
+      ctx.moveTo(x + w * 0.12, y);
+      ctx.bezierCurveTo(x + w * 0.02, y - h * 0.35, x + w * 0.66, y - h * 0.62, x + w * 0.28, y - h);
+      ctx.quadraticCurveTo(x + w * 0.5, y - h - w * 0.12, x + w * 0.72, y - h);
+      ctx.bezierCurveTo(x + w * 0.34, y - h * 0.62, x + w * 0.98, y - h * 0.35, x + w * 0.88, y);
+      ctx.closePath();
+    } else if (b.shape === "shell") {
+      // Leaning seed-pod shell with a glazed opening.
+      ctx.moveTo(x + w * 0.08, y);
+      ctx.quadraticCurveTo(x - w * 0.08, y - h * 0.42, x + w * 0.52, y - h);
+      ctx.quadraticCurveTo(x + w * 0.94, y - h * 0.72, x + w, y - h * 0.18);
+      ctx.quadraticCurveTo(x + w * 0.82, y, x + w * 0.08, y);
+      ctx.closePath();
+    } else if (b.shape === "canopy") {
+      // Low looped cultural/market hub like the reference's organic campuses.
+      ctx.moveTo(x, y);
+      ctx.quadraticCurveTo(x + w * 0.06, y - h * 0.42, x + w * 0.5, y - h * 0.46);
+      ctx.quadraticCurveTo(x + w * 0.94, y - h * 0.42, x + w, y);
+      ctx.quadraticCurveTo(x + w * 0.76, y - h * 0.18, x + w * 0.5, y - h * 0.16);
+      ctx.quadraticCurveTo(x + w * 0.24, y - h * 0.18, x, y);
+      ctx.closePath();
     } else {
       const topCut = h * 0.06;
       ctx.moveTo(x, y);
@@ -411,7 +471,7 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
       ctx.lineTo(x + w, y);
       ctx.closePath();
     }
-    return { top: y - h };
+    return { top: b.shape === "canopy" ? y - h * 0.46 : y - h };
   }
 
   function drawCity(panX: number, t: number) {
@@ -419,8 +479,11 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
       const x = b.x + panX * 0.35;
       const y = horizonY;
       const grad = ctx.createLinearGradient(0, y - b.h, 0, y);
-      grad.addColorStop(0, "rgba(112,100,78,0.92)");
-      grad.addColorStop(1, "rgba(46,50,50,0.95)");
+      // Pearl-white ceramic and glass surfaces from the selected parametric
+      // architecture reference, warmed slightly by the evening horizon.
+      grad.addColorStop(0, "rgba(245,249,245,0.98)");
+      grad.addColorStop(0.48, "rgba(204,221,216,0.98)");
+      grad.addColorStop(1, "rgba(125,153,145,0.98)");
       ctx.fillStyle = grad;
       const info = drawBuildingOutline(b, x, y);
       ctx.fill();
@@ -436,10 +499,20 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
         ctx.restore();
       }
 
+      // Sun-catching glass seam and luminous structural edge.
+      ctx.save();
+      ctx.strokeStyle = "rgba(186,235,224,0.42)";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(x + b.w * 0.22, y - 4);
+      ctx.lineTo(x + b.w * 0.34, info.top + 7);
+      ctx.stroke();
+      ctx.restore();
+
       const lit = 0.4 + 0.6 * (0.5 + 0.5 * Math.sin(t * 0.4 + b.litPhase));
-      ctx.fillStyle = "rgba(255,206,130," + (reduceMotion ? 0.4 : 0.15 + lit * 0.25) + ")";
+      ctx.fillStyle = "rgba(255,218,151," + (reduceMotion ? 0.5 : 0.22 + lit * 0.28) + ")";
       const cols = Math.max(1, Math.floor(b.w / 8));
-      for (let wr = 0; wr < b.windowRows; wr++) {
+      for (let wr = 0; wr < b.windowRows && !["helix", "shell", "canopy"].includes(b.shape); wr++) {
         for (let wc = 0; wc < cols; wc++) {
           const wx = x + 3 + wc * 8;
           const wy = y - 7 - wr * 20;
@@ -459,9 +532,69 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
         ctx.arc(x + b.w / 2, info.top - 34, 1.6, 0, Math.PI * 2);
         ctx.fill();
       }
+      if (b.shape === "arc") {
+        const gardenY = y - b.h * 0.57;
+        ctx.strokeStyle = "rgba(177,232,196,0.82)";
+        ctx.lineWidth = 2.4;
+        ctx.beginPath();
+        ctx.moveTo(x + b.w * 0.32, gardenY);
+        ctx.quadraticCurveTo(x + b.w * 0.5, gardenY + 4, x + b.w * 0.68, gardenY);
+        ctx.stroke();
+      }
+      if (b.shape === "pod") {
+        ctx.strokeStyle = "rgba(255,250,229,0.56)";
+        ctx.lineWidth = 1;
+        for (let band = 0.25; band < 0.86; band += 0.2) {
+          ctx.beginPath();
+          ctx.ellipse(x + b.w / 2, y - b.h * band, b.w * 0.48, 2.1, 0, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+      }
+      if (b.shape === "helix") {
+        ctx.save();
+        ctx.strokeStyle = "rgba(247,252,249,0.9)";
+        ctx.lineWidth = 1.5;
+        for (let band = 0.12; band < 0.94; band += 0.105) {
+          const sway = Math.sin(band * Math.PI * 4 + b.litPhase) * b.w * 0.13;
+          ctx.beginPath();
+          ctx.ellipse(x + b.w * 0.5 + sway, y - b.h * band, b.w * (0.29 + Math.abs(band - 0.5) * 0.24), 2.4, -0.12, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+      if (b.shape === "shell") {
+        ctx.save();
+        ctx.fillStyle = "rgba(27,55,58,0.78)";
+        ctx.beginPath();
+        ctx.ellipse(x + b.w * 0.56, y - b.h * 0.43, b.w * 0.23, b.h * 0.29, -0.16, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = "rgba(248,252,249,0.92)";
+        ctx.lineWidth = 1.25;
+        for (let rib = 0.18; rib < 0.92; rib += 0.12) {
+          ctx.beginPath();
+          ctx.moveTo(x + b.w * 0.12, y - b.h * rib);
+          ctx.quadraticCurveTo(x + b.w * 0.58, y - b.h * (rib + 0.13), x + b.w * 0.9, y - b.h * rib * 0.72);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+      if (b.shape === "canopy") {
+        ctx.save();
+        ctx.strokeStyle = "rgba(250,253,250,0.9)";
+        ctx.lineWidth = 1.2;
+        for (let rib = 0.12; rib < 0.92; rib += 0.12) {
+          ctx.beginPath();
+          ctx.moveTo(x + b.w * rib, y - 1);
+          ctx.quadraticCurveTo(x + b.w * 0.5, y - b.h * (0.5 + Math.abs(rib - 0.5) * 0.25), x + b.w * (1 - rib), y - 1);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
       if (b.roofType === "green") {
-        ctx.fillStyle = "rgba(94,120,88,0.85)";
-        ctx.fillRect(x + b.w * 0.15, info.top - 3, b.w * 0.7, 4);
+        ctx.fillStyle = "rgba(75,135,79,0.9)";
+        ctx.beginPath();
+        ctx.ellipse(x + b.w * 0.5, info.top + 1, b.w * 0.28, 3.2, 0, 0, Math.PI * 2);
+        ctx.fill();
       } else if (b.roofType === "solar") {
         ctx.fillStyle = "rgba(40,50,68,0.85)";
         ctx.fillRect(x + b.w * 0.15, info.top - 3, b.w * 0.7, 4);
@@ -489,14 +622,32 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
 
   function drawSky() {
     const grad = ctx.createLinearGradient(0, 0, 0, H);
-    grad.addColorStop(0, "#1e454c");
-    grad.addColorStop(0.38, "#3c6058");
-    grad.addColorStop(0.62, "#8a7a56");
-    grad.addColorStop(0.82, "#d99c5c");
-    grad.addColorStop(1, "#f0b978");
+    // Muted teal evening with a warm horizon glow, taken from the selected hero
+    // screenshot. It reads as dusk without washing out the cream headline.
+    grad.addColorStop(0, "#122f34");
+    grad.addColorStop(0.38, "#31534f");
+    grad.addColorStop(0.64, "#727052");
+    grad.addColorStop(0.84, "#bd854d");
+    grad.addColorStop(1, "#d9a461");
     ctx.save();
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, W, H);
+
+    // Sparse rose-tinted evening cloud bands from the reference: atmospheric,
+    // horizontal, and deliberately quiet so they do not compete with the copy.
+    ctx.globalAlpha = 0.12;
+    ctx.fillStyle = "#d6b390";
+    [
+      [0.12, 0.13, 0.2],
+      [0.48, 0.09, 0.15],
+      [0.72, 0.19, 0.22],
+      [0.9, 0.1, 0.12],
+    ].forEach(([xN, yN, widthN]) => {
+      ctx.beginPath();
+      ctx.ellipse(W * xN, H * yN, W * widthN, 5, -0.03, 0, Math.PI * 2);
+      ctx.ellipse(W * (xN + widthN * 0.2), H * yN - 5, W * widthN * 0.45, 7, 0.05, 0, Math.PI * 2);
+      ctx.fill();
+    });
     ctx.restore();
   }
 
@@ -556,6 +707,17 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
     ctx.globalCompositeOperation = "lighter";
     ctx.fillStyle = grad;
     ctx.fillRect(0, horizonY - 10, W, H - horizonY + 10);
+    ctx.restore();
+  }
+
+  function drawPastureBase() {
+    const pasture = ctx.createLinearGradient(0, horizonY - 2, 0, H);
+    pasture.addColorStop(0, "#334b2f");
+    pasture.addColorStop(0.45, "#294126");
+    pasture.addColorStop(1, "#172b1b");
+    ctx.save();
+    ctx.fillStyle = pasture;
+    ctx.fillRect(0, horizonY - 2, W, H - horizonY + 2);
     ctx.restore();
   }
 
@@ -719,10 +881,11 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
     cluster(0.4, 0.26, 2, 3);
   }
 
-  function drawGrass(panX: number, t: number) {
+  function drawGrass(panX: number, t: number, minDepth = 0, maxDepth = 1.3) {
     const windBase = reduceMotion ? 0.15 : 1;
     const buckets: Record<number, GrassBlade[]> = {};
     grassBlades.forEach((g) => {
+      if (g.depth < minDepth || g.depth >= maxDepth) return;
       const key = Math.round(g.depth * 8);
       if (!buckets[key]) buckets[key] = [];
       buckets[key].push(g);
@@ -929,9 +1092,25 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
     ctx.fill();
     ctx.restore();
 
-    const headNod = 0.5 + Math.sin(t * 0.55 * (reduceMotion ? 0.2 : 1) + seed) * 0.06;
+    // Long, slow grazing cycle: the muzzle lowers into the pasture, pauses, then
+    // lifts slightly to chew instead of merely bobbing in the air.
+    const graze = reduceMotion ? 0.72 : 0.68 + Math.sin(t * 0.42 + seed) * 0.16;
+    const headNod = 0.38 + graze * 0.42;
+
+    // Flexible neck bridge keeps the head visibly attached throughout the grazing
+    // arc. The previous large vertical offset made it look as if the head had fallen.
     ctx.save();
-    ctx.translate(40, -60);
+    ctx.strokeStyle = c.shade;
+    ctx.lineWidth = 13;
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(24, -60);
+    ctx.quadraticCurveTo(34, -57 + graze * 6, 40, -53 + graze * 16);
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.save();
+    ctx.translate(40, -60 + graze * 20);
     ctx.rotate(headNod);
 
     ctx.fillStyle = c.shade;
@@ -984,6 +1163,71 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
     ctx.fill();
 
     ctx.restore();
+    ctx.restore();
+  }
+
+  function drawSheep(s: Sheep, panX: number, t: number) {
+    const gy = groundY(s.depth);
+    const x = s.xN * W + panX * (0.2 + s.depth * 0.4);
+    const chew = reduceMotion ? 0.8 : 0.72 + Math.sin(t * 0.55 + s.seed) * 0.22;
+    const bob = Math.sin(t * 0.8 + s.seed) * 0.8;
+
+    ctx.save();
+    ctx.translate(x, gy + bob);
+    ctx.scale(s.faceDir * s.scale, s.scale);
+
+    ctx.strokeStyle = "#b7aa90";
+    ctx.lineWidth = 4;
+    ctx.lineCap = "round";
+    [-16, -5, 8, 18].forEach((lx) => {
+      ctx.beginPath();
+      ctx.moveTo(lx, -19);
+      ctx.lineTo(lx, 1);
+      ctx.stroke();
+      ctx.fillStyle = "#302d28";
+      ctx.beginPath();
+      ctx.ellipse(lx, 2, 2.6, 1.5, 0, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // Overlapping wool puffs keep the sheep soft and distinct from the cattle.
+    ctx.fillStyle = "#eee8d9";
+    [
+      [-18, -31, 17],
+      [-5, -37, 19],
+      [11, -34, 18],
+      [22, -28, 14],
+      [2, -24, 22],
+    ].forEach(([px, py, radius]) => {
+      ctx.beginPath();
+      ctx.arc(px, py, radius, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    ctx.save();
+    ctx.translate(27, -34 + chew * 25);
+    ctx.rotate(0.28 + chew * 0.65);
+    ctx.fillStyle = "#3b3933";
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 10, 12, 0.1, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-7, -8);
+    ctx.lineTo(-14, -13);
+    ctx.lineTo(-9, -3);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(7, -8);
+    ctx.lineTo(14, -13);
+    ctx.lineTo(9, -3);
+    ctx.fill();
+    ctx.fillStyle = "#ddd5c2";
+    ctx.beginPath();
+    ctx.arc(-4, -2, 1.2, 0, Math.PI * 2);
+    ctx.arc(4, -2, 1.2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
     ctx.restore();
   }
 
@@ -1058,6 +1302,31 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
     const armPhase = ((((t + r.seed * 3) % armCycle) + armCycle) % armCycle) / armCycle;
     const dip = Math.max(0, Math.sin(armPhase * Math.PI));
 
+    // A clearly identifiable weed waits in the crop row until the gripper closes.
+    // Keeping it visible through the reach phase makes the robot's purpose legible,
+    // rather than leaving the arm to look like an abstract mechanical gesture.
+    if (armPhase <= 0.5) {
+      ctx.save();
+      ctx.translate(22, 3);
+      ctx.strokeStyle = "#315f32";
+      ctx.lineWidth = 1.8;
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(0, 1);
+      ctx.quadraticCurveTo(-1, -5, 0, -12);
+      ctx.moveTo(0, -6);
+      ctx.quadraticCurveTo(-6, -10, -7, -14);
+      ctx.moveTo(0, -8);
+      ctx.quadraticCurveTo(6, -11, 7, -15);
+      ctx.stroke();
+      ctx.fillStyle = "#4f8a46";
+      ctx.beginPath();
+      ctx.ellipse(-7, -14, 3.5, 1.8, -0.45, 0, Math.PI * 2);
+      ctx.ellipse(7, -15, 3.5, 1.8, 0.45, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
     if (armPhase > 0.44 && armPhase < 0.56) {
       const puffA = 1 - Math.abs(armPhase - 0.5) / 0.06;
       ctx.save();
@@ -1092,8 +1361,8 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
       ctx.globalAlpha = 1 - lift;
       ctx.translate(10 + lift * 7, 6 - lift * 11);
       ctx.rotate(lift * 1.4);
-      ctx.strokeStyle = "#5f8a4a";
-      ctx.lineWidth = 1.1;
+      ctx.strokeStyle = "#315f32";
+      ctx.lineWidth = 1.7;
       ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(0, 0);
@@ -1109,8 +1378,19 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
       ctx.stroke();
       ctx.fillStyle = "#4a3a28";
       ctx.beginPath();
-      ctx.arc(0, 0, 1, 0, Math.PI * 2);
+      ctx.ellipse(0, 1, 3.2, 2.1, 0, 0, Math.PI * 2);
       ctx.fill();
+      // Exposed roots and soil make the pull-and-remove action unmistakable.
+      ctx.strokeStyle = "#80633f";
+      ctx.lineWidth = 0.8;
+      ctx.beginPath();
+      ctx.moveTo(-1, 2);
+      ctx.quadraticCurveTo(-4, 5, -5, 7);
+      ctx.moveTo(0, 2);
+      ctx.quadraticCurveTo(1, 6, 0, 8);
+      ctx.moveTo(1, 2);
+      ctx.quadraticCurveTo(5, 5, 6, 7);
+      ctx.stroke();
       ctx.restore();
     }
     ctx.restore();
@@ -1183,12 +1463,17 @@ export function createHeroScene(refs: HeroSceneRefs, getProgress: () => number, 
     drawTurbines(panX, t);
     drones.forEach((d) => drawDrone(d, panX, t));
     drawHaze();
+    drawPastureBase();
     drawRiver(panX);
     drawGroundWash(panX);
-    drawGrass(panX, t);
+    drawGrass(panX, t, 0, 0.76);
     drawSolarFarm(panX, t);
     robots.forEach((r) => drawRobot(r, panX, t));
     cows.forEach((c) => drawCow(c, panX, t));
+    sheep.forEach((s) => drawSheep(s, panX, t));
+    // Nearest blades sit in front of the animals and machines, embedding them in
+    // the meadow instead of making them look pasted on top of the ground.
+    drawGrass(panX, t, 0.76, 1.31);
     drawPines(panX);
     drawSparkles(panX, t);
     drawLeaves(panX, t);
