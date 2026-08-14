@@ -3,12 +3,17 @@ import {
   Rocket,
   Building2,
   HandCoins,
-  BookOpen,
   Handshake,
   Ticket,
   ScrollText,
   Briefcase,
   Mic2,
+  Factory,
+  Store,
+  Cpu,
+  Users,
+  Zap,
+  Globe,
   type LucideIcon,
 } from "lucide-react";
 
@@ -28,13 +33,16 @@ export const IMAGES = {
 
 export const SITE = {
   name: "AgriMinds",
-  tagline: "Agripreneur Club · From Idea to Impact · Founded in Vizag",
+  tagline: "From Farm to Enterprise",
   description:
-    "Nurturing the next generation of entrepreneurs transforming Indian agriculture & food systems.",
+    "Nurturing Indian agriculture's next generation of entrepreneurs — from a single Vizag chapter to a nationwide network built by the Agriminds Ecosystem Foundation.",
 };
+
+export const NORTH_STAR = "Every Farmer an Entrepreneur. Every FPO a Thriving Enterprise.";
 
 export const NAV_LINKS = [
   { label: "Pillars", href: "#pillars" },
+  { label: "Programmes", href: "#programmes" },
   { label: "Chapter Model", href: "#chapter-model" },
   { label: "Roadmap", href: "#roadmap" },
   { label: "Impact", href: "#impact" },
@@ -51,7 +59,7 @@ export const STATS: IStat[] = [
   { value: "6", label: "Months Running", sublabel: "Consistent agripreneur meets in Vizag" },
   { value: "3–4", label: "Ideas Progressing", sublabel: "Advanced to Prototype / early MVP stage" },
   { value: "1", label: "Founding Chapter", sublabel: "Vizag — the blueprint for every city after" },
-  { value: "∞", label: "Potential Ahead", sublabel: "Scaling city by city across India" },
+  { value: "∞", label: "Potential Ahead", sublabel: "Scaling toward a 10-year national ecosystem" },
 ];
 
 export interface IPillar {
@@ -63,48 +71,48 @@ export interface IPillar {
 export const PILLARS: IPillar[] = [
   {
     icon: Sprout,
-    title: "Idea to MVP",
+    title: "Entrepreneur Discovery & Enterprise Development",
     description:
-      "Nurture agri entrepreneurs from raw idea through structured validation, prototyping, and MVP launch.",
+      "Identify and nurture entrepreneurs from farmers, FPOs, SHGs, youth, and MSMEs — from ideation and diagnostics through mentorship, incubation, and acceleration.",
   },
   {
-    icon: Rocket,
-    title: "Startup Mentoring",
+    icon: Factory,
+    title: "Value Addition & Processing",
     description:
-      "Hands-on mentoring for existing agri & food startups — strategy, product, market & fundraising.",
+      "Decentralized processing infrastructure — units, solar dehydration, and Common Facility Centres — plus quality systems, packaging, and product development.",
   },
   {
-    icon: Building2,
-    title: "Chapter Model",
+    icon: Store,
+    title: "Market Access",
     description:
-      "City-by-city expansion — each chapter self-runs all activities with a local chapter lead & board.",
+      "Market-driven enterprises across domestic retail, institutional procurement, digital commerce, and export channels.",
   },
   {
     icon: HandCoins,
-    title: "Investor Network",
+    title: "Finance & Investment",
     description:
-      "Curate a dedicated investor community aligned to agri, food-tech, rural & impact investing themes.",
+      "DPR preparation, loan facilitation, credit guarantees, and investment-readiness support with NABARD, banks & impact investors.",
   },
   {
-    icon: BookOpen,
-    title: "Training Programs",
+    icon: Cpu,
+    title: "Technology & AI",
     description:
-      "Curated skill programs: agri-business, technology, rural markets, supply chains & sustainability.",
+      "The Agri Enterprise Digital Platform — an AI Business Advisor, market intelligence, demand forecasting, and traceability tools.",
   },
   {
     icon: Handshake,
-    title: "Implementation Partner",
+    title: "Ecosystem Building",
     description:
-      "Partner with govt & NGOs on agri schemes, building micro-entrepreneurs at the grassroots level.",
+      "Partnerships across government, agricultural universities, the private sector, and global development partners — so no enterprise falls through the cracks.",
   },
 ];
 
 export const CHAPTER_MODEL_POINTS: string[] = [
-  "Chapter Lead + Advisory Board drawn from local agri ecosystem",
-  "Runs all 6 pillars locally — mentoring, training, partnerships & investor events",
-  "Contributes to a national deal flow & investor network",
-  "Connects to other chapters for cross-city collaboration",
-  "Earns sustainability through training fees, partnership retainers & event revenue",
+  "Chapter Lead + Advisory Board drawn from the local agri ecosystem",
+  "Runs all 6 pillars locally — discovery, processing, market access, finance, tech & ecosystem building",
+  "Feeds into the Agriminds Ecosystem Foundation's national deal flow, investor network, and digital platform",
+  "Connects to other chapters as the Foundation expands from Andhra Pradesh into new states",
+  "Earns sustainability through training fees, partnership retainers, and platform & transaction revenue",
 ];
 
 export interface IRoadmapPhase {
@@ -117,37 +125,74 @@ export interface IRoadmapPhase {
 
 export const ROADMAP_PHASES: IRoadmapPhase[] = [
   {
-    phase: "Phase 1",
+    phase: "Foundation",
     status: "done",
     milestone: "Vizag — Founding Chapter",
-    timeline: "Done (6 Months)",
+    timeline: "Months 1–6, 2026",
     activities: [
       "6 months of Agripreneur Meets running",
       "3–4 ideas at Prototype / early MVP stage",
-      "Built from ground up, local ecosystem partnership",
+      "Built from the ground up on local ecosystem partnerships",
     ],
   },
   {
-    phase: "Phase 2",
+    phase: "Year 1",
     status: "active",
-    milestone: "Validate & Scale Vizag",
-    timeline: "6–12 Months",
+    milestone: "Prove the Model",
+    timeline: "2026–27",
     activities: [
-      "Launch 3–4 MVPs from current cohort",
-      "Partner with 2 govt / NGO schemes",
-      "Structured training & mentoring programs",
+      "Launch field operations across Phase 1 states — Andhra Pradesh, Odisha, Telangana",
+      "Recruit and train the mentor network; run first enterprise diagnostics",
+      "Onboard the first cohort — 1,000 entrepreneurs and 50 FPOs",
+      "Sign the founding NABARD partnership; facilitate the first DPRs and loans",
     ],
   },
   {
-    phase: "Phase 3",
+    phase: "Year 2",
     status: "upcoming",
-    milestone: "Chapter Expansion",
-    timeline: "12–36 Months",
+    milestone: "Build Infrastructure & Reach",
+    timeline: "2027–28",
     activities: [
-      "Launch 5 new city chapters",
-      "Cross-chapter deal flow",
-      "Onboard 10–15 investors to deal flow",
-      "100+ entrepreneurs impacted",
+      "Launch first Common Facility Centres and solar dehydration units",
+      "Launch the Women AgriPreneur Initiative and Youth Agri Startup Mission",
+      "Scale to 10,000 enterprises and 150 FPOs; mobilise ₹250 crore in enterprise finance",
+      "Publish the first State of Agri Entrepreneurship Report",
+    ],
+  },
+  {
+    phase: "Year 3",
+    status: "upcoming",
+    milestone: "Open New Geographies, Move to Export",
+    timeline: "2028–29",
+    activities: [
+      "Enter Phase 2 states — Karnataka, Tamil Nadu, Maharashtra, Chhattisgarh",
+      "Launch the Agri Export Accelerator and first certification cohorts",
+      "Release the AI Business Advisor publicly",
+      "Reach 25,000 enterprises and 350 FPOs; cross ₹1,500 crore in market linkages",
+    ],
+  },
+  {
+    phase: "Year 4–5",
+    status: "upcoming",
+    milestone: "First Graduations, National Rollout",
+    timeline: "2029–31",
+    activities: [
+      "First FPO cohorts graduate to self-sustaining status",
+      "Reach 75,000 enterprises, 800 FPOs, and 250+ export-ready enterprises",
+      "Begin Phase 3 pan-India expansion",
+      "Independent mid-term evaluation recalibrates Years 6–10 targets",
+    ],
+  },
+  {
+    phase: "Years 6–10",
+    status: "upcoming",
+    milestone: "Consolidate & Shift to Sustainability",
+    timeline: "2031–36",
+    activities: [
+      "Complete pan-India presence; scale the digital platform to full ESG, CRM & traceability",
+      "Shift revenue mix toward platform subscriptions, transaction fees & training income",
+      "Reach 100,000 enterprises, 1,000 FPOs, and 1 million families with improved livelihoods",
+      "Publish the ten-year impact report",
     ],
   },
 ];
@@ -159,10 +204,26 @@ export interface IRevenueStream {
 }
 
 export const REVENUE_STREAMS: IRevenueStream[] = [
-  { icon: Ticket, title: "Membership Fee", description: "Startup & investor membership tiers with tiered benefits" },
-  { icon: ScrollText, title: "Partnership Retainers", description: "Implementation fees from govt schemes & NGO projects" },
-  { icon: Briefcase, title: "Training Fees", description: "Cohort-based programs for agripreneurs & agri professionals" },
-  { icon: Mic2, title: "Events & Summits", description: "Demo days, investor meets, agri innovation summits — sponsorships" },
+  {
+    icon: Ticket,
+    title: "Platform Subscriptions",
+    description: "Enterprise & FPO subscriptions to the Agriminds Digital Platform — business tools, market intelligence & the AI Business Advisor",
+  },
+  {
+    icon: ScrollText,
+    title: "Market Facilitation Fees",
+    description: "Transaction-linked fees on market linkages brokered across retail, digital commerce & export channels",
+  },
+  {
+    icon: Briefcase,
+    title: "Certification & Training Fees",
+    description: "Cohort-based training, quality certification & DPR / loan-readiness programs for entrepreneurs and FPOs",
+  },
+  {
+    icon: Mic2,
+    title: "Partnerships & Grants",
+    description: "Government contracts, CSR & blended-finance partnerships that fund core institution-building and infrastructure",
+  },
 ];
 
 export interface ISuccessMetric {
@@ -171,12 +232,59 @@ export interface ISuccessMetric {
 }
 
 export const SUCCESS_METRICS: ISuccessMetric[] = [
-  { metric: "Entrepreneurs Nurtured", target: "50+ / city / year" },
-  { metric: "MVPs Launched", target: "10+ / city / year" },
-  { metric: "Training Cohorts", target: "2 per year per chapter" },
-  { metric: "Investor Partners", target: "15+ nationally" },
-  { metric: "Govt / NGO Partnerships", target: "2+ per city" },
-  { metric: "City Chapters (Year 3)", target: "5+ cities" },
+  { metric: "Agri-Food Enterprises Enabled", target: "100,000+" },
+  { metric: "FPOs Transformed", target: "1,000+" },
+  { metric: "Farming Families Impacted", target: "1,000,000+" },
+  { metric: "Market Linkages Facilitated", target: "₹10,000 Cr" },
+  { metric: "Enterprise Finance Mobilized", target: "₹5,000 Cr" },
+  { metric: "Export-Ready Enterprises", target: "500+" },
+  { metric: "Women-Led Enterprises", target: "25,000+" },
+  { metric: "Youth Entrepreneurs Supported", target: "50,000+" },
+  { metric: "Rural Jobs Created", target: "500,000+" },
+];
+
+export interface IFlagshipProgram {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+export const FLAGSHIP_PROGRAMS: IFlagshipProgram[] = [
+  {
+    icon: Rocket,
+    title: "Agriminds Enterprise Accelerator",
+    description: "A 12-month programme for growth-stage enterprises — structured mentorship, working-capital facilitation, and market linkage sprints.",
+  },
+  {
+    icon: Building2,
+    title: "FPO Business Transformation Programme",
+    description: "Turns producer organizations into professionally managed enterprises through governance reform, financial systems, and commercial contract support.",
+  },
+  {
+    icon: Users,
+    title: "Women AgriPreneur Initiative",
+    description: "Women-owned rural businesses built through targeted incubation, dedicated financing windows, and peer mentor networks.",
+  },
+  {
+    icon: Zap,
+    title: "Youth Agri Startup Mission",
+    description: "Young rural entrepreneurs backed with seed capital linkages, digital-first business models, and technology adoption support.",
+  },
+  {
+    icon: Globe,
+    title: "Agri Export Accelerator",
+    description: "Certification support, buyer discovery, and trade facilitation to prepare enterprises for export markets.",
+  },
+  {
+    icon: Factory,
+    title: "Rural Food Processing Mission",
+    description: "Village-level value addition through shared processing infrastructure and quality systems.",
+  },
+  {
+    icon: Cpu,
+    title: "AI for Agriculture Programme",
+    description: "Practical AI tools for MSMEs and FPOs, including the AI Business Advisor and demand-forecasting modules.",
+  },
 ];
 
 export interface IJoinRole {
@@ -187,8 +295,10 @@ export interface IJoinRole {
 export const JOIN_ROLES: IJoinRole[] = [
   { title: "Aspiring Agripreneur", description: "You have an agri or food-systems idea and want to take it from concept to MVP." },
   { title: "Agri Startup", description: "You're already building and want mentoring, market access, or fundraising support." },
+  { title: "FPO / Producer Organization", description: "You lead a producer group and want governance, financial systems & market-access support to become a thriving enterprise." },
   { title: "Corporate / NGO Partner", description: "You want to co-run implementation programs or grassroots entrepreneurship schemes." },
   { title: "Investor", description: "You're looking to back agri, food-tech, rural, or impact-driven ventures." },
+  { title: "Government / Policy Partner", description: "You represent a government body or scheme and want to co-implement FPO or enterprise programs." },
   { title: "City Chapter Lead", description: "You want to bring the AgriMinds chapter model to your own city." },
 ];
 

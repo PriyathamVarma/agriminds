@@ -3,8 +3,10 @@ import { ArrowRight } from "lucide-react";
 import { cx } from "@/shared/lib/utils";
 import {
   CHAPTER_MODEL_POINTS,
+  FLAGSHIP_PROGRAMS,
   IMAGES,
   JOIN_ROLES,
+  NORTH_STAR,
   PILLARS,
   REVENUE_STREAMS,
   ROADMAP_PHASES,
@@ -92,15 +94,14 @@ export default function Home() {
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-5 pt-28 pb-24 sm:px-8">
           <div className="animate-fade-up flex items-center gap-3 text-xs font-semibold tracking-[0.22em] text-deep-foreground/80 uppercase">
             <span className="h-px w-8 bg-accent" />
-            {SITE.tagline}
+            Agriminds Ecosystem Foundation · Founded in Vizag, 2026
           </div>
           <h1 className="font-display animate-fade-up animate-delay-1 mt-7 max-w-4xl text-5xl leading-[1.05] font-semibold sm:text-6xl lg:text-[5.25rem]">
-            From Idea to Impact for{" "}
-            <span className="text-accent italic">Indian Agriculture</span>
+            From Farm to <span className="text-accent italic">Enterprise</span>
           </h1>
           <p className="animate-fade-up animate-delay-2 mt-7 max-w-xl text-lg leading-relaxed text-deep-foreground/85">
-            {SITE.description} A city-by-city movement that turns agricultural challenges into
-            business opportunities.
+            {SITE.description} Part of a 2026–2036 strategy to build 100,000 profitable
+            enterprises and improve the lives of one million farming families.
           </p>
           <div className="animate-fade-up animate-delay-3 mt-10 flex flex-col gap-3 sm:flex-row">
             <a
@@ -181,14 +182,18 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <SectionHeading eyebrow="Why We Exist" title="Vision & Mission" />
-            <div className="mt-10 space-y-9">
+            <p className="font-display mt-5 max-w-md text-xl leading-snug text-accent italic">
+              &ldquo;{NORTH_STAR}&rdquo;
+            </p>
+            <div className="mt-9 space-y-9">
               <div className="border-l-2 border-accent pl-6">
                 <h3 className="font-display text-xl font-semibold text-foreground-heading">
                   Our Vision
                 </h3>
                 <p className="mt-2 leading-relaxed text-foreground-body">
-                  To become India&apos;s most impactful agripreneur ecosystem — a city-by-city
-                  movement that turns agricultural challenges into business opportunities.
+                  To build India&apos;s most trusted agri-food entrepreneurship ecosystem,
+                  creating 100,000 profitable enterprises and improving the livelihoods of one
+                  million farming families.
                 </p>
               </div>
               <div className="border-l-2 border-primary pl-6">
@@ -196,9 +201,8 @@ export default function Home() {
                   Our Mission
                 </h3>
                 <p className="mt-2 leading-relaxed text-foreground-body">
-                  Build and support agri & food entrepreneurs across every stage — from idea to
-                  MVP — through mentoring, training, implementation partnerships, and capital
-                  access.
+                  We help farmers become entrepreneurs and FPOs become sustainable businesses by
+                  connecting them with knowledge, technology, finance, markets, and partnerships.
                 </p>
               </div>
             </div>
@@ -267,6 +271,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Flagship Programmes */}
+      <section id="programmes" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
+        <FadeIn>
+          <SectionHeading
+            eyebrow="Flagship Programmes"
+            title="Seven Programmes, One Ecosystem"
+            description="Each flagship programme targets a specific stage or segment of the agri-entrepreneurship journey — all feeding into the same national deal flow."
+            align="center"
+          />
+        </FadeIn>
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {FLAGSHIP_PROGRAMS.map((program, i) => {
+            const Icon = program.icon;
+            return (
+              <FadeIn key={program.title} delay={i * 0.05}>
+                <div className="group h-full rounded-3xl border border-border bg-surface-card p-7 transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg">
+                  <span className="blob flex h-11 w-11 items-center justify-center bg-primary-soft text-primary transition group-hover:bg-accent-soft group-hover:text-accent">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-4 text-lg font-semibold text-foreground-heading">
+                    {program.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
+                    {program.description}
+                  </p>
+                </div>
+              </FadeIn>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Chapter Model */}
       <section id="chapter-model" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-20">
@@ -288,7 +324,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="The Chapter Model"
               title="City by City Expansion"
-              description="Each City = One Chapter. Every chapter operates as an independent unit with a shared playbook, so what works in Vizag can work anywhere in India."
+              description="Each City = One Chapter. Every chapter operates as an independent unit with a shared playbook, feeding into the Agriminds Ecosystem Foundation's decade-long, state-by-state expansion."
             />
             <ol className="mt-10 space-y-7 border-l-2 border-border pl-9">
               {CHAPTER_MODEL_POINTS.map((point, i) => (
@@ -312,8 +348,8 @@ export default function Home() {
           <FadeIn>
             <SectionHeading
               eyebrow="Looking Ahead"
-              title="3-Year Roadmap"
-              description="From proving the model in Vizag to a national network of self-sustaining chapters."
+              title="2026–2036 Roadmap"
+              description="From proving the model in Vizag to a nationwide network of 100,000 thriving enterprises."
               align="center"
             />
           </FadeIn>
@@ -355,7 +391,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Accountability"
               title="What Success Looks Like"
-              description="The targets each AgriMinds chapter works toward, year over year."
+              description="The targets the Agriminds Ecosystem Foundation is building toward by 2036."
               tone="dark"
             />
           </FadeIn>
@@ -379,7 +415,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Sustainability"
             title="Revenue & Sustainability Model"
-            description="AgriMinds is built to sustain itself as it scales — not to depend on any single funding source."
+            description="AgriMinds is built to shift from grant-funded to earned-revenue sustainability as it scales — not to depend on any single funding source."
           />
         </FadeIn>
         <div className="mt-14 divide-y divide-border border-t border-border">

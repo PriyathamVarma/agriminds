@@ -35,7 +35,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-5 font-display text-2xl leading-snug text-deep-foreground/90">
-              Turning agricultural challenges into business opportunities — one city at a time.
+              From Farm to Enterprise — building India&apos;s agri-food entrepreneurship ecosystem, one chapter at a time.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {SOCIALS.map((social) => (
@@ -88,8 +88,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 pt-8 text-xs text-deep-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {SITE.name} Agripreneur Club. Founded in Vizag.</p>
-          <p>From Idea to Impact.</p>
+          <p>© {new Date().getFullYear()} {SITE.name} — Agriminds Ecosystem Foundation. Founded in Vizag.</p>
+          <p>From Farm to Enterprise.</p>
         </div>
       </div>
     </footer>
