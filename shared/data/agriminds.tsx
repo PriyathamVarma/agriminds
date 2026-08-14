@@ -141,7 +141,7 @@ export const ROADMAP_PHASES: IRoadmapPhase[] = [
     milestone: "Prove the Model",
     timeline: "2026–27",
     activities: [
-      "Launch field operations across Phase 1 states — Andhra Pradesh, Odisha, Telangana",
+      "Launch field operations across Phase 1 states — Karnataka, Tamil Nadu, and Telangana",
       "Recruit and train the mentor network; run first enterprise diagnostics",
       "Onboard the first cohort — 1,000 entrepreneurs and 50 FPOs",
       "Sign the founding NABARD partnership; facilitate the first DPRs and loans",
@@ -165,7 +165,7 @@ export const ROADMAP_PHASES: IRoadmapPhase[] = [
     milestone: "Open New Geographies, Move to Export",
     timeline: "2028–29",
     activities: [
-      "Enter Phase 2 states — Karnataka, Tamil Nadu, Maharashtra, Chhattisgarh",
+      "Enter Phase 2 states — Odisha and Jharkhand",
       "Launch the Agri Export Accelerator and first certification cohorts",
       "Release the AI Business Advisor publicly",
       "Reach 25,000 enterprises and 350 FPOs; cross ₹1,500 crore in market linkages",

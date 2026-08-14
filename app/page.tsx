@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { cx } from "@/shared/lib/utils";
 import {
   CHAPTER_MODEL_POINTS,
@@ -10,8 +9,6 @@ import {
   PILLARS,
   REVENUE_STREAMS,
   ROADMAP_PHASES,
-  SITE,
-  STATS,
   SUCCESS_METRICS,
 } from "@/shared/data/agriminds";
 import SectionHeading from "@/shared/components/molecules/sectionHeading";
@@ -21,7 +18,8 @@ import ParallaxImage from "@/shared/components/molecules/parallaxImage";
 import JoinForm from "@/shared/components/molecules/joinForm";
 import RoadmapTimeline from "@/shared/components/molecules/roadmapTimeline";
 import ChapterModelSection from "@/shared/components/molecules/chapterModelSection";
-import HeroCropFieldLayer from "@/shared/components/three/heroCropFieldLayer";
+import HeroSection from "@/shared/components/hero/heroSection";
+import HeroStatsStrip from "@/shared/components/hero/heroStatsStrip";
 import PillarParticleFieldBackground from "@/shared/components/three/pillarParticleFieldBackground";
 import ImpactParticleFieldBackground from "@/shared/components/three/impactParticleFieldBackground";
 
@@ -38,70 +36,8 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate min-h-[100svh] bg-deep text-deep-foreground">
-        <HeroCropFieldLayer
-          src={`${IMAGES.hero}?auto=format&fit=crop&w=2400&q=80`}
-          alt="Golden wheat field at sunset"
-        />
-
-        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-5 pt-28 pb-24 sm:px-8">
-          <div className="animate-fade-up flex items-center gap-3 text-xs font-semibold tracking-[0.22em] text-deep-foreground/80 uppercase">
-            <span className="h-px w-8 bg-accent" />
-            Agriminds Ecosystem Foundation · Founded in Vizag, 2026
-          </div>
-          <h1 className="font-display animate-fade-up animate-delay-1 mt-7 max-w-4xl text-5xl leading-[1.05] font-semibold sm:text-6xl lg:text-[5.25rem]">
-            From Farm to <span className="text-accent italic">Enterprise</span>
-          </h1>
-          <p className="animate-fade-up animate-delay-2 mt-7 max-w-xl text-lg leading-relaxed text-deep-foreground/85">
-            {SITE.description} Part of a 2026–2036 strategy to build 100,000 profitable
-            enterprises and improve the lives of one million farming families.
-          </p>
-          <div className="animate-fade-up animate-delay-3 mt-10 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#join"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover"
-            >
-              Join the Movement
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#pillars"
-              className="inline-flex items-center justify-center rounded-full border border-deep-foreground/30 px-7 py-3.5 text-sm font-semibold text-deep-foreground backdrop-blur-sm transition hover:border-deep-foreground/60 hover:bg-deep-foreground/5"
-            >
-              Explore the Pillars
-            </a>
-          </div>
-        </div>
-
-        <div className="absolute inset-x-0 bottom-32 z-10 hidden justify-center sm:flex">
-          <div className="flex flex-col items-center gap-2 text-deep-foreground/60">
-            <span className="text-[10px] font-semibold tracking-[0.22em] uppercase">Scroll</span>
-            <span className="h-9 w-px bg-gradient-to-b from-deep-foreground/60 to-transparent" />
-          </div>
-        </div>
-
-        {/* Floating stats — overlaps the hero/next-section seam */}
-        <div className="absolute inset-x-5 bottom-0 z-20 translate-y-1/2 sm:inset-x-8">
-          <div className="mx-auto max-w-5xl rounded-3xl border border-border bg-surface-card/95 px-6 py-7 shadow-2xl backdrop-blur sm:px-10 sm:py-8">
-            <div className="grid grid-cols-2 divide-x divide-border sm:grid-cols-4">
-              {STATS.map((stat) => (
-                <div key={stat.label} className="px-3 text-center first:pl-0 last:pr-0 sm:px-6">
-                  <CounterStat
-                    value={stat.value}
-                    className="font-display block text-3xl font-semibold text-primary sm:text-4xl"
-                  />
-                  <div className="mt-1.5 text-xs font-semibold text-foreground-heading sm:text-sm">
-                    {stat.label}
-                  </div>
-                  <div className="mt-1 hidden text-xs text-foreground-muted sm:block">
-                    {stat.sublabel}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
+      <HeroStatsStrip />
 
       {/* Pillar marquee */}
       <div className="overflow-hidden border-b border-border bg-surface pt-24 pb-5 sm:pt-28">

@@ -10,9 +10,9 @@ import IndiaMapBackground from "@/shared/components/three/indiaMapBackground";
 
 const LEGEND = [
   { color: "bg-accent", label: "Vizag — Founding Chapter" },
-  { color: "bg-[#e0a05a]", label: "Phase 1 States" },
-  { color: "bg-[#7fa38a]", label: "Phase 2 States" },
-  { color: "bg-[#a8b8ac]", label: "Wider Network" },
+  { color: "bg-[#e0a05a]", label: "Phase 1 — Next Focus" },
+  { color: "bg-[#7fa38a]", label: "Phase 2" },
+  { color: "bg-[#a8b8ac]", label: "Phase 3 — Rest of India" },
 ];
 
 export default function ChapterModelSection({
