@@ -2,10 +2,18 @@
 
 import { useRef } from "react";
 import { useScroll } from "framer-motion";
+import { cx } from "@/shared/lib/utils";
 import SectionHeading from "./sectionHeading";
 import FadeIn from "./fadeIn";
 import ParallaxImage from "./parallaxImage";
-import IndiaExpansionBackground from "@/shared/components/three/indiaExpansionBackground";
+import IndiaMapBackground from "@/shared/components/three/indiaMapBackground";
+
+const LEGEND = [
+  { color: "bg-accent", label: "Vizag — Founding Chapter" },
+  { color: "bg-[#e0a05a]", label: "Phase 1 States" },
+  { color: "bg-[#7fa38a]", label: "Phase 2 States" },
+  { color: "bg-[#a8b8ac]", label: "Wider Network" },
+];
 
 export default function ChapterModelSection({
   imageSrc,
@@ -14,16 +22,12 @@ export default function ChapterModelSection({
   imageSrc: string;
   points: string[];
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const mapRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: mapRef, offset: ["start end", "end start"] });
 
   return (
-    <section id="chapter-model" ref={ref} className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-      <IndiaExpansionBackground
-        progress={scrollYProgress}
-        className="pointer-events-none absolute inset-0 opacity-70 sm:opacity-80"
-      />
-      <div className="relative grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-20">
+    <section id="chapter-model" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
+      <div className="grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-20">
         <FadeIn className="relative">
           <ParallaxImage
             src={imageSrc}
@@ -56,6 +60,29 @@ export default function ChapterModelSection({
           </ol>
         </FadeIn>
       </div>
+
+      <FadeIn className="mt-20 sm:mt-28">
+        <SectionHeading
+          eyebrow="Geographic Expansion"
+          title="From Vizag to a National Network"
+          description="A real map of India's states — scroll to watch AgriMinds expand outward from the founding chapter, and hover any state to see its name."
+          align="center"
+        />
+        <div
+          ref={mapRef}
+          className="relative mx-auto mt-10 aspect-[9/10] w-full max-w-2xl overflow-hidden rounded-3xl border border-border bg-surface-card sm:mt-14"
+        >
+          <IndiaMapBackground progress={scrollYProgress} className="absolute inset-0" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 bg-gradient-to-t from-surface-card via-surface-card/90 to-transparent px-5 pt-12 pb-5">
+            {LEGEND.map((item) => (
+              <span key={item.label} className="flex items-center gap-1.5 text-xs font-medium text-foreground-muted">
+                <span className={cx("h-2 w-2 flex-none rounded-full", item.color)} />
+                {item.label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </FadeIn>
     </section>
   );
 }
