@@ -13,14 +13,17 @@ import {
   SITE,
   STATS,
   SUCCESS_METRICS,
-  type IRoadmapPhase,
 } from "@/shared/data/agriminds";
 import SectionHeading from "@/shared/components/molecules/sectionHeading";
 import FadeIn from "@/shared/components/molecules/fadeIn";
 import CounterStat from "@/shared/components/molecules/counterStat";
 import ParallaxImage from "@/shared/components/molecules/parallaxImage";
 import JoinForm from "@/shared/components/molecules/joinForm";
-import CropFieldBackground from "@/shared/components/three/cropFieldBackground";
+import RoadmapTimeline from "@/shared/components/molecules/roadmapTimeline";
+import ChapterModelSection from "@/shared/components/molecules/chapterModelSection";
+import HeroCropFieldLayer from "@/shared/components/three/heroCropFieldLayer";
+import PillarParticleFieldBackground from "@/shared/components/three/pillarParticleFieldBackground";
+import ImpactParticleFieldBackground from "@/shared/components/three/impactParticleFieldBackground";
 
 const PILLAR_SPANS = [
   "lg:col-span-2 lg:row-span-2",
@@ -31,65 +34,15 @@ const PILLAR_SPANS = [
   "lg:col-span-2 lg:row-span-1",
 ];
 
-const ROADMAP_STATUS_LABEL: Record<IRoadmapPhase["status"], string> = {
-  done: "Complete",
-  active: "In Progress",
-  upcoming: "Upcoming",
-};
-
-const ROADMAP_STATUS_STYLES: Record<IRoadmapPhase["status"], string> = {
-  done: "bg-status-success-surface text-status-success",
-  active: "bg-accent-soft text-accent-hover",
-  upcoming: "bg-surface text-foreground-muted",
-};
-
-function RoadmapCard({ phase }: { phase: IRoadmapPhase }) {
-  return (
-    <div className="rounded-3xl border border-border bg-surface-card p-7 sm:p-8">
-      <div className="flex flex-wrap items-center gap-3">
-        <span className="font-display text-sm font-semibold text-foreground-muted">{phase.phase}</span>
-        <span
-          className={cx(
-            "rounded-full px-3 py-1 text-xs font-semibold",
-            ROADMAP_STATUS_STYLES[phase.status],
-          )}
-        >
-          {ROADMAP_STATUS_LABEL[phase.status]} · {phase.timeline}
-        </span>
-      </div>
-      <h3 className="font-display mt-3 text-2xl font-semibold text-foreground-heading">
-        {phase.milestone}
-      </h3>
-      <ul className="mt-5 space-y-2.5">
-        {phase.activities.map((activity) => (
-          <li key={activity} className="flex items-start gap-2.5 text-sm leading-relaxed text-foreground-body">
-            <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent" />
-            {activity}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <section className="relative isolate min-h-[100svh] bg-deep text-deep-foreground">
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src={`${IMAGES.hero}?auto=format&fit=crop&w=2400&q=80`}
-            alt="Golden wheat field at sunset"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/75 to-deep/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-deep/70 via-deep/10 to-deep/50" />
-          <CropFieldBackground className="absolute inset-x-0 bottom-0 h-[65%] mix-blend-screen opacity-80" />
-        </div>
+        <HeroCropFieldLayer
+          src={`${IMAGES.hero}?auto=format&fit=crop&w=2400&q=80`}
+          alt="Golden wheat field at sunset"
+        />
 
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-5 pt-28 pb-24 sm:px-8">
           <div className="animate-fade-up flex items-center gap-3 text-xs font-semibold tracking-[0.22em] text-deep-foreground/80 uppercase">
@@ -235,6 +188,7 @@ export default function Home() {
                         sizes="(min-width: 1024px) 50vw, 100vw"
                         className="object-cover transition duration-700 group-hover:scale-105"
                       />
+                      <PillarParticleFieldBackground className="absolute inset-0 mix-blend-screen opacity-80" />
                       <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/55 to-transparent" />
                       <div className="relative z-10 flex h-full flex-col justify-end p-7 sm:p-8">
                         <span className="blob mb-4 flex h-11 w-11 items-center justify-center bg-accent text-accent-foreground">
@@ -303,44 +257,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Chapter Model */}
-      <section id="chapter-model" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-20">
-          <FadeIn className="relative">
-            <ParallaxImage
-              src={IMAGES.chapterModel}
-              alt="Two people shaking hands in a wheat field"
-              className="blob-2 aspect-4/5 w-full"
-              strength={30}
-            />
-            <div className="absolute -right-2 -bottom-6 rounded-2xl border border-border bg-surface-card px-6 py-5 shadow-xl sm:-right-6">
-              <div className="font-display text-3xl font-semibold text-primary">Vizag</div>
-              <div className="mt-1 max-w-[11rem] text-xs font-medium text-foreground-muted">
-                Founding Chapter — the blueprint for every city after
-              </div>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <SectionHeading
-              eyebrow="The Chapter Model"
-              title="City by City Expansion"
-              description="Each City = One Chapter. Every chapter operates as an independent unit with a shared playbook, feeding into the Agriminds Ecosystem Foundation's decade-long, state-by-state expansion."
-            />
-            <ol className="mt-10 space-y-7 border-l-2 border-border pl-9">
-              {CHAPTER_MODEL_POINTS.map((point, i) => (
-                <li key={point} className="relative">
-                  <span className="font-display absolute top-0 -left-[2.95rem] flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
-                    {i + 1}
-                  </span>
-                  <p className="text-sm leading-relaxed text-foreground-body sm:text-base">
-                    {point}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </FadeIn>
-        </div>
-      </section>
+      <ChapterModelSection imageSrc={IMAGES.chapterModel} points={CHAPTER_MODEL_POINTS} />
 
       {/* Roadmap — alternating timeline */}
       <section id="roadmap" className="bg-surface py-24 sm:py-32">
@@ -354,25 +271,7 @@ export default function Home() {
             />
           </FadeIn>
 
-          <div className="relative mt-16">
-            <div className="absolute top-0 left-1/2 hidden h-full w-px -translate-x-1/2 bg-border lg:block" />
-            <div className="space-y-8 lg:space-y-4">
-              {ROADMAP_PHASES.map((phase, i) => {
-                const leftSide = i % 2 === 0;
-                return (
-                  <div key={phase.phase} className="relative lg:grid lg:grid-cols-2 lg:gap-16">
-                    <span className="absolute top-8 left-1/2 hidden h-3.5 w-3.5 -translate-x-1/2 rounded-full border-4 border-surface bg-accent lg:block" />
-                    <FadeIn
-                      delay={i * 0.08}
-                      className={leftSide ? "lg:col-start-1 lg:py-8" : "lg:col-start-2 lg:py-8"}
-                    >
-                      <RoadmapCard phase={phase} />
-                    </FadeIn>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <RoadmapTimeline phases={ROADMAP_PHASES} />
         </div>
       </section>
 
@@ -386,6 +285,7 @@ export default function Home() {
           aria-hidden
           className="blob-2 pointer-events-none absolute -right-24 -bottom-20 h-80 w-80 bg-accent/25 blur-3xl"
         />
+        <ImpactParticleFieldBackground className="pointer-events-none absolute inset-0 opacity-60" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <FadeIn>
             <SectionHeading

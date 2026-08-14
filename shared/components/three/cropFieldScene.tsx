@@ -2,9 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import type { MotionValue } from "framer-motion";
 
 const VERTEX_SHADER = /* glsl */ `
   uniform float uTime;
+  uniform float uAmplitude;
   varying float vHeight;
   varying vec2 vUv;
 
@@ -12,9 +14,9 @@ const VERTEX_SHADER = /* glsl */ `
     vUv = uv;
     vec3 pos = position;
     float wave =
-      sin(pos.x * 0.9 + uTime * 0.55) * 0.22 +
+      (sin(pos.x * 0.9 + uTime * 0.55) * 0.22 +
       sin(pos.x * 2.1 - uTime * 0.85) * 0.07 +
-      sin(pos.y * 1.3 + uTime * 0.35) * 0.14;
+      sin(pos.y * 1.3 + uTime * 0.35) * 0.14) * uAmplitude;
     pos.z += wave;
     vHeight = wave;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
@@ -40,7 +42,7 @@ const FRAGMENT_SHADER = /* glsl */ `
   }
 `;
 
-export default function CropFieldScene() {
+export default function CropFieldScene({ progress }: { progress?: MotionValue<number> } = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -75,6 +77,7 @@ export default function CropFieldScene() {
       depthWrite: false,
       uniforms: {
         uTime: { value: 0 },
+        uAmplitude: { value: 1 },
         uColorLow: { value: new THREE.Color("#173327") },
         uColorHigh: { value: new THREE.Color("#c9a24a") },
         uOpacity: { value: 0.85 },
@@ -128,11 +131,22 @@ export default function CropFieldScene() {
 
     const renderFrame = () => {
       const t = clock.getElapsedTime();
+      // How far the user has scrolled through the hero (0 at top, 1 once scrolled past it).
+      // Used to make the field settle as the page transitions into the next section —
+      // small deltas only, this should read as "calming down", not a camera move.
+      const scrollP = progress?.get() ?? 0;
+
       material.uniforms.uTime.value = t;
+      material.uniforms.uAmplitude.value = 1 - scrollP * 0.6;
+      material.uniforms.uOpacity.value = 0.85 * (1 - scrollP * 0.35);
+      particleMaterial.opacity = 0.55 * (1 - scrollP * 0.75);
+
+      camera.position.set(0, 1.6 + scrollP * 0.5, 4.4 + scrollP * 0.9);
+      camera.lookAt(0, -0.4, -2);
 
       const posAttr = particleGeometry.attributes.position as THREE.BufferAttribute;
       for (let i = 0; i < particleCount; i++) {
-        const y = posAttr.getY(i) + particleSpeeds[i] * 0.01;
+        const y = posAttr.getY(i) + particleSpeeds[i] * 0.01 * (1 - scrollP * 0.5);
         posAttr.setY(i, y > 2.2 ? -1 : y);
       }
       posAttr.needsUpdate = true;
@@ -176,7 +190,7 @@ export default function CropFieldScene() {
         container.removeChild(renderer.domElement);
       }
     };
-  }, []);
+  }, [progress]);
 
   return <div ref={containerRef} className="h-full w-full" aria-hidden="true" />;
 }
