@@ -85,6 +85,8 @@ Hero copy readability is protected by a stronger left-to-right contrast scrim, f
 
 The field is now a continuous green pasture rather than exposed ground with sparse grass bands. Grass density increases toward the camera and foreground blades render in front of animals/machines for depth. Both cattle use a slow head-lowering grazing cycle, three grazing sheep have been added, and the robots retain the explicit reach/grip/lift weed-removal cycle with visible roots and attached soil.
 
+All public monetary figures are deliberately excluded because the earlier rupee-denominated roadmap and impact targets were internal demo content. Strategy copy may still describe finance, investment, fees, grants, revenue, and market linkages qualitatively, but no currency amount should be published without explicit owner approval.
+
 Vertical centering of the headline blocks uses **flexbox** (`flex items-center` on a full-height wrapper), not a hardcoded `translateY(-58%)` — a real mobile bug happened here: the JS was double-applying both a CSS flex-center *and* a leftover `-58%` JS transform meant for the old (pre-flexbox) layout, pushing content up into the nav on narrow viewports where text wraps to more lines. Fixed by removing the JS's base-offset percentage and keeping only the small supplementary drift/settle motion. **If you touch hero vertical layout again, remember: centering is CSS's job, JS only adds small deltas on top.**
 
 A right-edge curved SVG "progress rail" with two clickable dots lets users jump between scene 1/2. Reduced-motion, tab-visibility pause, and a text-only fallback (if `canvas.getContext("2d")` is null) are all handled.

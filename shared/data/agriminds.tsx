@@ -155,7 +155,7 @@ export const ROADMAP_PHASES: IRoadmapPhase[] = [
     activities: [
       "Launch first Common Facility Centres and solar dehydration units",
       "Launch the Women AgriPreneur Initiative and Youth Agri Startup Mission",
-      "Scale to 10,000 enterprises and 150 FPOs; mobilise ₹250 crore in enterprise finance",
+      "Scale to 10,000 enterprises and 150 FPOs; expand enterprise-finance facilitation",
       "Publish the first State of Agri Entrepreneurship Report",
     ],
   },
@@ -168,7 +168,7 @@ export const ROADMAP_PHASES: IRoadmapPhase[] = [
       "Enter Phase 2 states — Odisha and Jharkhand",
       "Launch the Agri Export Accelerator and first certification cohorts",
       "Release the AI Business Advisor publicly",
-      "Reach 25,000 enterprises and 350 FPOs; cross ₹1,500 crore in market linkages",
+      "Reach 25,000 enterprises and 350 FPOs; deepen domestic and export market linkages",
     ],
   },
   {
@@ -235,8 +235,6 @@ export const SUCCESS_METRICS: ISuccessMetric[] = [
   { metric: "Agri-Food Enterprises Enabled", target: "100,000+" },
   { metric: "FPOs Transformed", target: "1,000+" },
   { metric: "Farming Families Impacted", target: "1,000,000+" },
-  { metric: "Market Linkages Facilitated", target: "₹10,000 Cr" },
-  { metric: "Enterprise Finance Mobilized", target: "₹5,000 Cr" },
   { metric: "Export-Ready Enterprises", target: "500+" },
   { metric: "Women-Led Enterprises", target: "25,000+" },
   { metric: "Youth Entrepreneurs Supported", target: "50,000+" },
