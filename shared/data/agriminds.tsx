@@ -301,4 +301,4 @@ export const JOIN_ROLES: IJoinRole[] = [
   { title: "City Chapter Lead", description: "You want to bring the AgriMinds chapter model to your own city." },
 ];
 
-export const CONTACT_EMAIL = "hello@agriminds.in";
+export const CONTACT_EMAIL = "contact@agriminds.org";
