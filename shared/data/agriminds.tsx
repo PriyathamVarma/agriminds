@@ -19,16 +19,19 @@ import {
 
 /**
  * Curated, verified Unsplash photos — real agricultural imagery, no stock-icon look.
+ * mission, chapterModel & join are candid photos of Indian farmers/agripreneurs as
+ * active decision-makers (not staged handshake/brochure shots) — verified by viewing
+ * the actual image, not just the Unsplash listing text.
  */
 export const IMAGES = {
   hero: "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
   heroGlow: "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab",
-  mission: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449",
+  mission: "https://images.unsplash.com/photo-1620901433789-1d2f85a93653",
   pillarFeatured: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2",
-  chapterModel: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854",
+  chapterModel: "https://images.unsplash.com/photo-1600150806193-cf869bcfee05",
   market: "https://images.unsplash.com/photo-1464226184884-fa280b87c399",
   community: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e",
-  join: "https://images.unsplash.com/photo-1471193945509-9ad0617afabf",
+  join: "https://images.unsplash.com/photo-1633410195091-bd66114cef5f",
 };
 
 export const SITE = {
@@ -79,7 +82,7 @@ export const PILLARS: IPillar[] = [
     icon: Factory,
     title: "Value Addition & Processing",
     description:
-      "Decentralized processing infrastructure — units, solar dehydration, and Common Facility Centres — plus quality systems, packaging, and product development.",
+      "Local processing hubs, solar drying, and shared facilities — turning raw produce into market-ready products.",
   },
   {
     icon: Store,
@@ -103,7 +106,7 @@ export const PILLARS: IPillar[] = [
     icon: Handshake,
     title: "Ecosystem Building",
     description:
-      "Partnerships across government, agricultural universities, the private sector, and global development partners — so no enterprise falls through the cracks.",
+      "Government, universities, industry, and global partners, working as one network — so no enterprise falls through the cracks.",
   },
 ];
 
@@ -143,8 +146,7 @@ export const ROADMAP_PHASES: IRoadmapPhase[] = [
     activities: [
       "Launch field operations across Phase 1 states — Karnataka, Tamil Nadu, and Telangana",
       "Recruit and train the mentor network; run first enterprise diagnostics",
-      "Onboard the first cohort — 1,000 entrepreneurs and 50 FPOs",
-      "Sign the founding NABARD partnership; facilitate the first DPRs and loans",
+      "Sign NABARD partnership; facilitate the first DPRs and loans",
     ],
   },
   {
@@ -153,7 +155,7 @@ export const ROADMAP_PHASES: IRoadmapPhase[] = [
     milestone: "Build Infrastructure & Reach",
     timeline: "2027–28",
     activities: [
-      "Launch first Common Facility Centres and solar dehydration units",
+      "Launch first Common Facility Centres and processing hubs",
       "Launch the Women AgriPreneur Initiative and Youth Agri Startup Mission",
       "Scale to 10,000 enterprises and 150 FPOs; expand enterprise-finance facilitation",
       "Publish the first State of Agri Entrepreneurship Report",
@@ -165,7 +167,6 @@ export const ROADMAP_PHASES: IRoadmapPhase[] = [
     milestone: "Open New Geographies, Move to Export",
     timeline: "2028–29",
     activities: [
-      "Enter Phase 2 states — Odisha and Jharkhand",
       "Launch the Agri Export Accelerator and first certification cohorts",
       "Release the AI Business Advisor publicly",
       "Reach 25,000 enterprises and 350 FPOs; deepen domestic and export market linkages",

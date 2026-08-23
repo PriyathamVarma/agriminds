@@ -127,8 +127,7 @@ export default function HeroSection() {
               One Chapter to a <em className="text-accent italic">Nationwide Ecosystem</em>
             </h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-deep-foreground [text-shadow:0_2px_16px_rgba(4,10,10,.9)] sm:text-lg">
-              Solar-powered chapters, connected fields, and the next generation of agri-entrepreneurs — this is what
-              the network looks like as it scales from Vizag to every farming region in India.
+              New businesses, new tools, new farmers turned entrepreneurs — this is what the network looks like as it scales from Vizag to every farming region in India.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a

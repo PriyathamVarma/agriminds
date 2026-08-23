@@ -64,8 +64,9 @@ export default function Home() {
           <FadeIn>
             <ParallaxImage
               src={IMAGES.mission}
-              alt="Rows of young crop seedlings emerging from dark soil"
+              alt="A farmer plowing his field with two oxen under a dramatic storm-lit sky"
               className="blob aspect-4/5 w-full"
+              imgClassName="object-bottom"
               strength={30}
             />
           </FadeIn>
@@ -301,7 +302,7 @@ export default function Home() {
               </div>
               <ParallaxImage
                 src={IMAGES.join}
-                alt="Fresh vegetables at a farmers market"
+                alt="A line of farmers planting rice seedlings across a paddy field, mountains in the distance"
                 className="blob mt-10 hidden aspect-16/10 w-full lg:block"
                 strength={20}
                 priority

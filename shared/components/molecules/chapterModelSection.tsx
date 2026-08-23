@@ -31,7 +31,7 @@ export default function ChapterModelSection({
         <FadeIn className="relative">
           <ParallaxImage
             src={imageSrc}
-            alt="Two people shaking hands in a wheat field"
+            alt="A line of women in colorful clothing planting rice seedlings in a paddy field"
             className="blob-2 aspect-4/5 w-full"
             strength={30}
           />
