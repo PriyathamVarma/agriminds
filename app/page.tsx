@@ -246,40 +246,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Revenue & Sustainability */}
-      <section className="mx-auto max-w-5xl px-5 py-24 sm:px-8 sm:py-32">
-        <FadeIn>
-          <SectionHeading
-            eyebrow="Sustainability"
-            title="Revenue & Sustainability Model"
-            description="AgriMinds is built to shift from grant-funded to earned-revenue sustainability as it scales — not to depend on any single funding source."
-          />
-        </FadeIn>
-        <div className="mt-14 divide-y divide-border border-t border-border">
-          {REVENUE_STREAMS.map((stream, i) => {
-            const Icon = stream.icon;
-            return (
-              <FadeIn key={stream.title} delay={i * 0.04}>
-                <div className="group flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:gap-8">
-                  <span className="font-display text-sm text-foreground-muted sm:w-10">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="blob flex h-12 w-12 flex-none items-center justify-center bg-primary-soft text-primary transition group-hover:bg-accent-soft group-hover:text-accent">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-foreground-heading">{stream.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-foreground-muted">
-                      {stream.description}
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
-            );
-          })}
-        </div>
-      </section>
-
       {/* Join the Movement */}
       <section id="join" className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
