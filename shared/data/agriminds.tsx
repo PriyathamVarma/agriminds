@@ -27,7 +27,6 @@ export const IMAGES = {
   hero: "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
   heroGlow: "https://images.unsplash.com/photo-1495107334309-fcf20504a5ab",
   mission: "https://images.unsplash.com/photo-1620901433789-1d2f85a93653",
-  pillarFeatured: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2",
   chapterModel: "https://images.unsplash.com/photo-1600150806193-cf869bcfee05",
   market: "https://images.unsplash.com/photo-1464226184884-fa280b87c399",
   community: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e",

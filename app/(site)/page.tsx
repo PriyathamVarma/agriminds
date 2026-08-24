@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { cx } from "@/shared/lib/utils";
 import {
   CHAPTER_MODEL_POINTS,
   FLAGSHIP_PROGRAMS,
@@ -20,17 +19,7 @@ import RoadmapTimeline from "@/shared/components/molecules/roadmapTimeline";
 import ChapterModelSection from "@/shared/components/molecules/chapterModelSection";
 import HeroSection from "@/shared/components/hero/heroSection";
 import HeroStatsStrip from "@/shared/components/hero/heroStatsStrip";
-import PillarParticleFieldBackground from "@/shared/components/three/pillarParticleFieldBackground";
 import ImpactParticleFieldBackground from "@/shared/components/three/impactParticleFieldBackground";
-
-const PILLAR_SPANS = [
-  "lg:col-span-2 lg:row-span-2",
-  "lg:col-span-2 lg:row-span-1",
-  "lg:col-span-1 lg:row-span-1",
-  "lg:col-span-1 lg:row-span-1",
-  "lg:col-span-2 lg:row-span-1",
-  "lg:col-span-2 lg:row-span-1",
-];
 
 export default function Home() {
   return (
@@ -100,7 +89,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pillars — bento grid */}
+      {/* Pillars — image paired with the pillar grid */}
       <section id="pillars" className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <FadeIn>
@@ -111,53 +100,38 @@ export default function Home() {
               align="center"
             />
           </FadeIn>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:auto-rows-[172px] lg:grid-cols-4">
-            {PILLARS.map((pillar, i) => {
-              const Icon = pillar.icon;
-              if (i === 0) {
+          <div className="mt-14 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch lg:gap-12">
+            <FadeIn className="relative aspect-[4/5] overflow-hidden rounded-3xl lg:aspect-auto">
+              <Image
+                src="/brand/images/The_6_Pillars.webp"
+                alt="A farmer checking market updates on his phone while walking through a cotton field, bamboo pole over his shoulder"
+                fill
+                loading="lazy"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+                style={{ objectPosition: "38% 35%" }}
+              />
+            </FadeIn>
+            <div className="grid gap-5 sm:grid-cols-2">
+              {PILLARS.map((pillar, i) => {
+                const Icon = pillar.icon;
                 return (
-                  <FadeIn key={pillar.title} className={cx("group", PILLAR_SPANS[0])}>
-                    <div className="relative h-full min-h-[280px] overflow-hidden rounded-3xl">
-                      <Image
-                        src={`${IMAGES.pillarFeatured}?auto=format&fit=crop&w=1200&q=75`}
-                        alt=""
-                        fill
-                        sizes="(min-width: 1024px) 50vw, 100vw"
-                        className="object-cover transition duration-700 group-hover:scale-105"
-                      />
-                      <PillarParticleFieldBackground className="absolute inset-0 mix-blend-screen opacity-80" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/55 to-transparent" />
-                      <div className="relative z-10 flex h-full flex-col justify-end p-7 sm:p-8">
-                        <span className="blob mb-4 flex h-11 w-11 items-center justify-center bg-accent text-accent-foreground">
-                          <Icon className="h-5 w-5" />
-                        </span>
-                        <h3 className="font-display text-2xl font-semibold text-deep-foreground">
-                          {pillar.title}
-                        </h3>
-                        <p className="mt-2 max-w-sm text-sm leading-relaxed text-deep-foreground/80">
-                          {pillar.description}
-                        </p>
-                      </div>
+                  <FadeIn key={pillar.title} delay={i * 0.04}>
+                    <div className="group flex h-full flex-col justify-center rounded-3xl border border-border bg-surface-card p-6 transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg sm:p-7">
+                      <span className="blob flex h-10 w-10 items-center justify-center bg-primary-soft text-primary transition group-hover:bg-accent-soft group-hover:text-accent">
+                        <Icon className="h-4.5 w-4.5" />
+                      </span>
+                      <h3 className="mt-4 text-base font-semibold text-foreground-heading">
+                        {pillar.title}
+                      </h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
+                        {pillar.description}
+                      </p>
                     </div>
                   </FadeIn>
                 );
-              }
-              return (
-                <FadeIn key={pillar.title} delay={i * 0.04} className={PILLAR_SPANS[i]}>
-                  <div className="group flex h-full flex-col justify-center rounded-3xl border border-border bg-surface-card p-6 transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg sm:p-7">
-                    <span className="blob flex h-10 w-10 items-center justify-center bg-primary-soft text-primary transition group-hover:bg-accent-soft group-hover:text-accent">
-                      <Icon className="h-4.5 w-4.5" />
-                    </span>
-                    <h3 className="mt-4 text-base font-semibold text-foreground-heading">
-                      {pillar.title}
-                    </h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
-                      {pillar.description}
-                    </p>
-                  </div>
-                </FadeIn>
-              );
-            })}
+              })}
+            </div>
           </div>
         </div>
       </section>

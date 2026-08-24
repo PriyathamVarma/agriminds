@@ -44,6 +44,17 @@ export function prefersReducedMotion(): boolean {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
+/** Cheap capability probe — true if the browser can create a WebGL context at all. */
+export function isWebGLAvailable(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const canvas = document.createElement("canvas");
+    return !!(canvas.getContext("webgl2") || canvas.getContext("webgl"));
+  } catch {
+    return false;
+  }
+}
+
 /** Heuristic for low-power/mobile devices, used to scale down particle counts and shader complexity. */
 export function isLowPowerDevice(): boolean {
   if (typeof window === "undefined") return false;

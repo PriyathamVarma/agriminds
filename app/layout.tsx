@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Ubuntu, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Shell from "@/shared/components/mainTemplate";
 import { Toaster } from "react-hot-toast";
 import { SITE } from "@/shared/data/agriminds";
 
@@ -35,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${ubuntu.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background">
-        <Shell>{children}</Shell>
+        {children}
         <Toaster
           position="top-right"
           toastOptions={{
