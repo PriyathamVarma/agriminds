@@ -16,6 +16,8 @@ import {
   Globe,
   type LucideIcon,
 } from "lucide-react";
+import type { ComponentType } from "react";
+import { LinkedinIcon, XIcon, InstagramIcon } from "@/shared/components/icons/socialIcons";
 
 /**
  * Curated, verified Unsplash photos — real agricultural imagery, no stock-icon look.
@@ -41,6 +43,40 @@ export const SITE = {
 };
 
 export const NORTH_STAR = "Every Farmer an Entrepreneur. Every FPO a Thriving Enterprise.";
+
+export interface ISocialLink {
+  label: string;
+  handle: string;
+  href: string;
+  icon: ComponentType<{ className?: string }>;
+}
+
+export const SOCIAL_LINKS: ISocialLink[] = [
+  {
+    label: "LinkedIn",
+    handle: "AgriMinds Foundation",
+    href: "https://www.linkedin.com/company/agrimindsfoundation/",
+    icon: LinkedinIcon,
+  },
+  {
+    label: "X",
+    handle: "@agrimindsglobal",
+    href: "https://x.com/agrimindsglobal/",
+    icon: XIcon,
+  },
+  {
+    label: "Instagram",
+    handle: "@agrimindsfoundation",
+    href: "https://www.instagram.com/agrimindsfoundation/",
+    icon: InstagramIcon,
+  },
+  {
+    label: "Website",
+    handle: "agriminds.org",
+    href: "https://agriminds.org/",
+    icon: Globe,
+  },
+];
 
 export const NAV_LINKS = [
   { label: "Pillars", href: "#pillars" },

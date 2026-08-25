@@ -30,30 +30,19 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <Link href="/" className="flex items-center gap-2.5">
-          <span
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/brand/images/agriminds_svg.svg"
+            alt={SITE.name}
+            width={612}
+            height={139}
+            priority
             className={cx(
-              "h-9 w-9 flex-none overflow-hidden rounded-full ring-1 transition-colors",
-              solid ? "ring-border" : "ring-deep-foreground/25",
+              "h-9 w-auto object-contain transition-all duration-500",
+              !solid &&
+                "drop-shadow-[0_0_3px_rgba(255,253,248,0.9)] drop-shadow-[0_0_8px_rgba(255,253,248,0.65)]",
             )}
-          >
-            <Image
-              src="/brand/agriminds-badge.png"
-              alt="AgriMinds logo"
-              width={72}
-              height={72}
-              priority
-              className="h-full w-full object-cover"
-            />
-          </span>
-          <span
-            className={cx(
-              "font-display text-xl font-semibold tracking-tight transition-colors",
-              solid ? "text-foreground-heading" : "text-deep-foreground",
-            )}
-          >
-            {SITE.name}
-          </span>
+          />
         </Link>
 
         <div className="hidden items-center gap-9 md:flex">
