@@ -685,14 +685,9 @@ export default function LaunchScene({
     }
     scene.add(ecosystemGroup);
 
-    // Warm backlight glow behind the canopy + ambient gold motes (unchanged ambient dressing).
-    const glowMaterial = makePointsMaterial();
-    const glowGeometry = new THREE.BufferGeometry();
-    glowGeometry.setAttribute("position", new THREE.BufferAttribute(new Float32Array([0, 0.95, -0.7]), 3));
-    glowGeometry.setAttribute("aSize", new THREE.BufferAttribute(new Float32Array([130]), 1));
-    glowGeometry.setAttribute("aColor", new THREE.BufferAttribute(new Float32Array([GOLD_BRIGHT.r, GOLD_BRIGHT.g, GOLD_BRIGHT.b]), 3));
-    const backlight = new THREE.Points(glowGeometry, glowMaterial);
-    scene.add(backlight);
+    // Ambient gold motes (dressing) — the large central backlight glow sprite that used to
+    // sit behind the canopy was removed; it read as an unnecessary bright orb at the world's
+    // centre rather than adding anything to the tree itself.
 
     const dustCount = lowPower ? 10 : 18;
     const dustGeometry = new THREE.BufferGeometry();
@@ -954,7 +949,6 @@ export default function LaunchScene({
         sun.color.copy(new THREE.Color(0x9fb0c0)).lerp(new THREE.Color(0xffe4b8), moodT);
         sun.intensity = 0.9 + moodT * 0.6;
 
-        glowMaterial.uniforms.uGlobalAlpha.value = remap(t, GROW_START + 1.2, GROW_START + 2.2) * 0.4;
         for (let i = 0; i < moteCount; i++) {
           const bx = moteBase[i * 3];
           const by = moteBase[i * 3 + 1];
