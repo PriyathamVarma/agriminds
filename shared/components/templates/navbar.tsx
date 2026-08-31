@@ -30,18 +30,30 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="relative inline-block h-9">
+          {/* Base — the usual full-colour logo, always present so it defines the box's size. */}
           <Image
             src="/brand/images/agriminds_svg.svg"
             alt={SITE.name}
             width={612}
             height={139}
             priority
+            className="h-9 w-auto object-contain"
+          />
+          {/* Overlay — forced to pure white via filter (brightness(0) then invert(1) turns any
+              non-transparent pixel white while preserving the SVG's own alpha), crossfaded out
+              as soon as the page scrolls past the dark hero so the usual logo shows through. */}
+          <Image
+            src="/brand/images/agriminds_svg.svg"
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="160px"
             className={cx(
-              "h-9 w-auto object-contain transition-all duration-500",
-              !solid &&
-                "drop-shadow-[0_0_3px_rgba(255,253,248,0.9)] drop-shadow-[0_0_8px_rgba(255,253,248,0.65)]",
+              "object-contain drop-shadow-[0_0_3px_rgba(255,253,248,0.9)] drop-shadow-[0_0_8px_rgba(255,253,248,0.65)] transition-opacity duration-500",
+              solid ? "opacity-0" : "opacity-100",
             )}
+            style={{ filter: "brightness(0) invert(1)" }}
           />
         </Link>
 

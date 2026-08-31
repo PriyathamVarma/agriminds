@@ -15,6 +15,10 @@ export default function SocialLinksPage() {
       />
 
       <div className="relative z-10 flex w-full max-w-sm flex-col items-center text-center">
+        {/* Forced to pure white via filter — brightness(0) then invert(1) turns any
+            non-transparent pixel white while preserving the SVG's own alpha — since this
+            page's background is always dark, unlike the homepage there's no lighter section
+            to reveal the usual full-colour logo against. */}
         <Image
           src="/brand/images/agriminds_svg.svg"
           alt={SITE.name}
@@ -22,6 +26,7 @@ export default function SocialLinksPage() {
           height={139}
           priority
           className="h-10 w-auto object-contain drop-shadow-[0_0_3px_rgba(255,253,248,0.9)] drop-shadow-[0_0_8px_rgba(255,253,248,0.65)]"
+          style={{ filter: "brightness(0) invert(1)" }}
         />
 
         <p className="mt-6 text-sm leading-relaxed text-deep-foreground/75">
