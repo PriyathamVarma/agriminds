@@ -1,13 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, ArrowUpRight } from "lucide-react";
-import { CONTACT_EMAIL, NAV_LINKS, SITE } from "@/shared/data/agriminds";
+import { CONTACT_EMAIL, NAV_LINKS, SITE, SOCIAL_LINKS } from "@/shared/data/agriminds";
 
-const SOCIALS = [
-  { label: "Instagram", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "X (Twitter)", href: "#" },
-];
+// Same source as the /links page — Website is left out here since the footer already has its
+// own contact/location block.
+const SOCIALS = SOCIAL_LINKS.filter((link) => link.label !== "Website");
 
 export default function Footer() {
   return (
@@ -20,19 +18,19 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <div className="grid gap-14 border-b border-deep-border pb-16 lg:grid-cols-[1.3fr_1fr_1fr]">
           <div className="max-w-md">
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="h-10 w-10 flex-none overflow-hidden rounded-full ring-1 ring-deep-border">
-                <Image
-                  src="/brand/agriminds-badge.png"
-                  alt="AgriMinds logo"
-                  width={80}
-                  height={80}
-                  className="h-full w-full object-cover"
-                />
-              </span>
-              <span className="font-display text-2xl font-semibold text-deep-foreground">
-                {SITE.name}
-              </span>
+            <Link href="/" className="flex items-center">
+              {/* Same wordmark as the navbar/links page, forced to pure white — this footer is
+                  always dark, so there's no lighter section to reveal a full-colour version
+                  against. brightness(0) then invert(1) turns any non-transparent pixel white
+                  while preserving the SVG's own alpha. */}
+              <Image
+                src="/brand/images/agriminds_svg.svg"
+                alt={SITE.name}
+                width={612}
+                height={139}
+                className="h-9 w-auto object-contain"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
             </Link>
             <p className="mt-5 font-display text-2xl leading-snug text-deep-foreground/90">
               From Farm to Enterprise — building India&apos;s agri-food entrepreneurship ecosystem, one chapter at a time.
@@ -42,6 +40,8 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 rounded-full border border-deep-border px-4 py-2 text-xs font-medium text-deep-foreground/70 transition hover:border-accent hover:text-accent"
                 >
                   {social.label}
