@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/shared/data/agriminds";
 import { cx } from "@/shared/lib/utils";
@@ -10,6 +11,10 @@ import { cx } from "@/shared/lib/utils";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  // The transparent header + white logo only work over the homepage's dark hero photo — every
+  // other page starts on the site's light background, so it must render solid from the start.
+  const hasHeroToFloatOver = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48);
@@ -18,7 +23,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const solid = scrolled || open;
+  const solid = !hasHeroToFloatOver || scrolled || open;
 
   return (
     <header

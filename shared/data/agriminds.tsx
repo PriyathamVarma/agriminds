@@ -84,6 +84,7 @@ export const NAV_LINKS = [
   { label: "Chapter Model", href: "#chapter-model" },
   { label: "Roadmap", href: "#roadmap" },
   { label: "Impact", href: "#impact" },
+  { label: "Blogs", href: "/blog/launch-event" },
   { label: "Join Us", href: "#join" },
 ];
 
