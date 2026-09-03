@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   CHAPTER_MODEL_POINTS,
   FLAGSHIP_PROGRAMS,
@@ -89,7 +88,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pillars — image paired with the pillar grid */}
+      {/* Pillars */}
       <section id="pillars" className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <FadeIn>
@@ -100,38 +99,25 @@ export default function Home() {
               align="center"
             />
           </FadeIn>
-          <div className="mt-14 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch lg:gap-12">
-            <FadeIn className="relative aspect-[4/5] overflow-hidden rounded-3xl lg:aspect-auto">
-              <Image
-                src="/brand/images/The_6_Pillars.webp"
-                alt="A farmer checking market updates on his phone while walking through a cotton field, bamboo pole over his shoulder"
-                fill
-                loading="lazy"
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
-                style={{ objectPosition: "38% 35%" }}
-              />
-            </FadeIn>
-            <div className="grid gap-5 sm:grid-cols-2">
-              {PILLARS.map((pillar, i) => {
-                const Icon = pillar.icon;
-                return (
-                  <FadeIn key={pillar.title} delay={i * 0.04}>
-                    <div className="group flex h-full flex-col justify-center rounded-3xl border border-border bg-surface-card p-6 transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg sm:p-7">
-                      <span className="blob flex h-10 w-10 items-center justify-center bg-primary-soft text-primary transition group-hover:bg-accent-soft group-hover:text-accent">
-                        <Icon className="h-4.5 w-4.5" />
-                      </span>
-                      <h3 className="mt-4 text-base font-semibold text-foreground-heading">
-                        {pillar.title}
-                      </h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
-                        {pillar.description}
-                      </p>
-                    </div>
-                  </FadeIn>
-                );
-              })}
-            </div>
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {PILLARS.map((pillar, i) => {
+              const Icon = pillar.icon;
+              return (
+                <FadeIn key={pillar.title} delay={i * 0.04}>
+                  <div className="group flex h-full flex-col justify-center rounded-3xl border border-border bg-surface-card p-6 transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg sm:p-7">
+                    <span className="blob flex h-10 w-10 items-center justify-center bg-primary-soft text-primary transition group-hover:bg-accent-soft group-hover:text-accent">
+                      <Icon className="h-4.5 w-4.5" />
+                    </span>
+                    <h3 className="mt-4 text-base font-semibold text-foreground-heading">
+                      {pillar.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
+                      {pillar.description}
+                    </p>
+                  </div>
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>
