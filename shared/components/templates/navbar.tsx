@@ -84,12 +84,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-5 md:flex">
-          <Link
-            href="/login"
-            className={cx("text-sm font-medium transition-colors", solid ? "text-foreground-body hover:text-primary" : "text-deep-foreground/85 hover:text-deep-foreground")}
-          >
-            Sign in
-          </Link>
+          
           <a href="#join" className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">
             Join the Movement
           </a>
