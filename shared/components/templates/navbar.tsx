@@ -35,7 +35,7 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <Link href="/" className="relative inline-block h-9">
+        <Link href="/" onClick={() => setOpen(false)} className="relative inline-block h-9">
           {/* Base — the usual full-colour logo, always present so it defines the box's size. */}
           <Image
             src="/brand/images/agriminds_svg.svg"
@@ -64,7 +64,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-9 md:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className={cx(
@@ -79,15 +79,15 @@ export default function Navbar() {
                   solid ? "bg-primary" : "bg-deep-foreground",
                 )}
               />
-            </a>
+            </Link>
           ))}
         </div>
 
         <div className="hidden items-center gap-5 md:flex">
           
-          <a href="#join" className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">
+          <Link href="/#join" className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">
             Join the Movement
-          </a>
+          </Link>
         </div>
 
         <button
@@ -100,38 +100,42 @@ export default function Navbar() {
               : "border-deep-foreground/30 text-deep-foreground",
           )}
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
       <div
+        id="mobile-navigation"
+        inert={!open}
         className={cx(
-          "overflow-hidden border-t border-border bg-background md:hidden transition-[max-height]",
-          open ? "max-h-96" : "max-h-0 border-t-0",
+          "overflow-y-auto border-t border-border bg-background md:hidden transition-[max-height]",
+          open ? "max-h-[calc(100dvh-73px)]" : "max-h-0 border-t-0",
         )}
       >
         <div className="flex flex-col gap-1 px-5 py-3">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
               className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <Link href="/login" onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface">
             Sign in
           </Link>
-          <a
-            href="#join"
+          <Link
+            href="/#join"
             onClick={() => setOpen(false)}
             className="mt-1 rounded-full bg-accent px-4 py-2.5 text-center text-sm font-semibold text-accent-foreground"
           >
             Join the Movement
-          </a>
+          </Link>
         </div>
       </div>
     </header>

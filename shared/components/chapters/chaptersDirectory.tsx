@@ -9,6 +9,8 @@ import Skeleton from "@/shared/components/dashboard/skeleton";
 import SectionHeading from "@/shared/components/molecules/sectionHeading";
 import { useResource } from "@/shared/lib/hooks/useResource";
 
+import VizagMeetCard from "./vizagMeetCard";
+
 type Chapter = { _id: string; slug: string; name: string; city: string; state: string; type: string; description: string };
 
 export default function ChaptersDirectory() {
@@ -32,6 +34,8 @@ export default function ChaptersDirectory() {
   return (
     <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
       <SectionHeading eyebrow="The Network" title="AgriMinds Chapters" description="Find a chapter near you, or apply to bring AgriMinds to your city." align="center" />
+
+      <div className="mt-10"><VizagMeetCard /></div>
 
       <div className="mx-auto mt-12 flex max-w-3xl flex-wrap items-center justify-center gap-3">
         <div className="relative flex-1 min-w-[220px]">

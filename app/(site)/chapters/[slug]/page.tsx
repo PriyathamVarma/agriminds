@@ -7,6 +7,7 @@ import { Chapter } from "@/shared/models/chapter";
 import { ChapterMembership } from "@/shared/models/chapterMembership";
 import { ChapterUpdate } from "@/shared/models/chapterUpdate";
 import { ImpactReport } from "@/shared/models/impactReport";
+import VizagMeetCard from "@/shared/components/chapters/vizagMeetCard";
 import { SITE } from "@/shared/data/agriminds";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -69,6 +70,10 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
           </Link>
         </div>
       </section>
+
+      {[chapter.slug, chapter.city].some((value) => /^(vizag|visakhapatnam)(-chapter)?$/i.test(value || "")) ? (
+        <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8"><VizagMeetCard /></section>
+      ) : null}
 
       {chapter.mission ? (
         <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8">

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef } from "react";
 import { useScroll } from "framer-motion";
 import { cx } from "@/shared/lib/utils";
@@ -58,6 +59,7 @@ export default function ChapterModelSection({
               </li>
             ))}
           </ol>
+          <Link href="/chapters/vizag/meets/ai-in-agri-future" className="mt-8 inline-flex text-sm font-semibold text-primary hover:underline">Explore the latest Vizag chapter meet →</Link>
         </FadeIn>
       </div>
 

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { SITE } from "@/shared/data/agriminds";
 import SectionHeading from "@/shared/components/molecules/sectionHeading";
 import LaunchEventHighlights from "@/shared/components/blog/launchEventHighlights";
@@ -14,6 +16,7 @@ export default function LaunchEventPage() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-5 pt-24 pb-14 sm:px-8 sm:pt-32">
+        <Link href="/blog" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"><ArrowLeft className="h-4 w-4" /> Back to Blog</Link>
         <SectionHeading
           eyebrow="From the Community"
           title="Our Launch Event"
