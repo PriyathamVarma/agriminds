@@ -8,6 +8,7 @@ import {
   REVENUE_STREAMS,
   ROADMAP_PHASES,
   SUCCESS_METRICS,
+  WHATSAPP_GROUP_URL,
 } from "@/shared/data/agriminds";
 import SectionHeading from "@/shared/components/molecules/sectionHeading";
 import FadeIn from "@/shared/components/molecules/fadeIn";
@@ -236,6 +237,9 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn delay={0.1}>
+              <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" className="mb-6 flex items-center justify-between gap-4 rounded-2xl border border-accent/30 bg-accent-soft px-5 py-4 transition hover:border-accent hover:bg-accent/20">
+                <span><span className="block text-sm font-semibold text-accent-foreground">Join the AgriMinds WhatsApp community</span><span className="mt-1 block text-xs text-accent-foreground/70">Meet fellow farmers, founders, and ecosystem partners.</span></span><span className="flex-none rounded-full bg-accent px-4 py-2 text-xs font-bold text-accent-foreground">Open WhatsApp ↗</span>
+              </a>
               <JoinForm />
             </FadeIn>
           </div>

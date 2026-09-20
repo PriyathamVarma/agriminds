@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { WHATSAPP_GROUP_URL } from "@/shared/data/agriminds";
 
 /**
  * The site's hero: a full-bleed photograph with the headline, supporting copy,
@@ -43,7 +44,9 @@ export default function HeroSection() {
           </p>
           <div className="animate-fade-up animate-delay-3 mt-9 flex flex-wrap items-center gap-4 pb-16 sm:pb-0">
             <a
-              href="#join"
+              href={WHATSAPP_GROUP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 rounded-full bg-accent px-6.5 py-4 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover"
             >
               Join the Movement

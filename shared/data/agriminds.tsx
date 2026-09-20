@@ -42,6 +42,8 @@ export const SITE = {
     "Nurturing Indian agriculture's next generation of entrepreneurs — from a single Vizag chapter to a nationwide network built by the Agriminds Ecosystem Foundation.",
 };
 
+export const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/BuAzLYYgmI0D29358p2CIT";
+
 export const NORTH_STAR = "Every Farmer an Entrepreneur. Every FPO a Thriving Enterprise.";
 
 export interface ISocialLink {
@@ -85,8 +87,9 @@ export const NAV_LINKS = [
   { label: "Roadmap", href: "/#roadmap" },
   { label: "Impact", href: "/#impact" },
   { label: "Chapters", href: "/chapters" },
+  { label: "Our Team", href: "/team" },
   { label: "Blog", href: "/blog" },
-  { label: "Join Us", href: "/#join" },
+  { label: "Join Us", href: WHATSAPP_GROUP_URL },
 ];
 
 export interface IStat {
