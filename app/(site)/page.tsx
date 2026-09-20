@@ -20,12 +20,14 @@ import ChapterModelSection from "@/shared/components/molecules/chapterModelSecti
 import HeroSection from "@/shared/components/hero/heroSection";
 import HeroStatsStrip from "@/shared/components/hero/heroStatsStrip";
 import ImpactParticleFieldBackground from "@/shared/components/three/impactParticleFieldBackground";
+import NextMeetBanner from "@/shared/components/home/nextMeetBanner";
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <HeroSection />
+      <NextMeetBanner />
       <HeroStatsStrip />
 
       {/* Pillar marquee */}
