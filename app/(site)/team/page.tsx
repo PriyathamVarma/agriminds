@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Sprout } from "lucide-react";
-import { SITE, WHATSAPP_GROUP_URL } from "@/shared/data/agriminds";
+import { SITE } from "@/shared/data/agriminds";
+import { WHATSAPP_GROUP_URL } from "@/shared/data/links";
 
 export const metadata: Metadata = {
   title: `Our Team — ${SITE.name}`,

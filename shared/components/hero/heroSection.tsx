@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { WHATSAPP_GROUP_URL } from "@/shared/data/agriminds";
+import { WHATSAPP_GROUP_URL } from "@/shared/data/links";
 
 /**
  * The site's hero: a full-bleed photograph with the headline, supporting copy,

@@ -1,14 +1,18 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { MapPin, BadgeCheck, Mail, Phone, ArrowRight, Globe } from "lucide-react";
+import Image from "next/image";
+import { MapPin, BadgeCheck, ArrowRight } from "lucide-react";
 import { connectToDatabase } from "@/shared/lib/mongodb";
 import { Chapter } from "@/shared/models/chapter";
 import { ChapterMembership } from "@/shared/models/chapterMembership";
 import { ChapterUpdate } from "@/shared/models/chapterUpdate";
 import { ImpactReport } from "@/shared/models/impactReport";
 import VizagMeetCard from "@/shared/components/chapters/vizagMeetCard";
+import VizagMeetCountdown from "@/shared/components/chapters/vizagMeetCountdown";
 import { SITE } from "@/shared/data/agriminds";
+import { NEXT_VIZAG_MEET, VIZAG_MEET_PHOTOS } from "@/shared/data/vizagMeet";
+import { VIZAG_WHATSAPP_GROUP_URL } from "@/shared/data/links";
+import { VIZAG_MEET_RSVP_URL } from "@/shared/data/links";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -45,6 +49,10 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
   );
 
   const gallery = updates.flatMap((u) => u.images).slice(0, 8);
+  const isVizag = [chapter.slug, chapter.city].some((value) => /^(vizag|visakhapatnam)(-chapter)?$/i.test(value || ""));
+  const displayImpact = isVizag
+    ? { eventsConducted: 2, farmersReached: 21, startupsSupported: 5, fpoSupported: 2 }
+    : impactTotals;
 
   return (
     <div className="bg-background">
@@ -61,18 +69,73 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
             {chapter.state}
           </p>
           {chapter.description ? <p className="mt-6 max-w-2xl text-deep-foreground/85">{chapter.description}</p> : null}
-          <Link
-            href="/dashboard"
+          <a
+            href={isVizag ? VIZAG_WHATSAPP_GROUP_URL : "/dashboard"}
+            target={isVizag ? "_blank" : undefined}
+            rel={isVizag ? "noopener noreferrer" : undefined}
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover"
           >
             Apply to Join This Chapter
             <ArrowRight className="h-4 w-4" />
-          </Link>
+          </a>
         </div>
       </section>
 
-      {[chapter.slug, chapter.city].some((value) => /^(vizag|visakhapatnam)(-chapter)?$/i.test(value || "")) ? (
-        <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8"><VizagMeetCard /></section>
+      {isVizag ? (
+        <section className="mx-auto max-w-5xl px-5 pt-8 sm:px-8 sm:pt-12">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-surface">
+            <Image
+              src={VIZAG_MEET_PHOTOS[9].src}
+              width={VIZAG_MEET_PHOTOS[9].width}
+              height={VIZAG_MEET_PHOTOS[9].height}
+              alt="AgriMinds Vizag chapter members gathered at a chapter meet"
+              priority
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </section>
+      ) : null}
+
+      {isVizag ? (
+        <section className="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
+          <div className="overflow-hidden rounded-3xl border border-border bg-surface-card">
+            <div className="border-b border-border bg-primary px-6 py-6 text-primary-foreground sm:px-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-soft">Next meet · Vizag chapter</p>
+              <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">{NEXT_VIZAG_MEET.title}</h2>
+              <p className="mt-3 text-sm text-primary-foreground/80">{NEXT_VIZAG_MEET.day}, {NEXT_VIZAG_MEET.date} · {NEXT_VIZAG_MEET.time}</p>
+              <VizagMeetCountdown />
+            </div>
+            <div className="grid gap-8 p-6 sm:grid-cols-[0.9fr_1.1fr] sm:p-8">
+              <div>
+                <p className="text-sm leading-7 text-foreground-body">{NEXT_VIZAG_MEET.description}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Where</p>
+                <p className="mt-6 font-semibold text-foreground-heading">{NEXT_VIZAG_MEET.venue}</p>
+                <p className="mt-1 text-sm leading-6 text-foreground-muted">{NEXT_VIZAG_MEET.address}</p>
+                <p className="mt-7 text-xs font-semibold uppercase tracking-[0.18em] text-accent">Who it is for</p>
+                <p className="mt-3 text-sm leading-6 text-foreground-body">{NEXT_VIZAG_MEET.audience}</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Agenda</p>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {NEXT_VIZAG_MEET.themes.map((theme, index) => <div key={theme} className="rounded-2xl bg-surface px-4 py-4"><p className="text-xs font-bold text-primary">0{index + 1}</p><p className="mt-2 text-sm font-semibold leading-5 text-foreground-heading">{theme}</p></div>)}
+                </div>
+              </div>
+            </div>
+            <div className="border-t border-border px-6 py-5 sm:px-8">
+              <a href={VIZAG_MEET_RSVP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">{NEXT_VIZAG_MEET.rsvpLabel} →</a>
+              <p className="mt-3 text-xs text-foreground-muted">Limited seats. Higher conversations.</p>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {isVizag ? (
+        <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Chapter highlights</p>
+          <h2 className="mt-3 font-display text-3xl font-semibold text-foreground-heading sm:text-4xl">Previous Meets</h2>
+          <div className="mt-8"><VizagMeetCard /></div>
+        </section>
       ) : null}
 
       {chapter.mission ? (
@@ -87,10 +150,10 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
           <h2 className="font-display text-2xl font-semibold text-foreground-heading">Impact So Far</h2>
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
-              { label: "Events conducted", value: impactTotals.eventsConducted },
-              { label: "Farmers reached", value: impactTotals.farmersReached },
-              { label: "Startups supported", value: impactTotals.startupsSupported },
-              { label: "FPOs supported", value: impactTotals.fpoSupported },
+              { label: "Meets conducted", value: displayImpact.eventsConducted },
+              { label: "Farmers reached", value: displayImpact.farmersReached },
+              { label: "Startups supported", value: displayImpact.startupsSupported },
+              { label: "FPOs supported", value: displayImpact.fpoSupported },
             ].map((stat) => (
               <div key={stat.label} className="rounded-2xl border border-border bg-surface-card p-5 text-center">
                 <p className="font-display text-3xl font-semibold text-primary">{stat.value}</p>
@@ -146,31 +209,6 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
         </section>
       ) : null}
 
-      <section className="border-t border-border py-16">
-        <div className="mx-auto max-w-5xl px-5 sm:px-8">
-          <h2 className="font-display text-2xl font-semibold text-foreground-heading">Get in touch</h2>
-          <div className="mt-5 flex flex-wrap gap-6 text-sm text-foreground-body">
-            {chapter.contactEmail ? (
-              <a href={`mailto:${chapter.contactEmail}`} className="flex items-center gap-2 hover:text-primary">
-                <Mail className="h-4 w-4" />
-                {chapter.contactEmail}
-              </a>
-            ) : null}
-            {chapter.contactPhone ? (
-              <span className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                {chapter.contactPhone}
-              </span>
-            ) : null}
-            {chapter.socialLinks?.website ? (
-              <a href={chapter.socialLinks.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary">
-                <Globe className="h-4 w-4" />
-                Website
-              </a>
-            ) : null}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

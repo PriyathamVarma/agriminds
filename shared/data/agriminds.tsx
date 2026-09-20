@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import type { ComponentType } from "react";
 import { LinkedinIcon, XIcon, InstagramIcon } from "@/shared/components/icons/socialIcons";
+import { SOCIAL_URLS, WHATSAPP_GROUP_URL } from "@/shared/data/links";
 
 /**
  * Curated, verified Unsplash photos — real agricultural imagery, no stock-icon look.
@@ -42,8 +43,6 @@ export const SITE = {
     "Nurturing Indian agriculture's next generation of entrepreneurs — from a single Vizag chapter to a nationwide network built by the Agriminds Ecosystem Foundation.",
 };
 
-export const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/BuAzLYYgmI0D29358p2CIT";
-
 export const NORTH_STAR = "Every Farmer an Entrepreneur. Every FPO a Thriving Enterprise.";
 
 export interface ISocialLink {
@@ -57,25 +56,25 @@ export const SOCIAL_LINKS: ISocialLink[] = [
   {
     label: "LinkedIn",
     handle: "AgriMinds Foundation",
-    href: "https://www.linkedin.com/company/agrimindsfoundation/",
+    href: SOCIAL_URLS.linkedin,
     icon: LinkedinIcon,
   },
   {
     label: "X",
     handle: "@agrimindsglobal",
-    href: "https://x.com/agrimindsglobal/",
+    href: SOCIAL_URLS.x,
     icon: XIcon,
   },
   {
     label: "Instagram",
     handle: "@agrimindsfoundation",
-    href: "https://www.instagram.com/agrimindsfoundation/",
+    href: SOCIAL_URLS.instagram,
     icon: InstagramIcon,
   },
   {
     label: "Website",
     handle: "agriminds.org",
-    href: "https://agriminds.org/",
+    href: SOCIAL_URLS.website,
     icon: Globe,
   },
 ];

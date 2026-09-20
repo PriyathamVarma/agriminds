@@ -5,12 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { NAV_LINKS, SITE, WHATSAPP_GROUP_URL } from "@/shared/data/agriminds";
+import { NAV_LINKS, SITE } from "@/shared/data/agriminds";
+import { WHATSAPP_GROUP_URL } from "@/shared/data/links";
 import { cx } from "@/shared/lib/utils";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState<string | null>(null);
+  const [progress, setProgress] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   // The transparent header + white logo only work over the homepage's dark hero photo — every
@@ -22,6 +24,25 @@ export default function Navbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    let frame = 0;
+    const updateProgress = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        setProgress(scrollableHeight > 0 ? Math.min(100, Math.round((window.scrollY / scrollableHeight) * 100)) : 0);
+      });
+    };
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    };
   }, []);
 
   const solid = !hasHeroToFloatOver || scrolled || open;
@@ -45,7 +66,14 @@ export default function Navbar() {
           : "border border-deep-foreground/15 bg-deep/10 shadow-[0_8px_30px_rgba(4,10,11,0.12)] backdrop-blur-sm",
       )}
     >
-      <nav className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-3.5">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-[inherit]">
+        <div
+          className="h-full rounded-l-[inherit] bg-accent/20 transition-[width] duration-150 ease-out"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
+      <nav className="relative z-10 flex items-center justify-between px-4 py-3 sm:px-6 sm:py-3.5">
         <Link href="/" onClick={() => setOpen(false)} className="relative inline-block h-9">
           {/* Base — the usual full-colour logo, always present so it defines the box's size. */}
           <Image
@@ -105,7 +133,6 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-5 md:flex">
-          
           <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">
             Join the Movement
           </a>

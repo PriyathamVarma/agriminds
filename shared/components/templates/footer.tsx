@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
-import { CONTACT_EMAIL, NAV_LINKS, SITE, SOCIAL_LINKS, WHATSAPP_GROUP_URL } from "@/shared/data/agriminds";
+import { CONTACT_EMAIL, NAV_LINKS, SITE, SOCIAL_LINKS } from "@/shared/data/agriminds";
+import { WHATSAPP_GROUP_URL } from "@/shared/data/links";
 
 // Same source as the /links page — Website is left out here since the footer already has its
 // own contact/location block.

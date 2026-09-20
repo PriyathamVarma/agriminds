@@ -8,8 +8,8 @@ import {
   REVENUE_STREAMS,
   ROADMAP_PHASES,
   SUCCESS_METRICS,
-  WHATSAPP_GROUP_URL,
 } from "@/shared/data/agriminds";
+import { WHATSAPP_GROUP_URL } from "@/shared/data/links";
 import SectionHeading from "@/shared/components/molecules/sectionHeading";
 import FadeIn from "@/shared/components/molecules/fadeIn";
 import CounterStat from "@/shared/components/molecules/counterStat";

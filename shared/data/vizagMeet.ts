@@ -53,3 +53,16 @@ export const VIZAG_MEET_PHOTOS = [
     "height": 1200
   }
 ];
+
+export const NEXT_VIZAG_MEET = {
+  title: "Vizag Agripreneur Meet",
+  date: "10 October 2026",
+  day: "Saturday",
+  time: "4:00 PM – 7:00 PM",
+  venue: "RTIH, Vizag",
+  address: "5th Floor, VRMDA – The Deck, Siripuram, Vizag",
+  themes: ["Opportunities in Food Waste", "Market Readiness of Agri Startups"],
+  audience: "Founders · Aspiring Entrepreneurs · Investors · Ecosystem Enablers · Students · Agri-Food Enthusiasts",
+  description: "AgriMinds Ecosystem Foundation invites you to our next Vizag Agripreneur Meet in partnership with RTIH, Vizag. Join us for an evening of ideas, insights, partnerships and impact as we explore opportunities to build a stronger agri-food ecosystem.",
+  rsvpLabel: "RSVP on Luma",
+};

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
-import { SITE, SOCIAL_LINKS, WHATSAPP_GROUP_URL } from "@/shared/data/agriminds";
+import { SITE, SOCIAL_LINKS } from "@/shared/data/agriminds";
+import { WHATSAPP_GROUP_URL } from "@/shared/data/links";
 
 export default function SocialLinksPage() {
   return (
