@@ -130,6 +130,15 @@ export default function Navbar() {
               </div>
             </div>
           ))}
+          <Link
+            href="/links"
+            className={cx(
+              "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+              solid ? "text-foreground-body hover:bg-surface hover:text-primary" : "text-deep-foreground/85 hover:text-deep-foreground",
+            )}
+          >
+            Links
+          </Link>
         </div>
 
         <div className="hidden items-center gap-5 md:flex">
@@ -170,6 +179,7 @@ export default function Navbar() {
               {group.links.map((link) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface">{link.label}</Link>)}
             </div>
           ))}
+          <Link href="/links" onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface">Links</Link>
           <Link href="/login" onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface">
             Sign in
           </Link>

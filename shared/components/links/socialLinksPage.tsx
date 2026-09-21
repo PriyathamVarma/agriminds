@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { ArrowUpRight, CalendarDays, MessageCircle } from "lucide-react";
 import { SITE, SOCIAL_LINKS } from "@/shared/data/agriminds";
-import { WHATSAPP_GROUP_URL } from "@/shared/data/links";
+import { CALENDLY_URL, WHATSAPP_GROUP_URL } from "@/shared/data/links";
 
 export default function SocialLinksPage() {
   return (
@@ -35,6 +35,11 @@ export default function SocialLinksPage() {
         </p>
 
         <div className="mt-10 flex w-full flex-col gap-3.5">
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-accent/60 bg-accent/15 px-5 py-4 text-left transition hover:bg-accent/25">
+            <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-accent text-accent-foreground"><CalendarDays className="h-5 w-5" /></span>
+            <span className="min-w-0 flex-1"><span className="block text-sm font-semibold text-deep-foreground">Book a conversation</span><span className="block truncate text-xs text-deep-foreground/60">Schedule time with the AgriMinds team</span></span>
+            <ArrowUpRight className="h-4 w-4 flex-none text-deep-foreground/50 transition group-hover:text-accent" />
+          </a>
           <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-[#25D366]/60 bg-[#25D366]/15 px-5 py-4 text-left transition hover:bg-[#25D366]/25">
             <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-[#25D366] text-white"><MessageCircle className="h-5 w-5" /></span>
             <span className="min-w-0 flex-1"><span className="block text-sm font-semibold text-deep-foreground">Join our WhatsApp community</span><span className="block truncate text-xs text-deep-foreground/60">Connect with the AgriMinds movement</span></span>

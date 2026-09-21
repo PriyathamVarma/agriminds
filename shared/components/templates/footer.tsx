@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
+import { Mail, MapPin, ArrowUpRight, MessageCircle, CalendarDays } from "lucide-react";
 import { CONTACT_EMAIL, NAV_LINKS, SITE, SOCIAL_LINKS } from "@/shared/data/agriminds";
-import { WHATSAPP_GROUP_URL } from "@/shared/data/links";
+import { CALENDLY_URL, WHATSAPP_GROUP_URL } from "@/shared/data/links";
 
 // Same source as the /links page — Website is left out here since the footer already has its
 // own contact/location block.
@@ -90,6 +90,10 @@ export default function Footer() {
               <MapPin className="h-4 w-4 flex-none" />
               Visakhapatnam, Andhra Pradesh, India
             </div>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:text-accent-hover">
+              <CalendarDays className="h-4 w-4" /> Book a conversation
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
 
