@@ -86,8 +86,9 @@ export default function JoinForm() {
           />
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-1.5 block text-sm font-medium text-foreground-heading">I&apos;m interested as</label>
+          <label htmlFor="join-interest-role" className="mb-1.5 block text-sm font-medium text-foreground-heading">I&apos;m interested as</label>
           <select
+            id="join-interest-role"
             className={inputCls}
             value={role}
             onChange={(e) => setRole(e.target.value)}

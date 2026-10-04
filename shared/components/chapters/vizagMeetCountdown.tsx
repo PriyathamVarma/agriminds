@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 const TARGET = new Date("2026-10-10T16:00:00+05:30").getTime();
+const INITIAL_REMAINING = { days: 0, hours: 0, minutes: 0, seconds: 0, finished: false };
 
 function getRemaining() {
   const difference = Math.max(0, TARGET - Date.now());
@@ -16,7 +17,7 @@ function getRemaining() {
 }
 
 export default function VizagMeetCountdown() {
-  const [remaining, setRemaining] = useState(getRemaining);
+  const [remaining, setRemaining] = useState(INITIAL_REMAINING);
 
   useEffect(() => {
     const timer = window.setInterval(() => setRemaining(getRemaining()), 1000);

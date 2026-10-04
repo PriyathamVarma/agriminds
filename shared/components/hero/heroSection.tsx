@@ -14,6 +14,8 @@ export default function HeroSection() {
         alt="Farmers carrying freshly harvested rice seedlings through a misty paddy field at golden hour"
         fill
         priority
+        fetchPriority="high"
+        quality={75}
         sizes="100vw"
         className="origin-[12%_50%] scale-[1.4] object-cover"
         style={{ objectPosition: "50% 55%" }}
