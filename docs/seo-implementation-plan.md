@@ -317,9 +317,9 @@ Track:
 
 - [x] Add article author/date fields where known
 - [x] Add chapter metadata and breadcrumbs
-- [ ] Add related-content links
-- [ ] Add `noindex` to thin coming-soon pages
-- [ ] Include active chapters in sitemap
+- [x] Add related-content links
+- [x] Add `noindex` to thin coming-soon pages
+- [x] Include active chapters in sitemap
 
 ### Sprint 4 — Content and authority — in progress
 
