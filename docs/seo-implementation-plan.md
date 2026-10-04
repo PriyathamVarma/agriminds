@@ -28,9 +28,9 @@ The main technical gaps are:
 
 - ~~No sitemap route~~ (completed in Sprint 1)
 - ~~No robots route~~ (completed in Sprint 1)
-- No JSON-LD structured data (Sprint 2 in progress)
+- ~~No JSON-LD structured data~~ (completed in Sprint 2)
 - ~~No page-level canonical metadata~~ (completed for priority public routes in Sprint 1)
-- No shared breadcrumb component/schema (Sprint 2 in progress)
+- ~~No shared breadcrumb component/schema~~ (completed in Sprint 2)
 - Blog metadata does not include author, published date, or updated date
 - Chapter pages are not yet represented in a deliberate sitemap/indexing strategy
 - Coming-soon pages are thin and should not be indexed yet
@@ -169,16 +169,15 @@ Added to `/videos` for both current YouTube videos and future individual video p
 
 Only publish dates and thumbnails that are factually known.
 
-## Phase 3 — Chapter SEO
+## Phase 3 — Chapter SEO — in progress
 
 ### Active chapter pages
 
-Improve `app/(site)/chapters/[slug]/page.tsx` so every active public chapter has:
+Improved `app/(site)/chapters/[slug]/page.tsx` metadata so every active public chapter has:
 
-- Unique title: `{Chapter} | AgriMinds`
-- Unique meta description
-- Canonical URL
-- Breadcrumbs
+- Unique location-aware title and meta description
+- Canonical URL generated from the chapter slug
+- Breadcrumbs and BreadcrumbList schema
 - City, district, and state in visible text
 - Chapter mission
 - Leadership and team
@@ -223,13 +222,12 @@ Move blog article metadata into a shared data structure or CMS-ready model conta
 - `location`
 - `tags`
 
-### Article template
+### Article template — partially complete
 
-Update blog articles to show:
+Blog articles now show:
 
-- Published date
-- Updated date when applicable
-- Author
+- Published date where known
+- Author/organization attribution
 - Location/event context
 - Featured image alt text
 - Related articles
@@ -300,25 +298,25 @@ Track:
 
 ### Sprint 1 — Technical foundation
 
-- [ ] `app/sitemap.ts`
-- [ ] `app/robots.ts`
-- [ ] Canonicals for public page templates
-- [ ] Improved root metadata and social preview image
+- [x] `app/sitemap.ts`
+- [x] `app/robots.ts`
+- [x] Canonicals for public page templates
+- [x] Improved root metadata and social preview image
 - [ ] Search Console verification plan
 
 ### Sprint 2 — Structured data
 
-- [ ] Organization JSON-LD
-- [ ] WebSite JSON-LD
-- [ ] Breadcrumb component and schema
-- [ ] Article JSON-LD
-- [ ] VideoObject JSON-LD
+- [x] Organization JSON-LD
+- [x] WebSite JSON-LD
+- [x] Breadcrumb component and schema
+- [x] Article JSON-LD
+- [x] VideoObject JSON-LD
 - [ ] Validate with Google Rich Results Test
 
 ### Sprint 3 — Chapter and blog templates
 
-- [ ] Add article author/date fields
-- [ ] Add chapter metadata and breadcrumbs
+- [x] Add article author/date fields where known
+- [x] Add chapter metadata and breadcrumbs
 - [ ] Add related-content links
 - [ ] Add `noindex` to thin coming-soon pages
 - [ ] Include active chapters in sitemap

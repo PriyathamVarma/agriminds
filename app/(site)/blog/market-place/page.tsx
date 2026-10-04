@@ -26,6 +26,7 @@ export default function MarketPlacePage() {
         <JsonLd data={articleJsonLd({ headline: "Market Place: good food, stronger communities", description: "A look back at AgriMinds’ October 2026 marketplace in Vizag, where 23 agri-focused enterprises met more than 1,500 customers.", image: "https://agriminds.in/brand/market-place-event.jpeg", datePublished: "2026-10-04", url: "https://agriminds.in/blog/market-place" })} />
         <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Market Place" }]} />
         <Link href="/blog" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"><ArrowLeft className="h-4 w-4" /> Back to Blog</Link>
+        <p className="mb-4 text-sm text-foreground-muted">Published 4 October 2026 · AgriMinds Ecosystem Foundation · Vizag</p>
         <div className="grid items-end gap-10 lg:grid-cols-[1fr_0.8fr]">
           <div>
             <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">Event story · Visakhapatnam</p>

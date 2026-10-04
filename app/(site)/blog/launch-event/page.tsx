@@ -20,6 +20,7 @@ export default function LaunchEventPage() {
       <section className="mx-auto max-w-6xl px-5 pt-24 pb-14 sm:px-8 sm:pt-32">
         <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Our Launch Event" }]} />
         <Link href="/blog" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"><ArrowLeft className="h-4 w-4" /> Back to Blog</Link>
+        <p className="mb-4 text-sm text-foreground-muted">AgriMinds Ecosystem Foundation · Vizag</p>
         <SectionHeading
           eyebrow="From the Community"
           title="Our Launch Event"

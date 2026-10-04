@@ -20,7 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   await connectToDatabase();
   const chapter = await Chapter.findOne({ slug, status: "active", isPublic: true }).lean();
   if (!chapter) return { title: `Chapter — ${SITE.name}` };
-  return { title: `${chapter.name} — ${SITE.name}`, description: chapter.description || `The ${chapter.name} chapter of the AgriMinds Ecosystem Foundation.` };
+  const location = [chapter.city, chapter.district, chapter.state].filter(Boolean).join(", ");
+  return { title: `${chapter.name} | Agriculture Entrepreneurship Network | ${SITE.name}`, description: chapter.description || `Connect with the ${chapter.name} chapter of the AgriMinds Ecosystem Foundation${location ? ` in ${location}` : ""}. Meet farmers, FPOs, founders, mentors, and institutions building stronger agri-enterprises.`, alternates: { canonical: `/chapters/${slug}` }, openGraph: { title: `${chapter.name} | ${SITE.name}`, description: chapter.description || `The ${chapter.name} chapter of the AgriMinds Ecosystem Foundation.` } };
 }
 
 export default async function PublicChapterPage({ params }: { params: Promise<{ slug: string }> }) {
