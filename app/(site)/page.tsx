@@ -9,6 +9,7 @@ import {
   ROADMAP_PHASES,
   SUCCESS_METRICS,
 } from "@/shared/data/agriminds";
+import Link from "next/link";
 import { WHATSAPP_GROUP_URL } from "@/shared/data/links";
 import SectionHeading from "@/shared/components/molecules/sectionHeading";
 import FadeIn from "@/shared/components/molecules/fadeIn";
@@ -158,6 +159,23 @@ export default function Home() {
       </section>
 
       <ChapterModelSection imageSrc={IMAGES.chapterModel} points={CHAPTER_MODEL_POINTS} />
+
+      {/* Key destinations — explicit internal links help visitors and search engines discover the site's main sections. */}
+      <section className="border-y border-border bg-surface px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="Explore AgriMinds"
+            title="Find the right place to start"
+            description="Explore our chapters, stories, videos, partners, and community links."
+          />
+          <nav aria-label="AgriMinds sections" className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {["Chapters", "Blog", "Videos", "Partners", "Links"].map((label) => {
+              const href = `/${label.toLowerCase()}`;
+              return <Link key={href} href={href} className="rounded-2xl border border-border bg-surface-card px-5 py-4 text-sm font-semibold text-foreground-heading transition hover:-translate-y-0.5 hover:border-accent hover:text-primary">{label} <span aria-hidden="true">→</span></Link>;
+            })}
+          </nav>
+        </div>
+      </section>
 
       {/* Roadmap — alternating timeline */}
       <section id="roadmap" className="bg-surface py-24 sm:py-32">
