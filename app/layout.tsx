@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: { default: `${SITE.name} — ${SITE.tagline}`, template: `%s | ${SITE.name}` },
   description: SITE.description,
-  metadataBase: new URL("https://agriminds.in"),
+  metadataBase: new URL("https://agriminds.org"),
   alternates: { canonical: "/" },
   applicationName: SITE.name,
   verification: { google: "BPLak2nrygxbpPmuhJu0sANOKrZEjU-4RzNYBvhdXR8" },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
     type: "website",
-    url: "https://agriminds.in/",
+    url: "https://agriminds.org/",
     siteName: SITE.name,
     images: [{ url: "/brand/images/hero-banner.webp", width: 1600, height: 900, alt: "AgriMinds — From Farm to Enterprise" }],
   },

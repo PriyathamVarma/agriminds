@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { connectToDatabase } from "@/shared/lib/mongodb";
 import { Chapter } from "@/shared/models/chapter";
 
-const BASE_URL = "https://agriminds.in";
+const BASE_URL = "https://agriminds.org";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes = ["/", "/chapters", "/blog", "/blog/launch-event", "/blog/market-place", "/videos", "/partners", "/links", "/chapters/vizag/meets/ai-in-agri-future"];

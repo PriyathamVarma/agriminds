@@ -82,7 +82,7 @@ Use `alternates.canonical` in `metadata` or `generateMetadata` for all public pa
 
 Canonical URL policy:
 
-- Use `https://agriminds.in` as the metadata base
+- Use `https://agriminds.org` as the metadata base
 - Keep one canonical URL per chapter and article
 - Avoid query-string URLs as canonicals
 - Keep trailing-slash behavior consistent
