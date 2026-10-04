@@ -15,7 +15,7 @@ export default function HeroSection() {
         fill
         priority
         fetchPriority="high"
-        quality={75}
+        quality={60}
         sizes="100vw"
         className="origin-[12%_50%] scale-[1.4] object-cover"
         style={{ objectPosition: "50% 55%" }}

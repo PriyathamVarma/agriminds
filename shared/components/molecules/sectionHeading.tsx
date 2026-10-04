@@ -20,7 +20,7 @@ export default function SectionHeading({
           className={cx(
             "flex items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase",
             align === "center" && "justify-center",
-            tone === "dark" ? "text-accent" : "text-accent",
+            tone === "dark" ? "text-accent" : "text-primary",
           )}
         >
           <span className="h-px w-8 bg-current" />

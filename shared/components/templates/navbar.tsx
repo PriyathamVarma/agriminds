@@ -81,7 +81,6 @@ export default function Navbar() {
             alt={SITE.name}
             width={612}
             height={139}
-            priority
             className="h-9 w-auto object-contain"
           />
           {/* Overlay — forced to pure white via filter (brightness(0) then invert(1) turns any

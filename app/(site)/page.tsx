@@ -64,7 +64,7 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <SectionHeading eyebrow="Why We Exist" title="Vision & Mission" />
-            <p className="font-display mt-5 max-w-md text-xl leading-snug text-accent italic">
+            <p className="font-display mt-5 max-w-md text-xl leading-snug text-primary italic">
               &ldquo;{NORTH_STAR}&rdquo;
             </p>
             <div className="mt-9 space-y-9">
