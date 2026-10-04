@@ -61,6 +61,16 @@ export default function ChaptersDirectory() {
 
         <div className="mt-10"><VizagMeetCard /></div>
 
+        <div className="mt-14">
+          <div className="flex items-end justify-between gap-4">
+            <div><p className="text-xs font-semibold tracking-[0.18em] text-accent uppercase">Expanding next</p><h2 className="font-display mt-2 text-2xl font-semibold text-foreground-heading sm:text-3xl">Upcoming chapters</h2></div>
+            <p className="hidden text-sm text-foreground-muted sm:block">New local networks are taking shape.</p>
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {["Vijayawada", "Kurnool", "Tirupati"].map((city) => <Link key={city} href={`/chapters/${city.toLowerCase()}`} className="group rounded-2xl border border-border bg-surface-card p-5 transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg"><div className="flex items-center justify-between"><MapPin className="h-5 w-5 text-accent" /><ArrowRight className="h-4 w-4 text-foreground-muted transition group-hover:translate-x-1 group-hover:text-accent" /></div><h3 className="font-display mt-6 text-xl font-semibold text-foreground-heading group-hover:text-accent">{city}</h3><p className="mt-1 text-sm text-foreground-muted">Chapter coming soon</p></Link>)}
+          </div>
+        </div>
+
         <div className="mx-auto mt-12 flex max-w-3xl flex-wrap items-center justify-center gap-3">
         <div className="relative flex-1 min-w-[220px]">
           <Search className="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-foreground-muted" />
