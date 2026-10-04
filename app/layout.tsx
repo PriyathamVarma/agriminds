@@ -3,6 +3,7 @@ import { Ubuntu, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { SITE } from "@/shared/data/agriminds";
+import { JsonLd, ORGANIZATION_JSON_LD, WEBSITE_JSON_LD } from "@/shared/components/seo/jsonLd";
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -17,14 +18,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${SITE.name} — ${SITE.tagline}`,
+  title: { default: `${SITE.name} — ${SITE.tagline}`, template: `%s | ${SITE.name}` },
   description: SITE.description,
   metadataBase: new URL("https://agriminds.in"),
+  alternates: { canonical: "/" },
+  applicationName: SITE.name,
   openGraph: {
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
     type: "website",
+    url: "https://agriminds.in/",
+    siteName: SITE.name,
+    images: [{ url: "/brand/images/hero-banner.webp", width: 1600, height: 900, alt: "AgriMinds — From Farm to Enterprise" }],
   },
+  twitter: { card: "summary_large_image", title: `${SITE.name} — ${SITE.tagline}`, description: SITE.description, images: ["/brand/images/hero-banner.webp"] },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -34,6 +41,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${ubuntu.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background">
+        <JsonLd data={ORGANIZATION_JSON_LD} />
+        <JsonLd data={WEBSITE_JSON_LD} />
         {children}
         <Toaster
           position="top-right"

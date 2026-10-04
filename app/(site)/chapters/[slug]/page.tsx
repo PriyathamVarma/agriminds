@@ -13,6 +13,7 @@ import { SITE } from "@/shared/data/agriminds";
 import { NEXT_VIZAG_MEET, VIZAG_MEET_PHOTOS } from "@/shared/data/vizagMeet";
 import { VIZAG_WHATSAPP_GROUP_URL } from "@/shared/data/links";
 import { VIZAG_MEET_RSVP_URL } from "@/shared/data/links";
+import Breadcrumbs from "@/shared/components/seo/breadcrumbs";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -58,6 +59,7 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
     <div className="bg-background">
       <section className="bg-deep py-20 text-deep-foreground sm:py-28">
         <div className="mx-auto max-w-5xl px-5 sm:px-8">
+          <Breadcrumbs items={[{ name: "Chapters", href: "/chapters" }, { name: chapter.name }]} />
           <div className="flex items-center gap-2 text-xs font-semibold tracking-wide text-accent uppercase">
             <BadgeCheck className="h-4 w-4" />
             Verified AgriMinds chapter

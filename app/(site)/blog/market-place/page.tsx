@@ -4,10 +4,13 @@ import Link from "next/link";
 import { ArrowLeft, CalendarDays, MapPin, Play, ShoppingBag, Users, Store } from "lucide-react";
 import { SITE } from "@/shared/data/agriminds";
 import MarketPlaceGallery from "@/shared/components/blog/marketPlaceGallery";
+import Breadcrumbs from "@/shared/components/seo/breadcrumbs";
+import { JsonLd, articleJsonLd } from "@/shared/components/seo/jsonLd";
 
 export const metadata: Metadata = {
   title: `Market Place — ${SITE.name}`,
   description: "A look back at AgriMinds’ October 2026 marketplace in Vizag, where 23 agri-focused enterprises met more than 1,500 customers.",
+  alternates: { canonical: "/blog/market-place" },
 };
 
 const STATS = [
@@ -20,6 +23,8 @@ export default function MarketPlacePage() {
   return (
     <article>
       <section className="mx-auto max-w-6xl px-5 pt-24 pb-12 sm:px-8 sm:pt-32">
+        <JsonLd data={articleJsonLd({ headline: "Market Place: good food, stronger communities", description: "A look back at AgriMinds’ October 2026 marketplace in Vizag, where 23 agri-focused enterprises met more than 1,500 customers.", image: "https://agriminds.in/brand/market-place-event.jpeg", datePublished: "2026-10-04", url: "https://agriminds.in/blog/market-place" })} />
+        <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Market Place" }]} />
         <Link href="/blog" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"><ArrowLeft className="h-4 w-4" /> Back to Blog</Link>
         <div className="grid items-end gap-10 lg:grid-cols-[1fr_0.8fr]">
           <div>

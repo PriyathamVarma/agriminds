@@ -5,6 +5,7 @@ import ChaptersDirectory from "@/shared/components/chapters/chaptersDirectory";
 export const metadata: Metadata = {
   title: `Chapters — ${SITE.name}`,
   description: "Find an AgriMinds chapter near you, or apply to join the movement.",
+  alternates: { canonical: "/chapters" },
 };
 
 export default function ChaptersDirectoryPage() {

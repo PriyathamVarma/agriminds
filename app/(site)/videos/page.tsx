@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Play } from "lucide-react";
 import { SITE } from "@/shared/data/agriminds";
+import Breadcrumbs from "@/shared/components/seo/breadcrumbs";
+import { JsonLd, videoJsonLd } from "@/shared/components/seo/jsonLd";
 
 export const metadata: Metadata = {
   title: `Videos — ${SITE.name}`,
   description: "Watch videos about AgriMinds, its community, and the enterprises it supports.",
+  alternates: { canonical: "/videos" },
 };
 
 const VIDEOS = [
@@ -16,6 +19,9 @@ const VIDEOS = [
 export default function VideosPage() {
   return (
     <main className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
+      <JsonLd data={videoJsonLd({ name: "AgriMinds Market Place", description: "A look at the October 2026 marketplace in Vizag.", videoId: "QcpPkA22df8" })} />
+      <JsonLd data={videoJsonLd({ name: "Telling the AgriMinds story", description: "A video about AgriMinds and the ecosystem it is building.", videoId: "KjO2CIx2ck8" })} />
+      <Breadcrumbs items={[{ name: "Videos" }]} />
       <Link href="/" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"><ArrowLeft className="h-4 w-4" /> Back to Home</Link>
       <div className="max-w-3xl"><p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">Watch and learn</p><h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-foreground-heading sm:text-6xl">Videos about AgriMinds</h1><p className="mt-6 text-lg leading-relaxed text-foreground-body">Stories from our events, community, and the people working to build stronger agri-enterprises.</p></div>
       <div className="mt-14 grid gap-8 lg:grid-cols-2">

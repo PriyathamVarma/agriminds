@@ -7,6 +7,7 @@ import SectionHeading from "@/shared/components/molecules/sectionHeading";
 export const metadata: Metadata = {
   title: `Blog — ${SITE.name}`,
   description: "Stories, event highlights, and updates from the AgriMinds community.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {
