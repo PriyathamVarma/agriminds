@@ -53,7 +53,7 @@ export default function Navbar() {
     },
     {
       label: "Community",
-      links: NAV_LINKS.filter((link) => ["Chapters", "Our Team", "Blog", "Videos"].includes(link.label)),
+      links: NAV_LINKS.filter((link) => ["Chapters", "Our Team", "Blog", "Videos", "Partners"].includes(link.label)),
     },
   ];
 

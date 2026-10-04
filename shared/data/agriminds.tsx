@@ -89,6 +89,7 @@ export const NAV_LINKS = [
   { label: "Our Team", href: "/team" },
   { label: "Blog", href: "/blog" },
   { label: "Videos", href: "/videos" },
+  { label: "Partners", href: "/partners" },
   { label: "Links", href: "/links" },
   { label: "Join Us", href: WHATSAPP_GROUP_URL },
 ];

@@ -22,6 +22,7 @@ The site already has useful indexable content:
 - `/blog/launch-event`
 - `/blog/market-place`
 - `/videos`
+- `/partners`
 - `/links`
 
 The main technical gaps are:
@@ -325,6 +326,7 @@ Track:
 
 - [ ] Publish 2–4 useful articles per month
 - [x] Add related-content links between chapters, articles, and videos
+- [x] Add a public partner directory with official outbound links
 - [ ] Create local pages only when unique content exists
 - [ ] Request partner backlinks
 - [ ] Review Search Console queries and improve titles/descriptions
