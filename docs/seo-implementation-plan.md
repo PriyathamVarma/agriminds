@@ -207,9 +207,9 @@ For `/chapters/vijayawada`, `/chapters/kurnool`, and `/chapters/tirupati`:
 
 ## Phase 4 — Blog SEO — in progress
 
-### Article content model
+### Article content model — first pass complete
 
-Move blog article metadata into a shared data structure or CMS-ready model containing:
+Blog index metadata now lives in `shared/data/blog.ts`, providing a CMS-ready starting point containing:
 
 - `slug`
 - `title`
@@ -217,11 +217,10 @@ Move blog article metadata into a shared data structure or CMS-ready model conta
 - `eyebrow`
 - `author`
 - `datePublished`
-- `dateModified`
-- `heroImage`
 - `category`
 - `location`
-- `tags`
+
+Add publication dates, updated dates, hero images, and tags as new articles are created.
 
 ### Article template — partially complete
 
@@ -327,8 +326,10 @@ Track:
 - [ ] Publish 2–4 useful articles per month
 - [x] Add related-content links between chapters, articles, and videos
 - [x] Add a public partner directory with official outbound links
+- [x] Add Picxy and GAME to the partner directory
+- [x] Create a shared blog content taxonomy for article categories and locations
 - [ ] Create local pages only when unique content exists
-- [ ] Request partner backlinks
+- [ ] Request partner backlinks using `docs/partner-outreach-seo-pack.md`
 - [ ] Review Search Console queries and improve titles/descriptions
 
 ## Definition of done

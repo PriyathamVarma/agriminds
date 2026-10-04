@@ -15,6 +15,8 @@ const PARTNERS = [
   { name: "AP MSME ONE", shortName: "AP MSME", description: "Andhra Pradesh’s MSME-focused platform for enterprise support, information, and access to state-level resources.", href: "https://apmsmeone.ap.gov.in/" },
   { name: "SERP Andhra Pradesh", shortName: "SERP", description: "The Andhra Pradesh rural development network supporting community-led livelihoods and enterprise development.", href: "https://www.serp.ap.gov.in/" },
   { name: "Native Araku Coffee", shortName: "Araku Coffee", description: "A regional coffee enterprise representing the value of origin, farmer communities, and market-ready agricultural products.", href: "https://nativearakucoffee.com/" },
+  { name: "Picxy", shortName: "Picxy", description: "A visual media platform that can help surface authentic stories and imagery from agriculture, communities, and enterprise-building work.", href: "https://www.picxy.com/" },
+  { name: "Global Alliance for Mass Entrepreneurship", shortName: "GAME", description: "A mass-entrepreneurship ecosystem builder focused on district-level entrepreneurship, women’s economic empowerment, markets, finance, and technology.", href: "https://massentrepreneurship.org/" },
 ];
 
 export default function PartnersPage() {
