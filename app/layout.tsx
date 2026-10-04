@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://agriminds.in"),
   alternates: { canonical: "/" },
   applicationName: SITE.name,
+  verification: { google: "BPLak2nrygxbpPmuhJu0sANOKrZEjU-4RzNYBvhdXR8" },
   openGraph: {
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
