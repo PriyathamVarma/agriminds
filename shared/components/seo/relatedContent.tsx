@@ -1,0 +1,6 @@
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+
+export default function RelatedContent({ items }: { items: Array<{ eyebrow: string; title: string; href: string; description: string }> }) {
+  return <section className="mx-auto max-w-6xl px-5 py-14 sm:px-8"><p className="text-xs font-semibold tracking-[0.18em] text-accent uppercase">Continue exploring</p><h2 className="font-display mt-3 text-2xl font-semibold text-foreground-heading sm:text-3xl">Related stories and community links</h2><div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{items.map((item) => <Link key={item.href} href={item.href} className="group rounded-2xl border border-border bg-surface-card p-5 transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg"><p className="text-xs font-semibold tracking-wide text-primary uppercase">{item.eyebrow}</p><h3 className="font-display mt-3 text-lg font-semibold text-foreground-heading group-hover:text-accent">{item.title}</h3><p className="mt-2 text-sm leading-relaxed text-foreground-body">{item.description}</p><span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary">Explore <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></span></Link>)}</div></section>;
+}

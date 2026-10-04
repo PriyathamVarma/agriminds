@@ -14,6 +14,7 @@ import { NEXT_VIZAG_MEET, VIZAG_MEET_PHOTOS } from "@/shared/data/vizagMeet";
 import { VIZAG_WHATSAPP_GROUP_URL } from "@/shared/data/links";
 import { VIZAG_MEET_RSVP_URL } from "@/shared/data/links";
 import Breadcrumbs from "@/shared/components/seo/breadcrumbs";
+import RelatedContent from "@/shared/components/seo/relatedContent";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -211,6 +212,8 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
           </div>
         </section>
       ) : null}
+
+      <RelatedContent items={[{ eyebrow: "Network", title: "Explore all chapters", href: "/chapters", description: "Find other AgriMinds chapters and upcoming local networks." }, { eyebrow: "Stories", title: "Read the AgriMinds blog", href: "/blog", description: "Follow events, milestones, and enterprise stories from the community." }, { eyebrow: "Videos", title: "Watch AgriMinds", href: "/videos", description: "See the people and events building the ecosystem." }]} />
 
     </div>
   );

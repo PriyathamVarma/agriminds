@@ -204,7 +204,7 @@ For `/chapters/vijayawada`, `/chapters/kurnool`, and `/chapters/tirupati`:
 - Add `robots: { index: false, follow: true }` while content is minimal
 - Remove `noindex` once each page has a local lead, mission, contact path, events, or other substantive content
 
-## Phase 4 — Blog SEO
+## Phase 4 — Blog SEO — in progress
 
 ### Article content model
 
@@ -244,7 +244,7 @@ Example:
 
 The page can still use a more editorial headline visually, but the metadata title and description should communicate the search intent clearly.
 
-### Content clusters
+### Content clusters — first internal-linking pass complete
 
 Build internal links around these clusters:
 
@@ -255,7 +255,7 @@ Build internal links around these clusters:
 - Agri-tech and AI
 - Andhra Pradesh regional chapters
 
-Every article should link to at least one related chapter and one related article where relevant.
+The launch-event and marketplace articles now link to related chapters, stories, and videos. Active chapter pages also link back into the blog, videos, and chapter directory. Continue expanding these links as new content is published.
 
 ## Phase 5 — Local and authority signals
 
@@ -321,9 +321,10 @@ Track:
 - [ ] Add `noindex` to thin coming-soon pages
 - [ ] Include active chapters in sitemap
 
-### Sprint 4 — Content and authority
+### Sprint 4 — Content and authority — in progress
 
 - [ ] Publish 2–4 useful articles per month
+- [x] Add related-content links between chapters, articles, and videos
 - [ ] Create local pages only when unique content exists
 - [ ] Request partner backlinks
 - [ ] Review Search Console queries and improve titles/descriptions

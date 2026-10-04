@@ -6,6 +6,7 @@ import { SITE } from "@/shared/data/agriminds";
 import MarketPlaceGallery from "@/shared/components/blog/marketPlaceGallery";
 import Breadcrumbs from "@/shared/components/seo/breadcrumbs";
 import { JsonLd, articleJsonLd } from "@/shared/components/seo/jsonLd";
+import RelatedContent from "@/shared/components/seo/relatedContent";
 
 export const metadata: Metadata = {
   title: `Market Place — ${SITE.name}`,
@@ -58,6 +59,8 @@ export default function MarketPlacePage() {
       </section>
 
       <MarketPlaceGallery />
+
+      <RelatedContent items={[{ eyebrow: "Chapter", title: "Explore the Vizag chapter", href: "/chapters/vizag", description: "Meet the founding chapter and follow its local ecosystem work." }, { eyebrow: "Story", title: "Our Launch Event", href: "/blog/launch-event", description: "See where the AgriMinds movement began in Vizag." }, { eyebrow: "Video", title: "Watch AgriMinds videos", href: "/videos", description: "Watch event coverage and stories from the community." }]} />
 
       <section className="bg-deep">
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-5 py-14 sm:flex-row sm:items-center sm:justify-between sm:px-8">

@@ -7,6 +7,7 @@ import LaunchEventHighlights from "@/shared/components/blog/launchEventHighlight
 import LaunchEventGallery from "@/shared/components/blog/launchEventGallery";
 import LaunchEventSpeakers from "@/shared/components/blog/launchEventSpeakers";
 import Breadcrumbs from "@/shared/components/seo/breadcrumbs";
+import RelatedContent from "@/shared/components/seo/relatedContent";
 
 export const metadata: Metadata = {
   title: `Our Launch Event — ${SITE.name}`,
@@ -30,6 +31,7 @@ export default function LaunchEventPage() {
       <LaunchEventHighlights />
       <LaunchEventGallery />
       <LaunchEventSpeakers />
+      <RelatedContent items={[{ eyebrow: "Chapter", title: "Explore all chapters", href: "/chapters", description: "Find the growing local network around AgriMinds." }, { eyebrow: "Story", title: "Market Place in Vizag", href: "/blog/market-place", description: "Read about 23 enterprises meeting more than 1,500 visitors." }, { eyebrow: "Video", title: "Watch AgriMinds videos", href: "/videos", description: "Watch the events and stories behind the ecosystem." }]} />
     </>
   );
 }
