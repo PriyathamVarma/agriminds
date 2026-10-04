@@ -53,7 +53,7 @@ export default function Navbar() {
     },
     {
       label: "Community",
-      links: NAV_LINKS.filter((link) => ["Chapters", "Our Team", "Blog"].includes(link.label)),
+      links: NAV_LINKS.filter((link) => ["Chapters", "Our Team", "Blog", "Videos"].includes(link.label)),
     },
   ];
 
@@ -179,7 +179,9 @@ export default function Navbar() {
               {group.links.map((link) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface">{link.label}</Link>)}
             </div>
           ))}
-          <Link href="/links" onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface">Links</Link>
+          <Link href="/links" onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface">
+            Links
+          </Link>
           <Link href="/login" onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface">
             Sign in
           </Link>
