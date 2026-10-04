@@ -19,8 +19,8 @@ const VIDEOS = [
 export default function VideosPage() {
   return (
     <main className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-      <JsonLd data={videoJsonLd({ name: "AgriMinds Market Place", description: "A look at the October 2026 marketplace in Vizag.", videoId: "QcpPkA22df8" })} />
-      <JsonLd data={videoJsonLd({ name: "Telling the AgriMinds story", description: "A video about AgriMinds and the ecosystem it is building.", videoId: "KjO2CIx2ck8" })} />
+      <JsonLd data={videoJsonLd({ name: "AgriMinds Market Place", description: "A look at the October 2026 marketplace in Vizag.", videoId: "QcpPkA22df8", uploadDate: "2026-10-02" })} />
+      <JsonLd data={videoJsonLd({ name: "Telling the AgriMinds story", description: "A video about AgriMinds and the ecosystem it is building.", videoId: "KjO2CIx2ck8", uploadDate: "2026-10-04" })} />
       <Breadcrumbs items={[{ name: "Videos" }]} />
       <Link href="/" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"><ArrowLeft className="h-4 w-4" /> Back to Home</Link>
       <div className="max-w-3xl"><p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">Watch and learn</p><h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-foreground-heading sm:text-6xl">Videos about AgriMinds</h1><p className="mt-6 text-lg leading-relaxed text-foreground-body">Stories from our events, community, and the people working to build stronger agri-enterprises.</p></div>
