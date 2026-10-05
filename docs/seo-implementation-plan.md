@@ -274,8 +274,8 @@ Prioritize real partner and local institution links over generic directory submi
 
 ### Search Console setup
 
-1. Verify `agriminds.in` in Google Search Console.
-2. Submit `https://agriminds.in/sitemap.xml`.
+1. Verify `agriminds.org` in Google Search Console.
+2. Submit `https://agriminds.org/sitemap.xml`.
 3. Inspect the homepage, `/chapters`, `/chapters/vizag`, and both published blog articles.
 4. Request indexing for newly published priority pages.
 
@@ -331,6 +331,124 @@ Track:
 - [ ] Create local pages only when unique content exists
 - [ ] Request partner backlinks using `docs/partner-outreach-seo-pack.md`
 - [ ] Review Search Console queries and improve titles/descriptions
+
+## Phase 5A — Next SEO growth programme
+
+The technical foundation is strong. The next gains should come from original local content, trusted references, and consistent measurement rather than producing large volumes of generic articles.
+
+### Priority 1 — Build substantive chapter pages
+
+For each active chapter, add unique local information:
+
+- City, district, and Andhra Pradesh agriculture context
+- Chapter mission and local leadership
+- Upcoming and past events
+- Member, farmer, FPO, or enterprise stories
+- Local impact metrics and photographs
+- Contact, application, or chapter participation path
+
+Keep Vijayawada, Kurnool, and Tirupati as `noindex` until they contain enough unique local content. Do not create location pages that differ only by city name.
+
+### Priority 2 — Create content clusters
+
+Publish useful, first-hand articles around:
+
+- FPO development in Andhra Pradesh
+- Agripreneurship in Vizag
+- Farmer-to-enterprise journeys
+- Agri-food marketplace events
+- Value addition and food processing
+- AI and technology in agriculture
+- Rural entrepreneurship and market access
+
+Each article should link to at least one relevant chapter, event, partner, video, and participation page where appropriate. Use real authors, dates, photographs, quotes, outcomes, and source information.
+
+Recommended publishing pace: two genuinely useful articles per month, reviewed for accuracy before publication. Do not use AI to create large volumes of thin, search-first content.
+
+### Priority 3 — Add local and event discovery signals
+
+- Create or maintain an eligible Google Business Profile.
+- Keep the organization name, address, phone, website, and social profiles consistent.
+- Add `Event` structured data to confirmed public events with matching visible event details.
+- Add local chapter and event information to relevant partner and community pages.
+- Request legitimate links from event hosts, speakers, partners, institutions, and participating enterprises.
+
+Prioritize relevant references from real organizations over generic directory submissions or purchased links.
+
+### Priority 4 — Improve authority and trust
+
+- Add clear author or organization attribution to articles.
+- Link author names to real profile or team pages where useful.
+- Document how event numbers, impact metrics, and claims were collected.
+- Add an About, contact, and organization information path that is easy to find.
+- Use original photographs and first-hand reporting for events and community stories.
+- Keep partner descriptions factual and avoid implying endorsements that do not exist.
+
+### Priority 5 — Improve titles and click-through rate
+
+Review pages with high impressions and low click-through rate in Search Console. Prefer specific titles such as:
+
+- `AgriMinds Vizag Chapter | Agriculture Entrepreneurship Network`
+- `Market Place Vizag | 23 Agri Enterprises and 1,500 Visitors`
+- `AgriMinds Partners | Agriculture and Rural Enterprise Ecosystem`
+- `AgriMinds Videos | Farmers, Events, and Agri-Enterprise Stories`
+
+Titles must remain accurate and readable. Do not add keywords that are not supported by the page content.
+
+### Priority 6 — Video and image SEO
+
+- Add a written summary, date, event, location, and participants below each video embed.
+- Keep every `VideoObject` upload date, thumbnail, URL, and description accurate.
+- Use descriptive image filenames and useful alt text.
+- Serve compressed WebP/AVIF images at an appropriate display size.
+- Use event and location context naturally in captions and surrounding text.
+
+### Priority 7 — Measurement and monthly review
+
+Review Search Console monthly and after major content releases:
+
+- Indexed pages and excluded pages
+- Impressions, clicks, CTR, and average position by URL
+- Queries containing AgriMinds, Vizag, Andhra Pradesh, chapters, FPOs, and events
+- Pages marked `Crawled — currently not indexed`
+- Structured-data enhancements and errors
+- Core Web Vitals and mobile usability
+- Chapter applications, event registrations, partner enquiries, and WhatsApp joins
+
+The primary business outcomes are qualified participation, partnerships, and community growth—not traffic alone.
+
+## Next sprint sequence
+
+### Sprint 5 — Chapter and local SEO
+
+- [x] Expand the Vizag meet page with unique local content and evidence
+- [x] Target the natural phrase “Agripreneur Meet in Vizag” in the Vizag meet metadata and heading
+- [x] Add Event schema to the completed Vizag agripreneur meet
+- [ ] Confirm indexing and metadata for the Vizag chapter
+- [ ] Keep Vijayawada, Kurnool, and Tirupati noindex until substantive content exists
+- [ ] Add confirmed upcoming event data and validate Event schema
+
+### Sprint 6 — Original content programme
+
+- [ ] Publish two original farmer/FPO or enterprise case studies
+- [ ] Add real author, date, location, image, and related links
+- [ ] Connect each article to chapters, events, videos, and partners
+- [ ] Add article entries to the sitemap automatically through the content model
+
+### Sprint 7 — Authority and distribution
+
+- [ ] Prepare partner-specific outreach using `docs/partner-outreach-seo-pack.md`
+- [ ] Request relevant links from event hosts and participating organizations
+- [ ] Publish LinkedIn summaries that link back to the canonical website articles
+- [ ] Record referral traffic and assisted conversions in analytics
+
+### Sprint 8 — Review and optimization
+
+- [ ] Export Search Console query and page data
+- [ ] Improve titles/descriptions for high-impression, low-CTR pages
+- [ ] Validate all structured data in the Rich Results Test
+- [ ] Re-run mobile and desktop PageSpeed tests
+- [ ] Fix any new crawl, accessibility, hydration, or Core Web Vitals issues
 
 ## Definition of done
 

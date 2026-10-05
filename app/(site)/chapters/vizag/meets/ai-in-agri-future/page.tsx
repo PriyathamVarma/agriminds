@@ -3,10 +3,12 @@ import Image from "next/image";
 import { VIZAG_MEET_PHOTOS } from "@/shared/data/vizagMeet";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { JsonLd, eventJsonLd } from "@/shared/components/seo/jsonLd";
 
 export const metadata: Metadata = {
-  title: "AI in Agri: The Future — Vizag Chapter | AgriMinds",
-  description: "Highlights and photos from the Vizag chapter’s agripreneurship meet on 12 September 2026 at RTIH: AI in agriculture and food-processing startup opportunities.",
+  title: "Agripreneur Meet in Vizag: AI in Agri | AgriMinds",
+  description: "Highlights and photos from AgriMinds’ Agripreneur Meet in Vizag on 12 September 2026 at RTIH, covering AI in agriculture and food-processing startup opportunities.",
+  alternates: { canonical: "/chapters/vizag/meets/ai-in-agri-future" },
 };
 const sessions = [
   {
@@ -35,12 +37,13 @@ const sessions = [
 export default function VizagMeetPage() {
   return (
     <div className="bg-background">
+      <JsonLd data={eventJsonLd({ name: "Agripreneur Meet in Vizag: AI in Agri", description: "AgriMinds’ Vizag agripreneur meet exploring AI in agriculture and food-processing startup opportunities.", startDate: "2026-09-12T16:00:00+05:30", endDate: "2026-09-12T19:00:00+05:30", location: "RTIH, Vizag", url: "https://agriminds.org/chapters/vizag/meets/ai-in-agri-future", image: VIZAG_MEET_PHOTOS[0].src })} />
       <section className="bg-deep py-16 text-deep-foreground sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <div>
             <Link href="/chapters" className="inline-flex items-center gap-2 text-sm text-deep-foreground/80 hover:underline"><ArrowLeft className="h-4 w-4" /> All chapters</Link>
-            <p className="mt-10 text-xs font-semibold tracking-widest text-accent uppercase">Vizag chapter · Agripreneurship meet</p>
-            <h1 className="font-display mt-4 text-4xl font-semibold leading-tight sm:text-6xl">AI in Agri: The Future</h1>
+            <p className="mt-10 text-xs font-semibold tracking-widest text-accent uppercase">Agripreneur Meet in Vizag · Vizag chapter</p>
+            <h1 className="font-display mt-4 text-4xl font-semibold leading-tight sm:text-6xl">Agripreneur Meet in Vizag: AI in Agri</h1>
             <p className="mt-5 text-xl text-deep-foreground/90">From smarter farms to stronger agribusinesses.</p>
             <p className="mt-7 text-sm text-deep-foreground/80"><time dateTime="2026-09-12">12 September 2026</time> · 4–7 PM IST · RTIH, Vizag</p>
             <p className="mt-6 max-w-xl leading-relaxed text-deep-foreground/85">The Vizag chapter’s meet brought AI in agriculture and food entrepreneurship into focus, connecting practical technology applications with opportunities to build stronger agri-food enterprises.</p>
