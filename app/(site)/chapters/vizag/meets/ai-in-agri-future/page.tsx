@@ -37,7 +37,7 @@ const sessions = [
 export default function VizagMeetPage() {
   return (
     <div className="bg-background">
-      <JsonLd data={eventJsonLd({ name: "Agripreneur Meet in Vizag: AI in Agri", description: "AgriMinds’ Vizag agripreneur meet exploring AI in agriculture and food-processing startup opportunities.", startDate: "2026-09-12T16:00:00+05:30", endDate: "2026-09-12T19:00:00+05:30", location: "RTIH, Vizag", url: "https://agriminds.org/chapters/vizag/meets/ai-in-agri-future", image: VIZAG_MEET_PHOTOS[0].src })} />
+      <JsonLd data={eventJsonLd({ name: "Agripreneur Meet in Vizag: AI in Agri", description: "AgriMinds’ Vizag agripreneur meet exploring AI in agriculture and food-processing startup opportunities.", startDate: "2026-09-12T16:00:00+05:30", endDate: "2026-09-12T19:00:00+05:30", location: "RTIH, Vizag", address: "5th Floor, VMRDA – The Deck, Siripuram", url: "https://agriminds.org/chapters/vizag/meets/ai-in-agri-future", image: VIZAG_MEET_PHOTOS[0].src })} />
       <section className="bg-deep py-16 text-deep-foreground sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <div>
