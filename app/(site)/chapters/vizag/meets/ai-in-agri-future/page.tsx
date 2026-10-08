@@ -7,7 +7,7 @@ import { JsonLd, eventJsonLd } from "@/shared/components/seo/jsonLd";
 
 export const metadata: Metadata = {
   title: "Agripreneur Meet in Vizag: AI in Agri | AgriMinds",
-  description: "Highlights and photos from AgriMinds’ Agripreneur Meet in Vizag on 12 September 2026 at RTIH, covering AI in agriculture and food-processing startup opportunities.",
+  description: "Highlights and photos from AgriMinds’ Agripreneur Meet in Vizag on 12 September 2026 at RTIH, showing how agripreneurs in Vizag are using AI in agriculture and food-processing startup opportunities.",
   alternates: { canonical: "/chapters/vizag/meets/ai-in-agri-future" },
 };
 const sessions = [

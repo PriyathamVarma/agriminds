@@ -19,14 +19,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: { default: `${SITE.name} — ${SITE.tagline}`, template: `%s | ${SITE.name}` },
-  description: SITE.description,
+  description: `${SITE.description} Discover agripreneurship in Vizag and connect with agripreneurs in Vizag through the AgriMinds ecosystem.`,
+  keywords: ["agripreneurship in Vizag", "agripreneurs in Vizag", "agriculture entrepreneurship in Visakhapatnam", "agri startup ecosystem Vizag"],
   metadataBase: new URL("https://agriminds.org"),
   alternates: { canonical: "/" },
   applicationName: SITE.name,
   verification: { google: "BPLak2nrygxbpPmuhJu0sANOKrZEjU-4RzNYBvhdXR8" },
   openGraph: {
     title: `${SITE.name} — ${SITE.tagline}`,
-    description: SITE.description,
+    description: `${SITE.description} Discover agripreneurship in Vizag and connect with agripreneurs in Vizag through the AgriMinds ecosystem.`,
     type: "website",
     url: "https://agriminds.org/",
     siteName: SITE.name,

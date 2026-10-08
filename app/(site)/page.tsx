@@ -94,6 +94,21 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="bg-surface px-5 py-20 sm:px-8 sm:py-28">
+        <div className="mx-auto max-w-5xl">
+          <SectionHeading eyebrow="Vizag founding chapter" title="Agripreneurship in Vizag" />
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-foreground-body">
+            AgriMinds is building a practical home for agripreneurs in Vizag—connecting farmers,
+            FPOs, agri startups, mentors, investors, and institutions to turn local agricultural
+            ideas into stronger enterprises. Explore the Vizag chapter and join the growing agri-food
+            entrepreneurship ecosystem in Visakhapatnam.
+          </p>
+          <Link href="/chapters/vizag" className="mt-8 inline-flex items-center font-semibold text-primary hover:underline">
+            Explore agripreneurship in Vizag →
+          </Link>
+        </div>
+      </section>
+
       {/* Pillars */}
       <section id="pillars" className="bg-surface py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
