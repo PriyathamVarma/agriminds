@@ -2,6 +2,10 @@ import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/shared/lib/auth/getCurrentUser";
 import DashboardShell from "@/shared/components/dashboard/dashboardShell";
 
+export const metadata = {
+  robots: { index: false, follow: false },
+};
+
 const ROLE_LABEL: Record<string, string> = {
   super_admin: "Super Admin",
   chapter_admin: "Chapter Admin",

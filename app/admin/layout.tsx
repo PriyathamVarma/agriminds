@@ -2,6 +2,10 @@ import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/shared/lib/auth/getCurrentUser";
 import DashboardShell from "@/shared/components/dashboard/dashboardShell";
 
+export const metadata = {
+  robots: { index: false, follow: false },
+};
+
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   // Defense in depth — proxy.ts already restricts /admin/* to super_admin, but never trust that
   // alone in a server component.
