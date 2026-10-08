@@ -5,7 +5,7 @@ import { Chapter } from "@/shared/models/chapter";
 const BASE_URL = "https://agriminds.org";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const routes = ["/", "/chapters", "/blog", "/blog/launch-event", "/blog/market-place", "/blog/agripreneurship-in-vizag", "/videos", "/partners", "/links", "/Agritech-summit-2026", "/chapters/vizag/meets/ai-in-agri-future"];
+  const routes = ["/", "/chapters", "/blog", "/blog/launch-event", "/blog/market-place", "/blog/agripreneurship-in-vizag", "/blog/agripreneurs-in-vizag", "/videos", "/partners", "/links", "/Agritech-summit-2026", "/chapters/vizag/meets/ai-in-agri-future"];
   try {
     await connectToDatabase();
     const chapters = await Chapter.find({ status: "active", isPublic: true }).select("slug").lean();
