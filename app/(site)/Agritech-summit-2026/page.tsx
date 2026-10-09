@@ -83,7 +83,15 @@ export default function AgriTech2026Page() {
               <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-accent-foreground"><CalendarDays className="h-4 w-4" /> 30 October 2026</span>
               <span className="inline-flex items-center gap-2 rounded-full border border-deep-border px-4 py-2 text-deep-foreground/85"><MapPin className="h-4 w-4" /> YVS Murthy Auditorium, Andhra University, Vizag</span>
             </div>
+            <a href="https://forms.gle/fyBmjV3jhQTLdKsP7" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-accent-foreground transition hover:bg-accent-hover">Register for the summit <ArrowRight className="h-4 w-4" /></a>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-accent-soft px-5 py-10 sm:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div><p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Free participation</p><p className="mt-2 font-display text-2xl font-semibold text-foreground-heading">Ready to work on a real agri-food challenge?</p></div>
+          <a href="https://forms.gle/fyBmjV3jhQTLdKsP7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-hover">Start registration <ArrowRight className="h-4 w-4" /></a>
         </div>
       </section>
 
@@ -164,13 +172,24 @@ export default function AgriTech2026Page() {
         </div>
       </section>
 
+      <section id="registration" className="bg-background py-16 sm:py-24">
+        <div className="mx-auto max-w-5xl px-5 sm:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Registration</p>
+            <h2 className="font-display mt-4 text-3xl font-semibold text-foreground-heading sm:text-5xl">Register for AgriTech Summit 2026</h2>
+            <p className="mt-5 text-lg leading-relaxed text-foreground-body">Participation is free. Open the dedicated registration page to complete the AgriMinds AgriTech Summit Hackathon form.</p>
+          </div>
+          <a href="https://forms.gle/fyBmjV3jhQTLdKsP7" target="_blank" rel="noopener noreferrer" className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-primary-hover">Open registration form <ArrowRight className="h-4 w-4" /></a>
+        </div>
+      </section>
+
       <section className="bg-surface py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <div className="rounded-3xl bg-deep p-7 text-deep-foreground sm:p-10">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">For students and start-ups</p>
             <h2 className="font-display mt-4 max-w-3xl text-3xl font-semibold sm:text-4xl">Bring a user-first idea to an agri-food challenge that matters.</h2>
             <p className="mt-5 max-w-2xl leading-relaxed text-deep-foreground/80">Registration, team details, venue, judging criteria, and submission timelines will be announced soon.</p>
-            <Link href="/links" className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">Follow AgriMinds updates <ArrowRight className="h-4 w-4" /></Link>
+            <div className="mt-8 flex flex-wrap gap-3"><a href="https://forms.gle/fyBmjV3jhQTLdKsP7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">Register now <ArrowRight className="h-4 w-4" /></a><Link href="/links" className="inline-flex items-center gap-2 rounded-full border border-deep-border px-5 py-3 text-sm font-semibold text-deep-foreground transition hover:border-accent">Follow AgriMinds updates</Link></div>
           </div>
         </div>
       </section>
