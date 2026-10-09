@@ -5,11 +5,11 @@ import Breadcrumbs from "@/shared/components/seo/breadcrumbs";
 import { JsonLd, eventJsonLd } from "@/shared/components/seo/jsonLd";
 
 export const metadata: Metadata = {
-  title: `AgriTech Summit 2026 Hackathon | AgriMinds`,
+  title: `AgriMinds AgriTech Summit 2026 & Hackathon`,
   description: "AgriMinds Hackathon on 30 October 2026: solve real agritech challenges across seed quality, soil data, weed management, pest action, labour, dairy, poultry, grading, post-harvest losses, food processing, labels, and direct delivery.",
   alternates: { canonical: "/Agritech-summit-2026" },
   openGraph: {
-    title: "AgriTech Summit 2026 Hackathon | AgriMinds",
+    title: "AgriMinds AgriTech Summit 2026 & Hackathon",
     description: "Real agri value-chain problem statements for students, start-ups, and innovators on 30 October 2026.",
     type: "website",
     url: "/Agritech-summit-2026",
@@ -76,9 +76,9 @@ export default function AgriTech2026Page() {
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Breadcrumbs items={[{ name: "AgriTech 2026" }]} />
           <div className="mt-12 max-w-4xl">
-            <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent"><Sprout className="h-4 w-4" /> AgriMinds Hackathon · Agritech Summit 2026</p>
-            <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">AgriMinds Hackathon – Agritech 2026</h1>
-            <p className="mt-7 max-w-3xl text-lg leading-relaxed text-deep-foreground/85 sm:text-xl">Students and start-ups are invited to work on practical challenges faced by farmers, FPOs, dairy and poultry units, food processors, and agri-food enterprises.</p>
+            <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent"><Sprout className="h-4 w-4" /> AgriMinds · AgriTech Summit 2026 &amp; Hackathon</p>
+            <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">AgriMinds AgriTech Summit 2026 &amp; Hackathon</h1>
+            <p className="mt-7 max-w-3xl text-lg leading-relaxed text-deep-foreground/85 sm:text-xl">AgriMinds is bringing together innovators, students, start-ups, farmers, FPOs, and agri-food partners for a summit and hackathon focused on practical challenges across the agricultural value chain.</p>
             <div className="mt-9 flex flex-wrap gap-3 text-sm font-semibold">
               <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-accent-foreground"><CalendarDays className="h-4 w-4" /> 30 October 2026</span>
               <span className="inline-flex items-center gap-2 rounded-full border border-deep-border px-4 py-2 text-deep-foreground/85"><MapPin className="h-4 w-4" /> YVS Murthy Auditorium, Andhra University, Vizag</span>
