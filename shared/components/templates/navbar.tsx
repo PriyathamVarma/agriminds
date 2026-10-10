@@ -130,6 +130,14 @@ export default function Navbar() {
             </div>
           ))}
           <Link
+            href="/Agritech-summit-2026"
+            className={cx(
+              "rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent-hover",
+            )}
+          >
+            AgriTech Summit
+          </Link>
+          <Link
             href="/links"
             className={cx(
               "rounded-full px-4 py-2 text-sm font-medium transition-colors",
@@ -178,6 +186,9 @@ export default function Navbar() {
               {group.links.map((link) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface">{link.label}</Link>)}
             </div>
           ))}
+          <Link href="/Agritech-summit-2026" onClick={() => setOpen(false)} className="rounded-lg bg-accent px-3 py-2.5 text-sm font-semibold text-accent-foreground hover:bg-accent-hover">
+            AgriTech Summit
+          </Link>
           <Link href="/links" onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground-body hover:bg-surface">
             Links
           </Link>

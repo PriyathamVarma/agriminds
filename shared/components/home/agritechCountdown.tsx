@@ -53,7 +53,7 @@ export default function AgriTechCountdown() {
             </div>
           ))}
         </div>
-        <Link href="/Agritech-summit-2026" className="inline-flex items-center gap-2 font-semibold text-primary transition hover:text-primary-hover">View hackathon details <ArrowRight className="h-4 w-4" /></Link>
+        <Link href="/Agritech-summit-2026" className="inline-flex items-center gap-2 font-semibold text-primary transition hover:text-primary-hover">View summit &amp; hackathon details <ArrowRight className="h-4 w-4" /></Link>
       </div>
     </section>
   );
