@@ -29,8 +29,8 @@ export default function Home() {
     <>
       {/* Hero */}
       <HeroSection />
-      <NextMeetBanner />
       <AgriTechCountdown />
+      <NextMeetBanner />
       <HeroStatsStrip />
 
       {/* Pillar marquee */}

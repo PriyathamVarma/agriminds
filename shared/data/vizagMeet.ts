@@ -54,15 +54,34 @@ export const VIZAG_MEET_PHOTOS = [
   }
 ];
 
+// October 2026 meet photos hosted in Cloudinary:
+// Agriminds/agripreneurship-meet-vizag-3.
+export const VIZAG_OCTOBER_MEET_PHOTOS = [
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803335/IMG_2217.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803322/IMG_2218.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803289/IMG_2216.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803287/IMG_2215.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803276/IMG_2214.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803272/IMG_2206.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803271/IMG_2213.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803264/IMG_2201.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803262/IMG_2209.jpg", width: 3024, height: 4032 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803261/IMG_2204.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803258/IMG_2208.jpg", width: 5712, height: 4284 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803251/IMG_2203.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803248/IMG_2205.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803247/IMG_2202.jpg", width: 4284, height: 5712 },
+  { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803245/IMG_2200.jpg", width: 4284, height: 5712 },
+];
+
 export const NEXT_VIZAG_MEET = {
   title: "Vizag Agripreneur Meet",
-  date: "10 October 2026",
+  date: "14 November 2026",
   day: "Saturday",
-  time: "4:00 PM – 7:00 PM",
-  venue: "RTIH, Vizag",
-  address: "5th Floor, VRMDA – The Deck, Siripuram, Vizag",
-  themes: ["Opportunities in Food Waste", "Market Readiness of Agri Startups"],
-  audience: "Founders · Aspiring Entrepreneurs · Investors · Ecosystem Enablers · Students · Agri-Food Enthusiasts",
-  description: "AgriMinds Ecosystem Foundation invites you to our next Vizag Agripreneur Meet in partnership with RTIH, Vizag. Join us for an evening of ideas, insights, partnerships and impact as we explore opportunities to build a stronger agri-food ecosystem.",
-  rsvpLabel: "RSVP on Luma",
+  time: "Details to be announced",
+  venue: "Visakhapatnam",
+  address: "Details to be announced",
+  themes: [],
+  audience: "Farmers · FPOs · Founders · Students · Mentors · Ecosystem Enablers",
+  description: "The next Vizag Agripreneur Meet will take place on 14 November 2026. Details about the venue, agenda and registration will be posted shortly.",
 };

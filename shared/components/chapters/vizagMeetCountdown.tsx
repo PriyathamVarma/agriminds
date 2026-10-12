@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const TARGET = new Date("2026-10-10T16:00:00+05:30").getTime();
+const TARGET = new Date("2026-11-14T00:00:00+05:30").getTime();
 const INITIAL_REMAINING = { days: 0, hours: 0, minutes: 0, seconds: 0, finished: false };
 
 function getRemaining() {
@@ -24,7 +24,7 @@ export default function VizagMeetCountdown() {
     return () => window.clearInterval(timer);
   }, []);
 
-  if (remaining.finished) return <p className="text-sm font-semibold text-accent">The meet is happening today.</p>;
+  if (remaining.finished) return <p className="text-sm font-semibold text-accent">Meet details will be posted shortly.</p>;
 
   return (
     <div className="mt-6 grid grid-cols-4 gap-2 sm:max-w-md sm:gap-3">
