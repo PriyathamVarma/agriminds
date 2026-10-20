@@ -12,18 +12,17 @@ const summitAgenda = [
   { start: "11:00 AM", end: "11:15 AM", session: "Tea Break" },
   { start: "11:15 AM", end: "12:00 PM", session: "Panel 1: AgriTech Reality Check — Hype, Hits & Hard Lessons" },
   { start: "12:00 PM", end: "12:45 PM", session: "Panel 2: Capital Meets the Kisan — Funding the Next AgriTech Revolution" },
-  { start: "12:45 PM", end: "1:30 PM", session: "Panel 3: From Farm Collectives to Global Shelves — Can FPOs Go Global?" },
+  { start: "12:45 PM", end: "1:30 PM", session: "Panel 3: Crowd Sourcing — Solutioning from the Delegates" },
   { start: "1:30 PM", end: "2:30 PM", session: "Lunch" },
-  { start: "2:30 PM", end: "3:30 PM", session: "AgriTech Startup Pitch Challenge" },
-  { start: "3:30 PM", end: "4:00 PM", session: "Agri Innovation Connect" },
-  { start: "4:00 PM", end: "4:20 PM", session: "Awards" },
-  { start: "4:20 PM", end: "4:40 PM", session: "Valedictory & Closing" },
+  { start: "2:30 PM", end: "4:00 PM", session: "AgriTech Startup Pitch Challenge" },
+  { start: "4:15 PM", end: "4:30 PM", session: "Awards" },
+  { start: "4:30 PM", end: "4:40 PM", session: "Valedictory & Closing" },
   { start: "4:40 PM", end: "5:00 PM", session: "High Tea" },
 ];
 
 export const metadata: Metadata = {
   title: "AgriMinds AgriTech Summit 2026",
-  description: "Join the AgriMinds AgriTech Summit 2026 at YVS Murthy Auditorium, Andhra University, Vizag. Connect with innovators, farmers, FPOs, start-ups, investors, and agri-food partners.",
+  description: "Join the AgriMinds AgriTech Summit 2026 in Vizag. Connect with innovators, farmers, FPOs, start-ups, investors, and agri-food partners.",
   alternates: { canonical: "/Agritech-summit-2026" },
   openGraph: { title: "AgriMinds AgriTech Summit 2026", description: "A gathering for the future of agriculture, food, and agri-innovation in Vizag.", type: "website", url: "https://agriminds.org/Agritech-summit-2026" },
 };
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
 export default function AgriTechSummitPage() {
   return (
     <main className="bg-background">
-      <JsonLd data={eventJsonLd({ name: "AgriMinds AgriTech Summit 2026", description: "A two-day summit and hackathon bringing together innovators, farmers, FPOs, start-ups, investors, and agri-food partners in Vizag.", startDate: "2026-10-30", endDate: "2026-10-31", location: "YVS Murthy Auditorium", address: "Andhra University, Visakhapatnam, Andhra Pradesh", url: "https://agriminds.org/Agritech-summit-2026", eventStatus: "https://schema.org/EventScheduled" })} />
+      <JsonLd data={eventJsonLd({ name: "AgriMinds AgriTech Summit 2026", description: "A two-day summit and hackathon bringing together innovators, farmers, FPOs, start-ups, investors, and agri-food partners in Vizag.", startDate: "2026-10-30", endDate: "2026-10-31", location: "Vizag", address: "Vizag, Andhra Pradesh", url: "https://agriminds.org/Agritech-summit-2026", eventStatus: "https://schema.org/EventScheduled" })} />
       <section className="bg-deep py-20 text-deep-foreground sm:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Breadcrumbs items={[{ name: "AgriTech Summit 2026" }]} />
@@ -43,10 +42,10 @@ export default function AgriTechSummitPage() {
             <div className="mt-9 flex flex-wrap items-center gap-3 text-sm font-semibold">
               <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-accent-foreground"><CalendarDays aria-hidden="true" className="h-4 w-4" /> 30–31 October 2026</span>
               <a href="https://luma.com/9yvksvpc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-accent-foreground transition hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">Register for Summit <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
-              <a href="https://docs.google.com/forms/d/10gPKyLtLs5d1W2qXb0ybcEWr8mFn_pNqmqLsi-4uaI8/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-sky-700 px-5 py-3 text-white transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400">Apply to Pitch <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
+              <a href="https://forms.gle/4f1yDCLHECRFcjpB6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-sky-700 px-5 py-3 text-white transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400">Apply to Pitch <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
             </div>
             <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold">
-              <span className="inline-flex items-center gap-2 rounded-full border border-deep-border px-4 py-3 text-deep-foreground/85"><MapPin aria-hidden="true" className="h-4 w-4 shrink-0" /> YVS Murthy Auditorium, Andhra University, Vizag</span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-deep-border px-4 py-3 text-deep-foreground/85"><MapPin aria-hidden="true" className="h-4 w-4 shrink-0" /> Vizag</span>
               <a href="https://forms.gle/LDULMRWgRSLSHTFJA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-sky-700 px-5 py-3 text-white transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400">Apply for a Startup Stall <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
             </div>
             </div>
@@ -61,7 +60,7 @@ export default function AgriTechSummitPage() {
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <div className="grid gap-6 md:grid-cols-3">
           <article className="rounded-3xl border border-border bg-surface-card p-7"><CalendarDays className="h-6 w-6 text-accent" /><h2 className="font-display mt-5 text-2xl font-semibold text-foreground-heading">When</h2><p className="mt-3 leading-relaxed text-foreground-body">Hackathon: 30 October 2026. Summit: 31 October 2026, 9:00 AM–5:00 PM IST.</p></article>
-          <article className="rounded-3xl border border-border bg-surface-card p-7"><MapPin className="h-6 w-6 text-accent" /><h2 className="font-display mt-5 text-2xl font-semibold text-foreground-heading">Where</h2><p className="mt-3 leading-relaxed text-foreground-body">YVS Murthy Auditorium, Andhra University, Visakhapatnam, Andhra Pradesh.</p></article>
+          <article className="rounded-3xl border border-border bg-surface-card p-7"><MapPin className="h-6 w-6 text-accent" /><h2 className="font-display mt-5 text-2xl font-semibold text-foreground-heading">Where</h2><p className="mt-3 leading-relaxed text-foreground-body">Vizag.</p></article>
           <article className="rounded-3xl border border-border bg-surface-card p-7"><Users className="h-6 w-6 text-accent" /><h2 className="font-display mt-5 text-2xl font-semibold text-foreground-heading">Who should attend</h2><p className="mt-3 leading-relaxed text-foreground-body">Farmers, FPOs, agripreneurs, founders, students, investors, mentors, institutions, and industry partners.</p></article>
         </div>
       </section>
@@ -106,7 +105,7 @@ export default function AgriTechSummitPage() {
         </div>
       </section>
 
-      <section className="bg-background px-5 py-16 sm:px-8"><div className="mx-auto max-w-5xl text-center"><h2 className="font-display text-3xl font-semibold text-foreground-heading">Join the AgriMinds AgriTech Summit</h2><p className="mx-auto mt-4 max-w-2xl leading-relaxed text-foreground-body">Register through Luma to attend the summit at Andhra University, Vizag.</p><a href="https://luma.com/9yvksvpc" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-primary-hover">Register on Luma <ArrowRight className="h-4 w-4" /></a></div></section>
+      <section className="bg-background px-5 py-16 sm:px-8"><div className="mx-auto max-w-5xl text-center"><h2 className="font-display text-3xl font-semibold text-foreground-heading">Join the AgriMinds AgriTech Summit</h2><p className="mx-auto mt-4 max-w-2xl leading-relaxed text-foreground-body">Register through Luma to attend the summit in Vizag.</p><a href="https://luma.com/9yvksvpc" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-primary-hover">Register on Luma <ArrowRight className="h-4 w-4" /></a></div></section>
     </main>
   );
 }
