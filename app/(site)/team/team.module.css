@@ -1,0 +1,101 @@
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 4rem 4rem 0.875rem 0.875rem;
+  background: var(--color-primary-soft);
+  box-shadow: 0 24px 32px -20px rgb(20 32 26 / 35%);
+}
+
+.summary {
+  position: relative;
+  display: block;
+  aspect-ratio: 2 / 3.3;
+  min-height: 440px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.card::details-content {
+  content-visibility: visible;
+}
+
+.summary:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: -6px;
+  border-radius: inherit;
+}
+
+.portrait {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 300ms;
+}
+
+.caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 1.25rem;
+  min-height: 9.5rem;
+  background: rgb(15 29 22 / 90%);
+  color: white;
+}
+
+.caption h3 {
+  min-height: 3.75rem;
+}
+
+.card .bio {
+  position: absolute;
+  inset: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow-y: auto;
+  border: 1px solid white;
+  border-radius: 3rem 3rem 0.5rem 0.5rem;
+  padding: 1.25rem;
+  background: rgb(15 29 22 / 88%);
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 200ms;
+}
+
+.card[open] .bio,
+.card:focus-within .bio {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card[open] .caption,
+.card:focus-within .caption {
+  visibility: hidden;
+}
+
+@media (hover: hover) {
+  .card:hover .bio {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .card:hover .caption {
+    visibility: hidden;
+  }
+
+  .card:hover .portrait {
+    transform: scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait,
+  .card .bio {
+    transition: none;
+  }
+}

@@ -35,16 +35,19 @@ export default function AgriTechSummitPage() {
       <section className="bg-deep py-20 text-deep-foreground sm:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Breadcrumbs items={[{ name: "AgriTech Summit 2026" }]} />
-          <div className="mt-12 grid gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+          <div className="mt-12 grid gap-12 lg:grid-cols-[1.5fr_0.75fr] lg:items-center">
             <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">AgriMinds · AgriTech Summit 2026</p>
             <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">AgriTech Summit 2026</h1>
             <p className="mt-7 max-w-3xl text-lg leading-relaxed text-deep-foreground/85 sm:text-xl">AgriMinds is bringing together innovators, farmers, FPOs, start-ups, investors, institutions, and agri-food partners to connect ideas with the people and partnerships that can create real impact.</p>
-            <div className="mt-9 flex flex-wrap gap-3 text-sm font-semibold"><span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-accent-foreground"><CalendarDays className="h-4 w-4" /> 30–31 October 2026</span><span className="inline-flex items-center gap-2 rounded-full border border-deep-border px-4 py-2 text-deep-foreground/85"><MapPin className="h-4 w-4" /> YVS Murthy Auditorium, Andhra University, Vizag</span></div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="https://luma.com/9yvksvpc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-accent-foreground transition hover:bg-accent-hover">Register for the Summit <ArrowRight className="h-4 w-4" /></a>
-              <a href="https://forms.gle/LDULMRWgRSLSHTFJA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-sky-700 px-6 py-3 font-semibold text-white transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400">Apply for a Startup Stall <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
-              <a href="#agenda" className="inline-flex items-center gap-2 rounded-full border border-deep-border px-6 py-3 font-semibold text-deep-foreground transition hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">View summit agenda <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
+            <div className="mt-9 flex flex-wrap items-center gap-3 text-sm font-semibold">
+              <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-accent-foreground"><CalendarDays aria-hidden="true" className="h-4 w-4" /> 30–31 October 2026</span>
+              <a href="https://luma.com/9yvksvpc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-accent-foreground transition hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">Register for Summit <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
+              <a href="https://docs.google.com/forms/d/10gPKyLtLs5d1W2qXb0ybcEWr8mFn_pNqmqLsi-4uaI8/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-sky-700 px-5 py-3 text-white transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400">Apply to Pitch <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
+            </div>
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold">
+              <span className="inline-flex items-center gap-2 rounded-full border border-deep-border px-4 py-3 text-deep-foreground/85"><MapPin aria-hidden="true" className="h-4 w-4 shrink-0" /> YVS Murthy Auditorium, Andhra University, Vizag</span>
+              <a href="https://forms.gle/LDULMRWgRSLSHTFJA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-sky-700 px-5 py-3 text-white transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400">Apply for a Startup Stall <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
             </div>
             </div>
             <div className="grid gap-5">

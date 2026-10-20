@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Lightbulb, Sprout } from "lucide-react";
+import { ArrowLeft, Lightbulb, Sprout } from "lucide-react";
 import Breadcrumbs from "@/shared/components/seo/breadcrumbs";
 
 export const metadata: Metadata = {
@@ -41,7 +41,10 @@ export default function HackathonPage() {
           <p className="mt-12 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent"><Sprout className="h-4 w-4" /> AgriMinds Hackathon · 30 October 2026</p>
           <h1 className="font-display mt-6 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">Build solutions for real agricultural challenges.</h1>
           <p className="mt-7 max-w-3xl text-lg leading-relaxed text-deep-foreground/85 sm:text-xl">Choose one problem, understand the people affected, and develop a practical concept, prototype, or minimum viable product.</p>
-          <a href="https://forms.gle/fyBmjV3jhQTLdKsP7" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-accent-foreground transition hover:bg-accent-hover">Register for the Hackathon <ArrowRight className="h-4 w-4" /></a>
+          <div className="mt-8">
+            <p className="inline-flex rounded-full border border-deep-border bg-deep-elevated px-6 py-3 font-semibold text-deep-foreground">Registrations are Closed</p>
+            <p className="mt-4 text-base leading-relaxed text-deep-foreground/85">Please check your email for the latest update on the hackathon.</p>
+          </div>
         </div>
       </section>
 
@@ -50,7 +53,7 @@ export default function HackathonPage() {
         <div className="mt-14 space-y-12">{problemTracks.map(([track, problems], trackIndex) => <section key={track} aria-labelledby={`hackathon-track-${trackIndex}`}><div className="border-b border-border pb-5"><p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">Track {trackIndex + 1}</p><h2 id={`hackathon-track-${trackIndex}`} className="font-display mt-2 text-3xl font-semibold text-foreground-heading">{track}</h2></div><div className="mt-6 grid gap-5 md:grid-cols-2">{problems.map((problem, index) => { const brief = problemBriefs[problem]; return <details key={problem} className="group rounded-3xl border border-border bg-surface-card p-6 transition hover:border-accent/50 hover:shadow-lg sm:p-8"><summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden"><div className="flex items-start justify-between gap-4"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-soft text-primary"><Lightbulb className="h-5 w-5" /></span><span className="font-display text-3xl text-primary/30">{String(index + 1).padStart(2, "0")}</span></div><h3 className="font-display mt-7 text-xl font-semibold text-foreground-heading sm:text-2xl">{problem}</h3><span className="mt-5 inline-flex text-sm font-semibold text-primary group-open:text-accent">Read the full problem brief <span aria-hidden="true" className="ml-1">→</span></span></summary><div className="mt-7 space-y-5 border-t border-border pt-6"><div><h4 className="text-sm font-bold uppercase tracking-[0.14em] text-primary">Context</h4><p className="mt-2 leading-relaxed text-foreground-body">{brief.context}</p></div><div><h4 className="text-sm font-bold uppercase tracking-[0.14em] text-primary">What is the real problem?</h4><p className="mt-2 leading-relaxed text-foreground-body">{brief.realProblem}</p></div><div className="rounded-2xl bg-primary-soft px-4 py-4"><h4 className="text-sm font-bold uppercase tracking-[0.14em] text-primary">Illustration: a real-world scenario</h4><p className="mt-2 text-sm font-medium leading-relaxed text-foreground-heading">{brief.illustration}</p></div></div></details>; })}</div></section>)}</div>
       </section>
 
-      <section className="bg-surface px-5 py-16 sm:px-8 sm:py-24"><div className="mx-auto max-w-6xl rounded-3xl bg-deep p-7 text-deep-foreground sm:p-10"><p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">AgriMinds AgriTech Summit 2026</p><h2 className="font-display mt-4 max-w-3xl text-3xl font-semibold sm:text-4xl">Attend the summit, or register to build for the hackathon.</h2><div className="mt-8 flex flex-wrap gap-3"><a href="https://forms.gle/fyBmjV3jhQTLdKsP7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">Register for Hackathon</a><Link href="/Agritech-summit-2026" className="inline-flex items-center gap-2 rounded-full border border-deep-border px-5 py-3 text-sm font-semibold text-deep-foreground transition hover:border-accent">View Summit details</Link></div></div></section>
+      <section className="bg-surface px-5 py-16 sm:px-8 sm:py-24"><div className="mx-auto max-w-6xl rounded-3xl bg-deep p-7 text-deep-foreground sm:p-10"><p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">AgriMinds AgriTech Summit 2026</p><h2 className="font-display mt-4 max-w-3xl text-3xl font-semibold sm:text-4xl">Hackathon registrations are closed. Join us at the summit.</h2><p className="mt-5 leading-relaxed text-deep-foreground/85">Registered participants: please check your email for the latest update on the hackathon.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/Agritech-summit-2026" className="inline-flex items-center gap-2 rounded-full border border-deep-border px-5 py-3 text-sm font-semibold text-deep-foreground transition hover:border-accent">View Summit details</Link></div></div></section>
     </main>
   );
 }
