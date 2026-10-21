@@ -46,7 +46,6 @@ export default function AgriTechSummitPage() {
             </div>
             <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold">
               <span className="inline-flex items-center gap-2 rounded-full border border-deep-border px-4 py-3 text-deep-foreground/85"><MapPin aria-hidden="true" className="h-4 w-4 shrink-0" /> Vizag</span>
-              <a href="https://forms.gle/LDULMRWgRSLSHTFJA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-sky-700 px-5 py-3 text-white transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400">Apply for a Startup Stall <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
             </div>
             </div>
             <div className="grid gap-5">
@@ -95,15 +94,6 @@ export default function AgriTechSummitPage() {
       <section className="bg-surface px-5 py-16 sm:px-8 sm:py-24"><div className="mx-auto max-w-5xl"><p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">About the summit</p><h2 className="font-display mt-4 max-w-3xl text-3xl font-semibold text-foreground-heading sm:text-5xl">Connect. Learn. Collaborate. Create impact.</h2><div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-foreground-body"><p>The AgriMinds AgriTech Summit is a space for the people shaping the future of agriculture and food to meet around practical opportunities, shared challenges, and partnerships.</p><p>The summit will explore how technology, entrepreneurship, finance, markets, institutions, and farmer-led knowledge can work together to create a stronger and more sustainable agri-food ecosystem.</p></div></div></section>
 
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"><div className="rounded-3xl bg-deep p-7 text-deep-foreground sm:p-10"><p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">A separate opportunity to build</p><h2 className="font-display mt-4 max-w-3xl text-3xl font-semibold sm:text-4xl">Want to solve a real agricultural challenge?</h2><p className="mt-5 max-w-2xl leading-relaxed text-deep-foreground/80">The AgriMinds Hackathon has its own problem statements, participation details, and registration form for students and start-ups.</p><Link href="/Agritech-summit-2026/hackathon" className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">Explore the Hackathon <ArrowRight className="h-4 w-4" /></Link></div></section>
-
-      <section className="bg-surface px-5 py-16 sm:px-8 sm:py-24" aria-labelledby="startup-stalls-heading">
-        <div className="mx-auto max-w-5xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky-700">Startup stalls</p>
-          <h2 id="startup-stalls-heading" className="font-display mt-4 max-w-3xl text-3xl font-semibold text-foreground-heading sm:text-4xl">Showcase your startup at the summit</h2>
-          <p className="mt-5 max-w-2xl leading-relaxed text-foreground-body">Interested in a startup stall at the AgriMinds AgriTech Summit 2026? Fill out the startup stall registration form.</p>
-          <a href="https://forms.gle/LDULMRWgRSLSHTFJA" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-sky-700 px-6 py-3 font-semibold text-white transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-700">Apply for a Startup Stall <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
-        </div>
-      </section>
 
       <section className="bg-background px-5 py-16 sm:px-8"><div className="mx-auto max-w-5xl text-center"><h2 className="font-display text-3xl font-semibold text-foreground-heading">Join the AgriMinds AgriTech Summit</h2><p className="mx-auto mt-4 max-w-2xl leading-relaxed text-foreground-body">Register through Luma to attend the summit in Vizag.</p><a href="https://luma.com/9yvksvpc" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-primary-hover">Register on Luma <ArrowRight className="h-4 w-4" /></a></div></section>
     </main>
