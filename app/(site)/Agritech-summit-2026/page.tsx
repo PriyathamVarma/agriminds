@@ -51,16 +51,14 @@ export default function AgriTechSummitPage() {
           <div className="mt-12 grid gap-12 lg:grid-cols-[1.5fr_0.75fr] lg:items-center">
             <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">AgriMinds · AgriTech Summit 2026</p>
-            <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">AgriTech Summit 2026</h1>
+            <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">AgriTech Summit 2026 - Vizag</h1>
             <p className="mt-7 max-w-3xl text-lg leading-relaxed text-deep-foreground/85 sm:text-xl">AgriMinds is bringing together innovators, farmers, FPOs, start-ups, investors, institutions, and agri-food partners to connect ideas with the people and partnerships that can create real impact.</p>
             <div className="mt-9 flex flex-wrap items-center gap-3 text-sm font-semibold">
               <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-accent-foreground"><CalendarDays aria-hidden="true" className="h-4 w-4" /> 30–31 October 2026</span>
               <a href="https://luma.com/9yvksvpc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-accent-foreground transition hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">Register for Summit <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
               <a href="https://forms.gle/4f1yDCLHECRFcjpB6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-sky-700 px-5 py-3 text-white transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400">Apply to Pitch <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
             </div>
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold">
-              <span className="inline-flex items-center gap-2 rounded-full border border-deep-border px-4 py-3 text-deep-foreground/85"><MapPin aria-hidden="true" className="h-4 w-4 shrink-0" /> Vizag</span>
-            </div>
+
             <section aria-labelledby="summit-partners-heading" className="mt-10">
               <h2 id="summit-partners-heading" className="font-display text-xl font-semibold text-deep-foreground">Partners</h2>
               <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
