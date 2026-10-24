@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import tieVizagLogo from "@/Partners/partner-tie-vizag.jpeg";
+import andhraUniversityLogo from "@/Partners/partner-andhra-university.jpeg";
+import aHubLogo from "@/Partners/partner-a-hub.jpeg";
+import alcovePartnersLogo from "@/Partners/partner-alcove-partners.png";
+import picxyLogo from "@/Partners/partner-picxy.jpeg";
 import { ArrowRight, CalendarDays, MapPin, Users } from "lucide-react";
 import Breadcrumbs from "@/shared/components/seo/breadcrumbs";
 import { JsonLd, eventJsonLd } from "@/shared/components/seo/jsonLd";
+
+const partnerLogos = [
+  { name: "TiE Vizag", id: "tie-vizag", logo: tieVizagLogo },
+  { name: "Andhra University", id: "andhra-university", logo: andhraUniversityLogo },
+  { name: "ā hub", id: "a-hub", logo: aHubLogo },
+  { name: "Alcove Partners", id: "alcove-partners", logo: alcovePartnersLogo },
+  { name: "Picxy", id: "picxy", logo: picxyLogo },
+];
 
 const summitAgenda = [
   { start: "9:00 AM", end: "9:45 AM", session: "Registration" },
@@ -47,6 +61,33 @@ export default function AgriTechSummitPage() {
             <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold">
               <span className="inline-flex items-center gap-2 rounded-full border border-deep-border px-4 py-3 text-deep-foreground/85"><MapPin aria-hidden="true" className="h-4 w-4 shrink-0" /> Vizag</span>
             </div>
+            <section aria-labelledby="summit-partners-heading" className="mt-10">
+              <h2 id="summit-partners-heading" className="font-display text-xl font-semibold text-deep-foreground">Partners</h2>
+              <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
+                {partnerLogos.map((partner) => (
+                  <li key={partner.id} className="min-w-0">
+                    <Link
+                      href={`/partners#${partner.id}`}
+                      aria-label={`Learn about ${partner.name} on our partners page`}
+                      className="group relative flex h-20 items-center justify-center rounded-xl bg-white p-3 ring-1 ring-white/10 transition hover:ring-2 hover:ring-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                    >
+                      <Image
+                        src={partner.logo}
+                        alt={`${partner.name} logo`}
+                        sizes="(min-width: 1024px) 110px, (min-width: 640px) 16vw, 40vw"
+                        className="h-full w-full object-contain"
+                      />
+                      <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-full z-10 pt-2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                        <span className="flex flex-col items-center rounded-lg bg-deep-elevated px-2 py-2 text-center text-xs leading-snug text-deep-foreground shadow-lg ring-1 ring-deep-border">
+                          <span className="font-semibold">{partner.name}</span>
+                          <span className="mt-1 inline-flex items-center gap-1 text-accent">View profile <ArrowRight aria-hidden="true" className="h-3 w-3" /></span>
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
             </div>
             <div className="grid gap-5">
               <Link href="/Agritech-summit-2026/hackathon" className="rounded-3xl border border-deep-border bg-deep-elevated/70 p-6 transition hover:-translate-y-1 hover:border-accent sm:p-7"><p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Day 1 · 30 October</p><h2 className="font-display mt-3 text-3xl font-semibold">Hackathon</h2><p className="mt-3 text-sm leading-relaxed text-deep-muted">Students and start-ups work on practical agricultural challenges across the value chain.</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">View problem statements <ArrowRight className="h-4 w-4" /></span></Link>

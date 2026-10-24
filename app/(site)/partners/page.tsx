@@ -17,30 +17,35 @@ export const metadata: Metadata = {
 
 const PARTNERS = [
   {
+    id: "tie-vizag",
     name: "TiE Vizag",
     logo: tieVizagLogo,
     description: "The Visakhapatnam chapter of TiE supports entrepreneurship in Andhra Pradesh through mentoring, networking, education, funding, and incubation, connecting founders with an entrepreneurial community.",
     href: "https://vizag.tie.org/about/",
   },
   {
+    id: "andhra-university",
     name: "Andhra University",
     logo: andhraUniversityLogo,
     description: "Based in Visakhapatnam, Andhra University brings together higher education, research, and innovation. Through its incubation ecosystem, the university helps students and entrepreneurs turn knowledge and ideas into enterprises.",
     href: "https://www.andhrauniversity.edu.in/",
   },
   {
+    id: "a-hub",
     name: "ā hub — Andhra University Incubation Council",
     logo: aHubLogo,
     description: "Andhra University’s incubation council supports startups with workspace, prototyping facilities, business advice, mentoring, training, and access to finance. Its multidisciplinary ecosystem includes agritech and food-related innovation.",
     href: "https://www.a-hub.co/",
   },
   {
+    id: "alcove-partners",
     name: "Alcove Partners",
     logo: alcovePartnersLogo,
     description: "Alcove Partners provides mentoring and investment support for startups. Its startup school and entrepreneurial events help founders develop their ideas and connect with the startup ecosystem.",
     href: "https://alcovepartners.com/",
   },
   {
+    id: "picxy",
     name: "Picxy",
     logo: picxyLogo,
     description: "Picxy is a visual media platform offering professional photography for events, products, portraits, and brands, alongside AI portrait generation and on-the-spot reel creation.",
@@ -54,7 +59,7 @@ export default function PartnersPage() {
     <div className="max-w-3xl"><p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">Building together</p><h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-foreground-heading sm:text-6xl">Partners in the ecosystem</h1><p className="mt-6 text-lg leading-relaxed text-foreground-body">AgriMinds works with organizations and enterprises that help farmers, FPOs, founders, and rural communities move from potential to enterprise.</p></div>
     <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {PARTNERS.map((partner) => (
-        <article key={partner.href} className="flex h-full flex-col rounded-3xl border border-border bg-surface-card p-6 transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg">
+        <article id={partner.id} key={partner.id} className="scroll-mt-28 target:ring-2 target:ring-accent flex h-full flex-col rounded-3xl border border-border bg-surface-card p-6 transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg">
           <div className="flex h-36 items-center justify-center rounded-2xl bg-white p-5">
             <Image
               src={partner.logo}
