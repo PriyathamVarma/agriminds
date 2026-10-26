@@ -35,28 +35,36 @@ const summitAgenda = [
 ];
 
 export const metadata: Metadata = {
-  title: "AgriMinds AgriTech Summit 2026",
-  description: "Join the AgriMinds AgriTech Summit 2026 in Vizag. Connect with innovators, farmers, FPOs, start-ups, investors, and agri-food partners.",
+  title: "AgriMinds AgriTech Summit 2026 — Postponed",
+  description: "The AgriTech Summit 2026 scheduled for 31 October in Vizag has been postponed due to severe weather. The revised schedule will be published shortly.",
   alternates: { canonical: "/Agritech-summit-2026" },
-  openGraph: { title: "AgriMinds AgriTech Summit 2026", description: "A gathering for the future of agriculture, food, and agri-innovation in Vizag.", type: "website", url: "https://agriminds.org/Agritech-summit-2026" },
+  openGraph: { title: "AgriMinds AgriTech Summit 2026 — Postponed", description: "AgriTech Summit 2026 in Vizag is postponed due to severe weather. A revised schedule will be published shortly.", type: "website", url: "https://agriminds.org/Agritech-summit-2026" },
 };
 
 export default function AgriTechSummitPage() {
   return (
     <main className="bg-background">
-      <JsonLd data={eventJsonLd({ name: "AgriMinds AgriTech Summit 2026", description: "A two-day summit and hackathon bringing together innovators, farmers, FPOs, start-ups, investors, and agri-food partners in Vizag.", startDate: "2026-10-30", endDate: "2026-10-31", location: "Vizag", address: "Vizag, Andhra Pradesh", url: "https://agriminds.org/Agritech-summit-2026", eventStatus: "https://schema.org/EventScheduled" })} />
+      <JsonLd data={eventJsonLd({ name: "AgriMinds AgriTech Summit 2026", description: "AgriTech Summit 2026 has been postponed due to severe weather conditions in Vizag. We will publish the revised schedule shortly.", startDate: "2026-10-30", endDate: "2026-10-31", location: "Vizag", address: "Vizag, Andhra Pradesh", url: "https://agriminds.org/Agritech-summit-2026", eventStatus: "https://schema.org/EventPostponed" })} />
       <section className="bg-deep py-20 text-deep-foreground sm:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Breadcrumbs items={[{ name: "AgriTech Summit 2026" }]} />
+          <section aria-labelledby="summit-update-heading" className="mt-8 rounded-3xl border-2 border-accent bg-deep-elevated p-6 sm:p-8">
+            <h2 id="summit-update-heading" className="font-display text-3xl font-semibold text-accent">Important Update</h2>
+            <div className="mt-4 max-w-3xl space-y-4 text-lg leading-relaxed text-deep-foreground">
+              <p>We decided to postpone the AgriTech Summit 2026 scheduled for 31st October 2026 due to severe weather conditions in Vizag for the next few days.</p>
+              <p>We will publish the revised schedule shortly.</p>
+              <p>Sorry for the inconvenience!</p>
+            </div>
+          </section>
           <div className="mt-12 grid gap-12 lg:grid-cols-[1.5fr_0.75fr] lg:items-center">
             <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">AgriMinds · AgriTech Summit 2026</p>
             <h1 className="font-display mt-6 text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">AgriTech Summit 2026 - Vizag</h1>
             <p className="mt-7 max-w-3xl text-lg leading-relaxed text-deep-foreground/85 sm:text-xl">AgriMinds is bringing together innovators, farmers, FPOs, start-ups, investors, institutions, and agri-food partners to connect ideas with the people and partnerships that can create real impact.</p>
             <div className="mt-9 flex flex-wrap items-center gap-3 text-sm font-semibold">
-              <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-accent-foreground"><CalendarDays aria-hidden="true" className="h-4 w-4" /> 30–31 October 2026</span>
-              <a href="https://luma.com/9yvksvpc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-accent-foreground transition hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">Register for Summit <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
-              <a href="https://forms.gle/4f1yDCLHECRFcjpB6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-sky-700 px-5 py-3 text-white transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400">Apply to Pitch <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
+              <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-accent-foreground"><CalendarDays aria-hidden="true" className="h-4 w-4" /> Postponed · New dates coming soon</span>
+              <button type="button" disabled className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-deep-border bg-deep-elevated px-5 py-3 font-semibold text-deep-foreground">Registration paused</button>
+              <button type="button" disabled className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-deep-border bg-deep-elevated px-5 py-3 font-semibold text-deep-foreground">Pitch applications paused</button>
             </div>
 
             <section aria-labelledby="summit-partners-heading" className="mt-10">
@@ -89,7 +97,7 @@ export default function AgriTechSummitPage() {
             </div>
             <div className="grid gap-5">
               <Link href="/Agritech-summit-2026/hackathon" className="rounded-3xl border border-deep-border bg-deep-elevated/70 p-6 transition hover:-translate-y-1 hover:border-accent sm:p-7"><p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Day 1 · 30 October</p><h2 className="font-display mt-3 text-3xl font-semibold">Hackathon</h2><p className="mt-3 text-sm leading-relaxed text-deep-muted">Students and start-ups work on practical agricultural challenges across the value chain.</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">View problem statements <ArrowRight className="h-4 w-4" /></span></Link>
-              <a href="https://luma.com/9yvksvpc" target="_blank" rel="noopener noreferrer" className="rounded-3xl border border-accent/60 bg-accent p-6 text-accent-foreground transition hover:-translate-y-1 hover:bg-accent-hover sm:p-7"><p className="text-xs font-bold uppercase tracking-[0.18em] text-accent-foreground/70">Day 2 · 31 October</p><h2 className="font-display mt-3 text-3xl font-semibold">Summit</h2><p className="mt-3 text-sm leading-relaxed text-accent-foreground/80">Connect with farmers, FPOs, innovators, investors, institutions, and agri-food partners.</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold">Register on Luma <ArrowRight className="h-4 w-4" /></span></a>
+              <article className="rounded-3xl border border-deep-border bg-deep-elevated p-6 text-deep-foreground sm:p-7"><p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Postponed · Revised date to be announced</p><h2 className="font-display mt-3 text-3xl font-semibold">Summit</h2><p className="mt-3 text-sm leading-relaxed text-deep-muted">Connect with farmers, FPOs, innovators, investors, institutions, and agri-food partners.</p><p className="mt-5 text-sm font-semibold">Registration paused</p></article>
             </div>
           </div>
         </div>
@@ -97,19 +105,19 @@ export default function AgriTechSummitPage() {
 
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <div className="grid gap-6 md:grid-cols-3">
-          <article className="rounded-3xl border border-border bg-surface-card p-7"><CalendarDays className="h-6 w-6 text-accent" /><h2 className="font-display mt-5 text-2xl font-semibold text-foreground-heading">When</h2><p className="mt-3 leading-relaxed text-foreground-body">Hackathon: 30 October 2026. Summit: 31 October 2026, 9:00 AM–5:00 PM IST.</p></article>
+          <article className="rounded-3xl border border-border bg-surface-card p-7"><CalendarDays className="h-6 w-6 text-accent" /><h2 className="font-display mt-5 text-2xl font-semibold text-foreground-heading">When</h2><p className="mt-3 leading-relaxed text-foreground-body">The summit scheduled for 31 October 2026 has been postponed. We will publish the revised schedule shortly.</p></article>
           <article className="rounded-3xl border border-border bg-surface-card p-7"><MapPin className="h-6 w-6 text-accent" /><h2 className="font-display mt-5 text-2xl font-semibold text-foreground-heading">Where</h2><p className="mt-3 leading-relaxed text-foreground-body">Vizag.</p></article>
           <article className="rounded-3xl border border-border bg-surface-card p-7"><Users className="h-6 w-6 text-accent" /><h2 className="font-display mt-5 text-2xl font-semibold text-foreground-heading">Who should attend</h2><p className="mt-3 leading-relaxed text-foreground-body">Farmers, FPOs, agripreneurs, founders, students, investors, mentors, institutions, and industry partners.</p></article>
         </div>
       </section>
 
       <section id="agenda" className="mx-auto max-w-6xl scroll-mt-24 px-5 pb-16 sm:px-8 sm:pb-24" aria-labelledby="agenda-heading">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Day 2 · 31 October 2026</p>
-        <h2 id="agenda-heading" className="font-display mt-4 text-3xl font-semibold text-foreground-heading sm:text-5xl">Summit agenda</h2>
-        <p className="mt-5 max-w-2xl leading-relaxed text-foreground-body">A day of ideas, conversations, and connections shaping the future of agriculture. All times are in Indian Standard Time (IST).</p>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Original schedule · Subject to revision</p>
+        <h2 id="agenda-heading" className="font-display mt-4 text-3xl font-semibold text-foreground-heading sm:text-5xl">Original summit agenda</h2>
+        <p className="mt-5 max-w-2xl leading-relaxed text-foreground-body">The agenda below is the original plan and is subject to revision. The updated schedule will be published shortly. All times are in Indian Standard Time (IST).</p>
         <div className="mt-8 overflow-hidden rounded-3xl border border-border bg-surface-card">
           <table className="w-full table-fixed text-left text-sm sm:text-base">
-            <caption className="sr-only">AgriTech Summit agenda for 31 October 2026. All times in IST.</caption>
+            <caption className="sr-only">Original AgriTech Summit agenda, subject to revision following postponement. All times in IST.</caption>
             <thead className="bg-deep text-deep-foreground">
               <tr>
                 <th scope="col" className="w-20 px-3 py-4 font-semibold sm:w-32 sm:px-6">Start</th>
@@ -132,9 +140,9 @@ export default function AgriTechSummitPage() {
 
       <section className="bg-surface px-5 py-16 sm:px-8 sm:py-24"><div className="mx-auto max-w-5xl"><p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">About the summit</p><h2 className="font-display mt-4 max-w-3xl text-3xl font-semibold text-foreground-heading sm:text-5xl">Connect. Learn. Collaborate. Create impact.</h2><div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-foreground-body"><p>The AgriMinds AgriTech Summit is a space for the people shaping the future of agriculture and food to meet around practical opportunities, shared challenges, and partnerships.</p><p>The summit will explore how technology, entrepreneurship, finance, markets, institutions, and farmer-led knowledge can work together to create a stronger and more sustainable agri-food ecosystem.</p></div></div></section>
 
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"><div className="rounded-3xl bg-deep p-7 text-deep-foreground sm:p-10"><p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">A separate opportunity to build</p><h2 className="font-display mt-4 max-w-3xl text-3xl font-semibold sm:text-4xl">Want to solve a real agricultural challenge?</h2><p className="mt-5 max-w-2xl leading-relaxed text-deep-foreground/80">The AgriMinds Hackathon has its own problem statements, participation details, and registration form for students and start-ups.</p><Link href="/Agritech-summit-2026/hackathon" className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">Explore the Hackathon <ArrowRight className="h-4 w-4" /></Link></div></section>
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"><div className="rounded-3xl bg-deep p-7 text-deep-foreground sm:p-10"><p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">A separate opportunity to build</p><h2 className="font-display mt-4 max-w-3xl text-3xl font-semibold sm:text-4xl">Want to solve a real agricultural challenge?</h2><p className="mt-5 max-w-2xl leading-relaxed text-deep-foreground/80">Explore the AgriMinds Hackathon problem statements and participation updates for students and start-ups.</p><Link href="/Agritech-summit-2026/hackathon" className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">Explore the Hackathon <ArrowRight className="h-4 w-4" /></Link></div></section>
 
-      <section className="bg-background px-5 py-16 sm:px-8"><div className="mx-auto max-w-5xl text-center"><h2 className="font-display text-3xl font-semibold text-foreground-heading">Join the AgriMinds AgriTech Summit</h2><p className="mx-auto mt-4 max-w-2xl leading-relaxed text-foreground-body">Register through Luma to attend the summit in Vizag.</p><a href="https://luma.com/9yvksvpc" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:bg-primary-hover">Register on Luma <ArrowRight className="h-4 w-4" /></a></div></section>
+      <section className="bg-background px-5 py-16 sm:px-8"><div className="mx-auto max-w-5xl text-center"><h2 className="font-display text-3xl font-semibold text-foreground-heading">Summit registration is paused</h2><p className="mx-auto mt-4 max-w-2xl leading-relaxed text-foreground-body">We will publish the revised schedule shortly.</p><button type="button" disabled className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-deep-border bg-deep-elevated px-5 py-3 font-semibold text-deep-foreground">Registration paused</button></div></section>
     </main>
   );
 }
