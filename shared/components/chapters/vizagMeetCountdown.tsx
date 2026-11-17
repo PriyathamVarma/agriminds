@@ -20,8 +20,12 @@ export default function VizagMeetCountdown() {
   const [remaining, setRemaining] = useState(INITIAL_REMAINING);
 
   useEffect(() => {
+    const initialTimer = window.setTimeout(() => setRemaining(getRemaining()), 0);
     const timer = window.setInterval(() => setRemaining(getRemaining()), 1000);
-    return () => window.clearInterval(timer);
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.clearInterval(timer);
+    };
   }, []);
 
   if (remaining.finished) return <p className="text-sm font-semibold text-accent">Meet details will be posted shortly.</p>;
