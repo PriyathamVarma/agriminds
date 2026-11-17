@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const TARGET = new Date("2026-11-14T00:00:00+05:30").getTime();
+const TARGET = new Date("2026-12-12T00:00:00+05:30").getTime();
 const INITIAL_REMAINING = { days: 0, hours: 0, minutes: 0, seconds: 0, finished: false };
 
 function getRemaining() {

@@ -95,12 +95,12 @@ export const VIZAG_NOVEMBER_MEET_PHOTOS = [
 
 export const NEXT_VIZAG_MEET = {
   title: "Vizag Agripreneur Meet",
-  date: "14 November 2026",
+  date: "12 December 2026",
   day: "Saturday",
   time: "Details to be announced",
   venue: "Visakhapatnam",
   address: "Details to be announced",
   themes: [],
   audience: "Farmers · FPOs · Founders · Students · Mentors · Ecosystem Enablers",
-  description: "The next Vizag Agripreneur Meet will take place on 14 November 2026. Details about the venue, agenda and registration will be posted shortly.",
+  description: "The next Vizag Agripreneur Meet will take place on 12 December 2026. Details about the venue, agenda and registration will be posted shortly.",
 };
