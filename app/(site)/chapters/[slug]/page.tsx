@@ -53,7 +53,7 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
   const gallery = updates.flatMap((u) => u.images).slice(0, 8);
   const isVizag = [chapter.slug, chapter.city].some((value) => /^(vizag|visakhapatnam)(-chapter)?$/i.test(value || ""));
   const displayImpact = isVizag
-    ? { eventsConducted: 2, farmersReached: 21, startupsSupported: 5, fpoSupported: 2 }
+    ? { eventsConducted: 3, farmersReached: 40, startupsSupported: 14, fpoSupported: 10 }
     : impactTotals;
 
   return (
@@ -104,13 +104,13 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
         <section className="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
           <div className="overflow-hidden rounded-3xl border border-border bg-surface-card">
             <div className="border-b border-border bg-primary px-6 py-6 text-primary-foreground sm:px-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-soft">Previous meet · Vizag chapter</p>
-              <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">Vizag Agripreneurship Meet</h2>
-              <p className="mt-3 text-sm text-primary-foreground/80">10 October 2026 · Visakhapatnam</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-soft">Latest meet · Vizag chapter</p>
+              <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">3rd Agripreneurship Meet</h2>
+              <p className="mt-3 text-sm text-primary-foreground/80">14 November 2026 · RTIH, Vizag · 34 people attended</p>
             </div>
             <div className="grid gap-8 p-6 sm:grid-cols-[0.9fr_1.1fr] sm:p-8">
               <div>
-                <p className="text-sm leading-7 text-foreground-body">AgriMinds Ecosystem Foundation brought together farmers, founders, students and ecosystem enablers to explore food waste to wealth, agri-startup market readiness and practical entrepreneurship challenges.</p>
+                <p className="text-sm leading-7 text-foreground-body">AgriMinds Ecosystem Foundation brought together the ecosystem to explore opportunities in distributed renewable energy and hear startup pitches from HACKAP winners.</p>
                 <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-accent">Where</p>
                 <p className="mt-3 font-semibold text-foreground-heading">RTIH, Vizag</p>
                 <p className="mt-1 text-sm leading-6 text-foreground-muted">5th Floor, VRMDA – The Deck, Siripuram, Vizag</p>
@@ -118,12 +118,12 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">What the meet covered</p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {["AgriMinds Ecosystem", "Food Waste to Wealth", "Market Readiness of Agri Startups", "Practical Entrepreneurship Challenges"].map((theme, index) => <div key={theme} className="rounded-2xl bg-surface px-4 py-4"><p className="text-xs font-bold text-primary">0{index + 1}</p><p className="mt-2 text-sm font-semibold leading-5 text-foreground-heading">{theme}</p></div>)}
+                  {["Opportunity in Distributed Renewable Energy", "Startup Pitches from HACKAP Winners"].map((theme, index) => <div key={theme} className="rounded-2xl bg-surface px-4 py-4"><p className="text-xs font-bold text-primary">0{index + 1}</p><p className="mt-2 text-sm font-semibold leading-5 text-foreground-heading">{theme}</p></div>)}
                 </div>
               </div>
             </div>
             <div className="border-t border-border px-6 py-5 sm:px-8">
-              <Link href="/chapters/vizag/meets/agripreneurship-meet-2026" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">Read the full meet recap <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/chapters/vizag/meets/agripreneurship-meet-2026-11-14" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover">Read the full meet recap <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </div>
         </section>
@@ -151,8 +151,8 @@ export default async function PublicChapterPage({ params }: { params: Promise<{ 
             {[
               { label: "Meets conducted", value: displayImpact.eventsConducted },
               { label: "Farmers reached", value: displayImpact.farmersReached },
-              { label: "Startups supported", value: displayImpact.startupsSupported },
-              { label: "FPOs supported", value: displayImpact.fpoSupported },
+              { label: "Startups reached", value: displayImpact.startupsSupported },
+              { label: "FPOs reached", value: displayImpact.fpoSupported },
             ].map((stat) => (
               <div key={stat.label} className="rounded-2xl border border-border bg-surface-card p-5 text-center">
                 <p className="font-display text-3xl font-semibold text-primary">{stat.value}</p>

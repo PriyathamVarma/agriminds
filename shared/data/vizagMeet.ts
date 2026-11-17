@@ -74,6 +74,25 @@ export const VIZAG_OCTOBER_MEET_PHOTOS = [
   { src: "https://res.cloudinary.com/vot5ad3f/image/upload/v1791803245/IMG_2200.jpg", width: 4284, height: 5712 },
 ];
 
+// November 2026 third meet photos hosted in Cloudinary:
+// Agriminds/agripreneurship-meet-4.
+export const VIZAG_NOVEMBER_MEET_PHOTOS = [
+  "IMG_2389",
+  "IMG_2385",
+  "IMG_2388",
+  "IMG_2395",
+  "IMG_2396",
+  "IMG_2392",
+  "IMG_2379",
+  "IMG_2378",
+  "IMG_2384",
+  "IMG_2383",
+  "IMG_2375",
+  "IMG_2377",
+  "IMG_2382",
+  "IMG_2381",
+].map((name) => `https://res.cloudinary.com/vot5ad3f/image/upload/f_auto,q_auto/${name}.jpg`);
+
 export const NEXT_VIZAG_MEET = {
   title: "Vizag Agripreneur Meet",
   date: "14 November 2026",

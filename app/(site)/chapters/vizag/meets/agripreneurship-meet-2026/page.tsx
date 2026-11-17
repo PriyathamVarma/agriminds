@@ -65,6 +65,7 @@ export default function AgripreneurshipMeet2026Page() {
           <p className="mt-7 text-sm text-deep-foreground/80"><time dateTime="2026-10-10">10 October 2026</time> · Visakhapatnam, Andhra Pradesh</p>
           <Image src={VIZAG_OCTOBER_MEET_PHOTOS[0].src} width={VIZAG_OCTOBER_MEET_PHOTOS[0].width} height={VIZAG_OCTOBER_MEET_PHOTOS[0].height} alt="Participants at the AgriMinds Agripreneurship Meet in Vizag" sizes="(max-width: 1024px) 100vw, 720px" unoptimized className="mt-10 h-auto w-full rounded-3xl" priority />
           <a href="#meet-highlights" className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:bg-accent-hover">Explore the meet highlights <ArrowRight className="h-4 w-4" /></a>
+          <Link href="/chapters/vizag/meets/ai-in-agri-future" className="mt-4 inline-flex text-sm font-semibold text-accent hover:underline">Read the September 2026 meet recap →</Link>
         </div>
       </section>
 

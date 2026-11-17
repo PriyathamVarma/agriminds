@@ -58,11 +58,11 @@ export default function AgripreneurshipInVizagPage() {
 
           <h2 className="font-display pt-6 text-3xl font-semibold text-foreground-heading">How to participate</h2>
           <p>If you are an aspiring agripreneur, farmer, FPO representative, student, startup founder, mentor, or partner in Visakhapatnam, you can start by joining the Vizag chapter, attending an event, or sharing a problem that needs solving.</p>
-          <p>Explore the <Link href="/chapters/vizag" className="font-semibold text-primary hover:underline">AgriMinds Vizag chapter</Link>, read about the <Link href="/chapters/vizag/meets/ai-in-agri-future" className="font-semibold text-primary hover:underline">Agripreneur Meet in Vizag</Link>, or join the upcoming <Link href="/Agritech-summit-2026" className="font-semibold text-primary hover:underline">AgriTech Summit 2026 Hackathon</Link>.</p>
+          <p>Explore the <Link href="/chapters/vizag" className="font-semibold text-primary hover:underline">AgriMinds Vizag chapter</Link> or read about the <Link href="/chapters/vizag/meets/ai-in-agri-future" className="font-semibold text-primary hover:underline">Agripreneur Meet in Vizag</Link>.</p>
         </div>
       </section>
 
-      <RelatedContent items={[{ eyebrow: "Chapter", title: "Explore the Vizag chapter", href: "/chapters/vizag", description: "Meet the founding chapter and follow its local ecosystem work." }, { eyebrow: "Event", title: "Agripreneur Meet in Vizag", href: "/chapters/vizag/meets/ai-in-agri-future", description: "See how local farmers, founders, and institutions are connecting." }, { eyebrow: "Summit", title: "AgriTech Summit 2026 Hackathon", href: "/Agritech-summit-2026", description: "Work on practical challenges across the agri value chain." }]} />
+      <RelatedContent items={[{ eyebrow: "Chapter", title: "Explore the Vizag chapter", href: "/chapters/vizag", description: "Meet the founding chapter and follow its local ecosystem work." }, { eyebrow: "Event", title: "Agripreneur Meet in Vizag", href: "/chapters/vizag/meets/ai-in-agri-future", description: "See how local farmers, founders, and institutions are connecting." }]} />
 
       <section className="bg-surface px-5 py-14 sm:px-8">
         <div className="mx-auto max-w-3xl">

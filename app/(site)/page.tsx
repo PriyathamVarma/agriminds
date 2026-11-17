@@ -22,14 +22,12 @@ import HeroSection from "@/shared/components/hero/heroSection";
 import HeroStatsStrip from "@/shared/components/hero/heroStatsStrip";
 import ImpactParticleFieldBackground from "@/shared/components/three/impactParticleFieldBackground";
 import NextMeetBanner from "@/shared/components/home/nextMeetBanner";
-import AgriTechCountdown from "@/shared/components/home/agritechCountdown";
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <HeroSection />
-      <AgriTechCountdown />
       <NextMeetBanner />
       <HeroStatsStrip />
 

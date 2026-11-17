@@ -60,11 +60,11 @@ export default function AgripreneursInVizagPage() {
 
           <h2 className="font-display pt-6 text-3xl font-semibold text-foreground-heading">Connect with the AgriMinds Vizag chapter</h2>
           <p>Whether you are already building an agriculture business or are exploring your first idea, the AgriMinds Vizag chapter is a place to learn, meet other builders, and find opportunities to contribute.</p>
-          <p>Visit the <Link href="/chapters/vizag" className="font-semibold text-primary hover:underline">AgriMinds Vizag chapter</Link>, attend the <Link href="/chapters/vizag/meets/ai-in-agri-future" className="font-semibold text-primary hover:underline">Agripreneur Meet in Vizag</Link>, or explore the <Link href="/Agritech-summit-2026" className="font-semibold text-primary hover:underline">AgriTech Summit 2026 Hackathon</Link>.</p>
+          <p>Visit the <Link href="/chapters/vizag" className="font-semibold text-primary hover:underline">AgriMinds Vizag chapter</Link> or attend the <Link href="/chapters/vizag/meets/ai-in-agri-future" className="font-semibold text-primary hover:underline">Agripreneur Meet in Vizag</Link>.</p>
         </div>
       </section>
 
-      <RelatedContent items={[{ eyebrow: "Guide", title: "Agripreneurship in Vizag", href: "/blog/agripreneurship-in-vizag", description: "Understand the wider agriculture entrepreneurship opportunity in Visakhapatnam." }, { eyebrow: "Chapter", title: "Explore the Vizag chapter", href: "/chapters/vizag", description: "Connect with the founding AgriMinds chapter." }, { eyebrow: "Event", title: "AgriTech Summit 2026", href: "/Agritech-summit-2026", description: "Build solutions for real challenges across the agri value chain." }]} />
+      <RelatedContent items={[{ eyebrow: "Guide", title: "Agripreneurship in Vizag", href: "/blog/agripreneurship-in-vizag", description: "Understand the wider agriculture entrepreneurship opportunity in Visakhapatnam." }, { eyebrow: "Chapter", title: "Explore the Vizag chapter", href: "/chapters/vizag", description: "Connect with the founding AgriMinds chapter." }]} />
 
       <section className="bg-deep px-5 py-14 text-deep-foreground sm:px-8">
         <div className="mx-auto flex max-w-5xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">

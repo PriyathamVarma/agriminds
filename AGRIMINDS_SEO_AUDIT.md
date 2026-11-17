@@ -11,7 +11,7 @@ This audit is based on the source tree, route files, metadata, JSON-LD helpers, 
 
 ## A. Executive summary
 
-AgriMinds has a solid SEO foundation: Next.js metadata is present, the site has a generated sitemap and robots file, canonical URLs are defined on the main public pages, Organization/WebSite/Breadcrumb/Article/Event/Video JSON-LD exists, and the site has dedicated pages for Vizag, events, chapters, blog content, partners, and the AgriTech Summit.
+AgriMinds has a solid SEO foundation: Next.js metadata is present, the site has a generated sitemap and robots file, canonical URLs are defined on the main public pages, Organization/WebSite/Breadcrumb/Article/Event/Video JSON-LD exists, and the site has dedicated pages for Vizag, events, chapters, blog content, and partners.
 
 The highest-value remaining work is not adding more keywords. It is making the public information architecture complete and consistent, protecting private routes from indexing, strengthening local business/entity signals, improving event and article schema accuracy, and validating the deployed site with Search Console and real HTTP/Lighthouse checks.
 
@@ -63,8 +63,6 @@ These routes are present in the source and intended to be public unless noted ot
 | `/partners` | Partner information | Index | Metadata and public partnership intent. |
 | `/links` | Social/link hub | Index | Canonical and metadata; keep useful public context. |
 | `/team` | Team information | Index | Metadata; expand biographies and expertise where consented. |
-| `/Agritech-summit-2026` | Hackathon/event landing page | Index | Event JSON-LD, problem statements, venue/date, canonical. |
-| `/agritech-2026` | Legacy event URL | Redirect | Route redirects to the canonical summit URL. |
 | `/coming-soon` | Placeholder | Noindex via robots | Confirm it is not linked from important public pages. |
 
 Private or sensitive route families include `/admin`, `/dashboard`, `/api`, authentication pages, invitation acceptance, password reset, and unauthorized pages. Robots disallow many of these, but robots.txt is not an access-control mechanism. Authentication and server authorization must remain the control that prevents exposure.
@@ -77,7 +75,7 @@ Private or sensitive route families include `/admin`, `/dashboard`, `/api`, auth
 - Affected URL/file: `https://agriminds.org`, `app/robots.ts`, `app/sitemap.ts`
 - Evidence: Local source generates robots and sitemap. Direct DNS/HTTP verification was unavailable in this audit environment.
 - Why it matters: A correct source implementation can still be broken by deployment, redirects, CDN, DNS, or stale build output.
-- Recommended fix: In Search Console URL Inspection, test `/`, `/blog`, `/chapters/vizag`, and `/Agritech-summit-2026`; inspect rendered HTML, canonical, indexability, and sitemap discovery after deploy.
+- Recommended fix: In Search Console URL Inspection, test `/`, `/blog`, and `/chapters/vizag`; inspect rendered HTML, canonical, indexability, and sitemap discovery after deploy.
 - Effort: Small
 
 ### AGRI-002 — Private routes rely partly on robots disallow rules
@@ -97,15 +95,6 @@ Private or sensitive route families include `/admin`, `/dashboard`, `/api`, auth
 - Why it matters: Empty, duplicate, or fallback metadata weakens local pages and can create indexable low-value URLs.
 - Recommended fix: Ensure every public chapter has a unique name, city/state, description, canonical, H1, image alt text, and meaningful content. Return 404 for non-public records, as the page already does.
 - Effort: Medium
-
-### AGRI-004 — Event schema should be validated against actual registration state
-
-- Severity: Medium
-- Affected URL/file: `app/(site)/Agritech-summit-2026/page.tsx`, `shared/components/seo/jsonLd.tsx`
-- Evidence: Event JSON-LD includes date, venue, organizer, status, and URL; registration and exact start/end time are not yet supplied.
-- Why it matters: Incomplete or inaccurate event markup can prevent rich results or mislead users.
-- Recommended fix: Add exact timezone-aware start/end times, registration URL, event image, and offer information only when confirmed. Validate in Rich Results Test and Search Console.
-- Effort: Small
 
 ### AGRI-005 — Article images and social images are inconsistent
 
@@ -169,7 +158,7 @@ Do not create one page for every keyword variation. Use topic clusters with natu
 |---|---|---|
 | Agripreneurship in Vizag | `/blog/agripreneurship-in-vizag` | Vizag chapter, meet recap, launch story, partnerships |
 | Agripreneurs in Vizag | `/blog/agripreneurs-in-vizag` | Chapter page, events, founder/enterprise stories |
-| Agritech events in Vizag | `/Agritech-summit-2026` and event pages | Blog event recaps, videos, partner links |
+| Agritech events in Vizag | Event pages | Blog event recaps, videos, partner links |
 | Sustainable agriculture innovation | `/blog/sustainable-agriculture-saameeripura` | Pilot updates, measurement learnings, FPO stories |
 | Agriculture startup support | Future programme landing page | Mentorship stories, partner pages, application CTA |
 | FPO market access | Future collaboration landing page | Marketplace story, direct delivery problem statement |

@@ -68,7 +68,7 @@ export default function SustainableAgricultureSaameeripuraPage() {
         </div>
       </section>
 
-      <RelatedContent items={[{ eyebrow: "Ecosystem", title: "Explore AgriMinds", href: "/", description: "See how AgriMinds connects farmers, FPOs, founders, and partners." }, { eyebrow: "Chapter", title: "Explore the Vizag chapter", href: "/chapters/vizag", description: "Meet the founding chapter and its local ecosystem work." }, { eyebrow: "Summit", title: "AgriTech Summit 2026", href: "/Agritech-summit-2026", description: "Work on practical challenges across the agri-food value chain." }]} />
+      <RelatedContent items={[{ eyebrow: "Ecosystem", title: "Explore AgriMinds", href: "/", description: "See how AgriMinds connects farmers, FPOs, founders, and partners." }, { eyebrow: "Chapter", title: "Explore the Vizag chapter", href: "/chapters/vizag", description: "Meet the founding chapter and its local ecosystem work." }]} />
 
       <section className="bg-deep px-5 py-14 text-deep-foreground sm:px-8">
         <div className="mx-auto flex max-w-5xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">

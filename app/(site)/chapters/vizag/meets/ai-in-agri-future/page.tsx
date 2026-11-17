@@ -48,6 +48,7 @@ export default function VizagMeetPage() {
             <p className="mt-7 text-sm text-deep-foreground/80"><time dateTime="2026-09-12">12 September 2026</time> · 4–7 PM IST · RTIH, Vizag</p>
             <p className="mt-6 max-w-xl leading-relaxed text-deep-foreground/85">The Vizag chapter’s meet brought AI in agriculture and food entrepreneurship into focus, connecting practical technology applications with opportunities to build stronger agri-food enterprises.</p>
             <a href="#meet-highlights" className="mt-8 inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:bg-accent-hover">Explore the highlights</a>
+            <Link href="/chapters/vizag/meets/agripreneurship-meet-2026" className="mt-4 inline-flex text-sm font-semibold text-accent hover:underline">Read the October 2026 meet recap →</Link>
           </div>
           <a href={VIZAG_MEET_PHOTOS[0].src} target="_blank" rel="noopener noreferrer" aria-label="View the full meet photograph">
             <Image src={VIZAG_MEET_PHOTOS[0].src} width={VIZAG_MEET_PHOTOS[0].width} height={VIZAG_MEET_PHOTOS[0].height} alt="Participants at the second Vizag agripreneurship meet at RTIH" sizes="(max-width: 1024px) 100vw, 480px" className="h-auto w-full rounded-3xl" preload />
